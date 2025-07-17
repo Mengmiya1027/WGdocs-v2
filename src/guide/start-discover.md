@@ -12,17 +12,17 @@ comment: false
 
 ### 新功能
 <br>
-<NCard title="🚀 更新日志与新功能介绍" link="../guide/install">
+<NCard title="🚀 更新日志与新功能介绍" link="../guide/new">
 其实网管根本不会写更新日志……<br>
 直接胡编乱造！
 </NCard>
 
 ### 开发与共建
 <br>
-<NCard title="➕ 上传资源" link="../use/integration">
+<NCard title="➕ 上传资源" link="../community/upload">
 在这里，参考这些教程你可以轻松上传新的资源。
 </NCard>
-<NCard title="📑 查看架构" link="../config/basic">
+<NCard title="📑 查看架构" link="../community/architecture">
 WGdocs的架构较为复杂，于是网管手搓了一份架构文档~
 </NCard>
 

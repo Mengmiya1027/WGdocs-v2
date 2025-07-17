@@ -88,12 +88,20 @@ function sidebarGuide(): DefaultTheme.Sidebar {
       ]
     },
     {
-      text: '配置',
-      base: '/config',
+      text: '资源',
+      base: '/resources',
       collapsed: true,
       items: [
-        { text: '基础配置', link: '/basic' },
-        { text: '高级配置', link: '/advanced' }
+        { text: '概览', link: '/' },
+        {
+          text: '应用程序',
+          base: '/resources/application',
+          collapsed: false,
+          items: [  /* 应用程序 仿照这里的格式进行编写*/
+            { text: '单个型应用程序', link: '/single' },
+            { text: '多文件应用程序', link: '/Multi-file' }
+          ]
+        }
       ]
     },
     {
