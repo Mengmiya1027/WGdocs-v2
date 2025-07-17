@@ -2,7 +2,7 @@ import { defineConfig, type DefaultTheme } from 'vitepress'
 
 export const zh = defineConfig({
   lang: 'zh-CN',
-  description: '基于NTQQ现代化协议端Bot框架',
+  description: '使用VitePress进行构建、NapcatQQ Docs模板进行开发的v2新版',
 
   themeConfig: {
     nav: nav(),
@@ -43,7 +43,7 @@ export const zh = defineConfig({
 function nav(): DefaultTheme.NavItem[] {
   return [
     {
-      text: '快速开始',
+      text: '开始探索',
       link: '/guide/start-install',
       activeMatch: '/guide/'
     },
@@ -58,7 +58,7 @@ function nav(): DefaultTheme.NavItem[] {
 function sidebarGuide(): DefaultTheme.Sidebar {
   return [
     {
-      text: '快速开始',
+      text: '开始探索',
       base: '/guide',
       collapsed: true,
       items: [
