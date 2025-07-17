@@ -6,7 +6,6 @@ export const zh = defineConfig({
 
   themeConfig: {
     nav: nav(),
-
     sidebar: sidebarGuide(),
 
     editLink: {
@@ -36,9 +35,32 @@ export const zh = defineConfig({
     sidebarMenuLabel: '菜单',
     darkModeSwitchLabel: '主题',
     lightModeSwitchTitle: '切换到浅色模式',
-    darkModeSwitchTitle: '切换到深色模式'
-  }
+    darkModeSwitchTitle: '切换到深色模式',
+
+    search: {
+      provider: 'local',
+      options: {
+        translations: {
+          button: {
+            buttonText: '搜索文档',
+            buttonAriaLabel: '搜索文档'
+          },
+          modal: {
+            noResultsText: '未找到相关结果',
+            resetButtonTitle: '清除查询条件',
+            footer: {
+              selectText: '选择',
+              navigateText: '切换',
+              closeText: '关闭'
+            }
+          }
+        }
+      }
+    }
+  } // 确保 themeConfig 对象正确闭合
 })
+
+// 其余代码保持不变...
 
 function nav(): DefaultTheme.NavItem[] {
   return [
