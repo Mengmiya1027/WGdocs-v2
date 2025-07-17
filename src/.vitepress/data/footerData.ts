@@ -7,27 +7,24 @@ export const Footer_Data: FooterData = {
             title: '生态',
             icon: 'fa-solid fa-lightbulb',
             links: [
-                { name: '官方对接框架', href: 'https://node-napcat-ts.huankong.top' },
-                { name: '二次开发框架', href: 'https://napneko.github.io/develop/plugin' },
+                { name: 'Github仓库', href: 'https://github.com/SCCYsccy/WGdocs-main' },
+                { name: '资源上传指南', href: '/community/upload' },
+                { name: '架构文档', href: '/community/architecture' },
             ]
         },
         {
             title: '工具',
             icon: 'fa-solid fa-puzzle-piece',
             links: [
-                { name: '可视化管理工具', href: '#' },
-                { name: '可视化网页配置', href: '#' },
+                { name: 'Webstorm', href: 'https://www.jetbrains.com/webstorm/' },
+                { name: 'Typora', href: 'https://www.typora.com' },
             ]
         },
         {
             title: '社区',
             icon: 'fa-solid fa-expand',
             links: [
-                { name: '官方 企鹅 4号社区', href: 'https://qm.qq.com/q/CMmPbGw0jA' },
-                { name: '官方 企鹅 3号社区', href: 'https://qm.qq.com/q/8zJMLjqy2Y' },
-                { name: '官方 企鹅 2号社区', href: 'https://qm.qq.com/q/HaRcfrHpUk' },
-                { name: '官方 企鹅 1号社区', href: 'https://qm.qq.com/q/I6LU87a0Yq' },
-                { name: '官方 Telegram 社区', href: 'https://t.me/MelodicMoonlight' },
+                { name: '111暂时没有咩~(点击有惊喜)', href: '/machine/index.html' },
             ]
         }
     ]

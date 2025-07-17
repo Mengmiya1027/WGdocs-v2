@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全屏惊喜</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .animate-pop {
+                animation: pop 0.6s cubic-bezier(0.18, 0.89, 0.32, 1.28) forwards;
+            }
+            @keyframes pop {
+                0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0; }
+                50% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+                100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center overflow-hidden">
+<button id="surpriseBtn" class="bg-red-500 hover:bg-red-600 text-white font-bold py-6 px-12 rounded-lg text-2xl shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-red-400 focus:ring-opacity-50">
+    别点我！
+</button>
+<img id="surpriseImage" src="machine.png" alt="惊喜图片" class="hidden object-contain w-full h-full" />
+<h1 id="machineText" class="hidden text-[clamp(5rem,15vw,12rem)] font-bold text-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-primary text-shadow whitespace-nowrap max-w-full px-4 overflow-hidden">
+    Machine!🤣
+</h1>
+
+<script>
+    const surpriseBtn = document.getElementById('surpriseBtn');
+    const surpriseImage = document.getElementById('surpriseImage');
+    const machineText = document.getElementById('machineText');
+
+    surpriseBtn.addEventListener('click', async () => {
+        try {
+            if (document.documentElement.requestFullscreen) {
+                await document.documentElement.requestFullscreen();
+            } else if (document.documentElement.webkitRequestFullscreen) {
+                await document.documentElement.webkitRequestFullscreen();
+            } else if (document.documentElement.msRequestFullscreen) {
+                await document.documentElement.msRequestFullscreen();
+            }
+            surpriseBtn.classList.add('hidden');
+            surpriseImage.classList.remove('hidden');
+        } catch (err) {
+            console.error(`全屏请求失败: ${err.message}`);
+        }
+    });
+
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+    document.addEventListener('mozfullscreenchange', handleFullscreenChange);
+    document.addEventListener('MSFullscreenChange', handleFullscreenChange);
+
+    function handleFullscreenChange() {
+        if (!document.fullscreenElement &&
+            !document.webkitIsFullScreen &&
+            !document.mozFullScreen &&
+            !document.msFullscreenElement) {
+            surpriseImage.classList.add('hidden');
+            setTimeout(() => {
+                machineText.classList.remove('hidden');
+                machineText.classList.add('animate-pop');
+            }, 50);
+        }
+    }
+</script>
+</body>
+</html>
