@@ -57,10 +57,8 @@ export const zh = defineConfig({
         }
       }
     }
-  } // 确保 themeConfig 对象正确闭合
+  }
 })
-
-// 其余代码保持不变...
 
 function nav(): DefaultTheme.NavItem[] {
   return [

@@ -101,6 +101,6 @@ export const shared = defineConfig({
     search: {
       provider: 'local'
     },
-    socialLinks: [{ icon: 'github', link: 'https://github.com/NapNeko/NapCatQQ' }]
+    socialLinks: [{ icon: 'github', link: 'https://github.com/SCCYsccy/WGdocs-main' }]
   }
 })

@@ -13,7 +13,7 @@ hero:
       link: /guide/start-install
     - theme: alt
       text: GitHub
-      link: https://github.com/NapNeko/NapCatQQ
+      link: https://github.com/SCCYsccy/WGdocs-main
   image:
       src: /assets/newnewlogo.png
       alt: Logo
