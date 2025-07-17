@@ -9,7 +9,7 @@ export const zh = defineConfig({
     sidebar: sidebarGuide(),
 
     editLink: {
-      pattern: 'https://github.com/NapNeko/NapCatDocs/edit/main/src/:path',
+      pattern: 'https://github.com/SCCYsccy/WGdocs-main/edit/src/:path',
       text: '在 GitHub 上编辑此页面'
     },
 
@@ -64,7 +64,7 @@ function nav(): DefaultTheme.NavItem[] {
   return [
     {
       text: '开始探索',
-      link: '/guide/start-install',
+      link: '/guide/start-discover',
       activeMatch: '/guide/'
     },
     {
@@ -82,18 +82,9 @@ function sidebarGuide(): DefaultTheme.Sidebar {
       base: '/guide',
       collapsed: true,
       items: [
-        { text: '目录导航', link: '/start-install' },
-        { text: '什么是 NapCatQQ', link: '/napcat' },
-        { text: '启动方式', link: '/install' },
-        {
-          text: '安装方式',
-          base: '/guide/boot',
-          collapsed: false,
-          items: [
-            { text: 'Shell', link: '/Shell' },
-            { text: 'Framework', link: '/Framework' }
-          ]
-        }
+        { text: '目录导航', link: '/start-discover' },
+        { text: '新功能介绍', link: '/new' },
+        { text: '站内快捷方式', link: '/link' }
       ]
     },
     {

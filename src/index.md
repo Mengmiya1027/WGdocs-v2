@@ -10,7 +10,7 @@ hero:
   actions:
     - theme: brand
       text: 开始探索↗
-      link: /guide/start-install
+      link: /guide/start-discover
     - theme: alt
       text: GitHub
       link: https://github.com/SCCYsccy/WGdocs-main
