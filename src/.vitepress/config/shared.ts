@@ -27,7 +27,7 @@ export const shared = defineConfig({
     plugins: [
       GitChangelog({
         maxGitLogCount: 2000,
-        repoURL: () => 'https://github.com/NapNeko/NapCatDocs',
+        repoURL: () => 'https://github.com/SCCYsccy/WGdocs-main',
       }),
       GitChangelogMarkdownSection({
         exclude: (id) => id.endsWith('index.md'),
