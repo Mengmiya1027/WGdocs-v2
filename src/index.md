@@ -13,7 +13,7 @@ hero:
       link: /guide/start-discover
     - theme: alt
       text: GitHub
-      link: https://github.com/SCCYsccy/WGdocs-main
+      link: https://github.com/Mengmiya1027/WGdocs-main
   image:
       src: /assets/largelogo.png
       alt: Logo

@@ -27,7 +27,7 @@ export const shared = defineConfig({
     plugins: [
       GitChangelog({
         maxGitLogCount: 2000,
-        repoURL: () => 'https://github.com/SCCYsccy/WGdocs-main',
+        repoURL: () => 'https://github.com/Mengmiya1027/WGdocs-main',
       }),
       GitChangelogMarkdownSection({
         exclude: (id) => id.endsWith('index.md'),
@@ -72,7 +72,7 @@ export const shared = defineConfig({
   },
 
   sitemap: {
-    hostname: 'https://github.com/SCCYsccy/WGdocs-main/',
+    hostname: 'https://github.com/Mengmiya1027/WGdocs-main',
     transformItems(items) {
       return items.filter((item) => !item.url.includes('migration'))
     }
@@ -101,6 +101,6 @@ export const shared = defineConfig({
     search: {
       provider: 'local'
     },
-    socialLinks: [{ icon: 'github', link: 'https://github.com/SCCYsccy/WGdocs-main' }]
+    socialLinks: [{ icon: 'github', link: 'https://github.com/Mengmiya1027/WGdocs-main' }]
   }
 })

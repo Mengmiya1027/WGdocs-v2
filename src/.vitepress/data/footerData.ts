@@ -1,13 +1,13 @@
 import type { FooterData } from '@theojs/lumen'
 
 export const Footer_Data: FooterData = {
-    author: { name: 'NapNeko', link: 'https://github.com/NapNeko' },
+    author: { name: 'WGdocs', link: 'https://github.com/Mengmiya1027/' },
     group: [
         {
             title: '生态',
             icon: 'fa-solid fa-lightbulb',
             links: [
-                { name: 'Github仓库', href: 'https://github.com/SCCYsccy/WGdocs-main' },
+                { name: 'Github仓库', href: 'https://github.com/Mengmiya1027/WGdocs-main' },
                 { name: '资源上传指南', href: '/community/upload' },
                 { name: '架构文档', href: '/community/architecture' },
             ]
