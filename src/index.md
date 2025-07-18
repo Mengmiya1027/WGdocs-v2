@@ -15,7 +15,7 @@ hero:
       text: GitHub
       link: https://github.com/SCCYsccy/WGdocs-main
   image:
-      src: /assets/newnewlogo.png
+      src: /assets/largelogo.png
       alt: Logo
 
 features:
@@ -30,4 +30,3 @@ features:
     details: v2版本新增 "文件快递柜" 功能，由doubao.com协助开发
 ---
 <Confetti />
-

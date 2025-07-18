@@ -70,4 +70,10 @@
         backdrop-filter: blur(10px);
     }
 
+    .VPHomeHero .image img {
+        max-width: none; /* 移除最大宽度限制 */
+        width: 100%; /* 让图片宽度根据容器自适应 */
+        height: auto; /* 保持图片的原始宽高比 */
+        filter: drop-shadow(0 0px 10px rgba(0, 0, 0, 0.5)); /* 使用 drop-shadow 替代 box-shadow */
+    }
 }

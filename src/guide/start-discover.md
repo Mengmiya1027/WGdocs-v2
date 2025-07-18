@@ -5,7 +5,7 @@ comment: false
 
 ### 快速开始
 <br>
-<NCard title="🔎 探索资源" link="../Resources">
+<NCard title="🔎 探索资源" link="../resources/">
 查看、了解、下载本站收录资源。<br>
 这应该是最常用的功能了吧……
 </NCard>
