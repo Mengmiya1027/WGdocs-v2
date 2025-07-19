@@ -80,7 +80,7 @@ function sidebarGuide(): DefaultTheme.Sidebar {
     {
       text: '开始探索',
       base: '/guide',
-      collapsed: true,
+      collapsed: false,
       items: [
         { text: '目录导航', link: '/start-discover' },
         { text: '新功能介绍', link: '/new' },
@@ -90,7 +90,7 @@ function sidebarGuide(): DefaultTheme.Sidebar {
     {
       text: '资源',
       base: '/resources',
-      collapsed: true,
+      collapsed: false,
       items: [
         { text: '概览', link: '/' },
         {
@@ -105,88 +105,13 @@ function sidebarGuide(): DefaultTheme.Sidebar {
       ]
     },
     {
-      text: '使用',
-      base: '/use',
-      collapsed: true,
+      text: '社区',
+      base: '/community',
+      collapsed: false,
       items: [
-        { text: '接入框架', link: '/integration' },
-        { text: '社区资源', link: '/community' }
+        { text: '上传资源', link: '/upload' },
+        { text: '架构', link: '/architecture' }
       ]
-    },
-    {
-      text: '开发',
-      base: '/develop',
-      collapsed: true,
-      items: [
-        { text: '请求接口', link: '/api' },
-        { text: '上报事件', link: '/event' },
-        { text: '消息类型', link: '/msg' },
-        { text: '本体开发', link: '/plugin' },
-        { text: '处理文件', link: '/file' },
-        {
-          text: '完整接口定义',
-          base: '/develop/api',
-          collapsed: false,
-          items: [
-            { text: '接口', link: '/doc' },
-            { text: '类型', link: '/type' }
-          ]
-        }
-      ]
-    },
-    {
-      text: '协议',
-      base: '/onebot',
-      collapsed: true,
-      items: [
-        {
-          text: '协议概述',
-          link: '/index'
-        },
-        {
-          text: '网络通讯',
-          link: '/network'
-        },
-        {
-          text: '事件基础结构',
-          link: '/basic_event'
-        },
-        {
-          text: '事件字段详情',
-          link: '/event'
-        },
-        {
-          text: '接口基础接口',
-          link: '/api'
-        },
-        {
-          text: '消息元素定义',
-          link: '/sement'
-        },
-        {
-          text: '差异实现说明',
-          link: '/napcat'
-        }
-      ]
-    },
-    {
-      text: '其余',
-      base: '/other',
-      collapsed: true,
-      items: [
-        {
-          text: '喵喵',
-          link: '/napcat.md'
-        },
-        {
-          text: '安全',
-          link: '/security'
-        },
-        {
-          text: '联系',
-          link: '/about'
-        }
-      ]
-    },
+    }
   ]
 }

@@ -70,6 +70,7 @@
         backdrop-filter: blur(10px);
     }
 
+    /* 取消图片大小限制 */
     .VPHomeHero .image img {
         max-width: none; /* 移除最大宽度限制 */
         width: 100%; /* 让图片宽度根据容器自适应 */
