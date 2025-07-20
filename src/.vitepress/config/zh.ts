@@ -98,8 +98,16 @@ function sidebarGuide(): DefaultTheme.Sidebar {
           base: '/resources/application',
           collapsed: false,
           items: [  /* 应用程序 仿照这里的格式进行编写*/
-            { text: '单个型应用程序', link: '/single' },
-            { text: '多文件应用程序', link: '/Multi-file' }
+            {
+              text: '单个型应用程序',
+              base: '/resources/application/single',
+              collapsed: false,
+              items: [  /* 应用程序 仿照这里的格式进行编写*/
+                { text: '介绍', link: '/' },
+                { text: '概览', link: '/map' }
+              ]
+            },
+            { text: '打包型应用程序', link: '/pack/' }
           ]
         }
       ]

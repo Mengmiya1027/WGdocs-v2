@@ -1,9 +1,9 @@
 ---
 comment: false
 ---
-# WGdocs<Badge type="tip" text="版本Dev2.0，Preview8" />
+# WGdocs<Badge type="warning" text="版本Dev2.0，Preview10" />
 
-### 快速开始<Badge type="info" text="经典" />
+### 快速开始<Badge type="tip" text="经典" />
 <br>
 <NCard title="🔎 探索资源" link="../resources/">
 查看、了解、下载本站收录资源。<br>
