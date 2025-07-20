@@ -1,6 +1,6 @@
 <template>
     <div
-        class="absolute flex flex-col z-[40] w-full !max-w-full items-center justify-center bg-transparent transition-bg overflow-hidden h-[60vh] -top-16 pointer-events-none opacity-[.35] dark:opacity-50">
+        class="absolute flex flex-col z-[0] w-full !max-w-full items-center justify-center bg-transparent transition-bg overflow-hidden h-[60vh] -top-16 pointer-events-none opacity-[.35] dark:opacity-50">
         <div class="jumbo absolute opacity-60 animate"></div>
     </div>
 
@@ -64,25 +64,31 @@
 }
 
 .jumbo {
-    --stripes: repeating-linear-gradient(100deg, #fff 0%, #fff 7%, transparent 10%, transparent 12%, #fff 16%);
-    --stripesDark: repeating-linear-gradient(100deg, #000 0%, #000 7%, transparent 10%, transparent 12%, #000 16%);
-    --rainbow: repeating-linear-gradient(100deg, #60a5fa 10%, #e879f9 16%, #5eead4 22%, #60a5fa 30%);
+  --stripes: repeating-linear-gradient(90deg,
+    #FF8C00 0%,
+    #FFA500 9%,      /* 缩小间隔 */
+    #FF6B6B 18%,
+    #FF4500 27%,
+    #FF4D6D 36%,
+    #FF6347 45%,
+    #FF1493 54%,
+    #FF8C00 63%,     /* 提前循环起点 */
+    #FFA500 72%,
+    #FF6B6B 81%,
+    #FF4500 90%,
+    #FF8C00 100%     /* 终点与起点同色 */
+  );
+  background-size: 300% 100%;  /* 调整为3倍宽度 */
     contain: strict;
     contain-intrinsic-size: 100vw 40vh;
-    background-image: var(--stripes), var(--rainbow);
-    background-size: 300%, 200%;
-    background-position: 50% 50%, 50% 50%;
+    background-image: var(--stripes);
+    background-size: 400% 100%;  /* 调整为横向拉伸 */
+    background-position: 100% 50%;
     height: inherit;
     transform: translateZ(0);
-    -webkit-transform: translateZ(0);
-    -webkit-perspective: 1000;
-    perspective: 1000;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    filter: invert(100%);
-    -webkit-mask-image: radial-gradient(ellipse at 100% 0%, black 40%, transparent 70%);
-    mask-image: radial-gradient(ellipse at 100% 0%, black 40%, transparent 70%);
-    pointer-events: none;
+    filter: none;
+    -webkit-mask-image: radial-gradient(ellipse at 50% 0%, black 30%, transparent 70%);
+    mask-image: radial-gradient(ellipse at 50% 0%, black 30%, transparent 70%);
 }
 
 .opacity-60 {
@@ -93,29 +99,21 @@
     position: absolute;
 }
 
-@keyframes jumbo-5f0d2d0c {
+@keyframes sunset-glow {
     0% {
-        background-position: 50% 50%, 50% 50%
+      background-position: 100% 50%;
     }
+    100% {
+      background-position: -200% 50%;  /* 移动范围匹配背景尺寸倍数 */
+    }
+}
 
-    to {
-        background-position: 350% 50%, 350% 50%
-    }
+.animate.jumbo {
+    animation: sunset-glow 30s linear infinite;  /* 再次加快速度 */
 }
 
 .jumbo:after {
     content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-image: var(--stripes), var(--rainbow);
-    background-size: 200%, 100%;
-    mix-blend-mode: difference
-}
-
-.animate.jumbo:after {
-    animation: jumbo-5f0d2d0c 90s linear infinite
+    background-image: none;
 }
 </style>
