@@ -1,7 +1,7 @@
 ---
 comment: false
 ---
-# WGdocs<Badge type="warning" text="版本Dev2.0，Preview10" />
+# WGdocs<Badge type="warning" text="版本Dev2.0，Preview12.1" />
 
 ### 快速开始<Badge type="tip" text="经典" />
 <br>
@@ -30,3 +30,9 @@ WGdocs的架构较为复杂，于是网管手搓了一份架构文档~
 ::: tip 温馨提示
 如果文档中发现错误，或提交文档修改、或丰富本站文档，可点击页面底部的编辑按钮。
 :::
+
+<div style="display: flex; justify-content: center; flex-wrap: nowrap; gap: 10px; width: 100%;">
+  <img src="/eggy/ZhiFa-1.jpg" alt="执法-1" style="max-height: 200px;">
+  <img src="/eggy/ZhiFa-2.png" alt="执法-2" style="max-height: 200px;">
+  <img src="/eggy/ZhiFa-3.png" alt="执法-3" style="max-height: 200px;">
+</div>

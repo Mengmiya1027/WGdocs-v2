@@ -105,7 +105,7 @@ function sidebarGuide(): DefaultTheme.Sidebar {
               items: [
                 { text: '介绍', link: '/' },
                 { text: '概览', link: '/map' },
-                { text: '❗反极域课堂专栏', link: '/JiYuDiaoDuan' }
+                { text: '❗反极域课堂专栏', link: '/JiYuDiaoDuan.html' }
               ]
             },
             {
@@ -115,7 +115,7 @@ function sidebarGuide(): DefaultTheme.Sidebar {
               items: [
                 { text: '介绍', link: '/' },
                 { text: '概览', link: '/map' },
-                { text: '雷电模拟器 ⚡', link: '/ldmnq' }
+                { text: '雷电模拟器 ⚡', link: '/ldmnq.html' }
               ]
             }
           ]

@@ -35,3 +35,9 @@ comment: false
 ::: tip 温馨提示
 如需上传资源，请访问[上传资源](../community/upload)页面。
 :::
+
+<div style="display: flex; justify-content: center; flex-wrap: nowrap; gap: 10px; width: 100%;">
+  <img src="/eggy/QianXing-1.jpg" alt="潜行-1" style="max-height: 200px;">
+  <img src="/eggy/QianXing-2.jpg" alt="潜行-2" style="max-height: 200px;">
+  <img src="/eggy/QianXing-3.png" alt="潜行-2" style="max-height: 200px;">
+</div>
