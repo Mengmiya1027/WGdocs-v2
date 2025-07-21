@@ -99,15 +99,25 @@ function sidebarGuide(): DefaultTheme.Sidebar {
           collapsed: false,
           items: [  /* 应用程序 仿照这里的格式进行编写*/
             {
-              text: '单个型应用程序',
+              text: '独立型应用程序',
               base: '/resources/application/single',
               collapsed: false,
-              items: [  /* 应用程序 仿照这里的格式进行编写*/
+              items: [
                 { text: '介绍', link: '/' },
-                { text: '概览', link: '/map' }
+                { text: '概览', link: '/map' },
+                { text: '❗反极域课堂专栏', link: '/JiYuDiaoDuan' }
               ]
             },
-            { text: '打包型应用程序', link: '/pack/' }
+            {
+              text: '打包型应用程序',
+              base: '/resources/application/pack',
+              collapsed: false,
+              items: [
+                { text: '介绍', link: '/' },
+                { text: '概览', link: '/map' },
+                { text: '雷电模拟器 ⚡', link: '/ldmnq' }
+              ]
+            }
           ]
         }
       ]

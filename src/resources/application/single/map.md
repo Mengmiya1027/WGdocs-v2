@@ -1,6 +1,6 @@
 ---
 comment: true
-title: 单个型应用程序
+title: 独立型应用程序
 ---
 # 概览
 ---

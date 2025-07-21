@@ -1,11 +1,13 @@
 ---
 comment: true
-title: 极域掉段！！！
+title: 极域掉段!!!
 ---
 
 # ❗反极域课堂专栏
 ## JiYuTrainer<badge type="danger" text="停更" /><badge type="tip" text="镜像加速" />
-> 作者：[imengyu](URL_ADDRESS> 作者：[imengyu](https://github.com/imengyu)
+
+>作者：[imengyu](https://github.com/imengyu)，原Github仓库地址：[JiYuTrainer](https://github.com/imengyu/JiYuTrainer)
+
 ::: details 官方介绍
 # 已废弃。本项目将永远不再更新
 
@@ -26,8 +28,6 @@ title: 极域掉段！！！
   <a href="https://github.com/imengyu/JiYuTrainer/releases"><img src="https://img.shields.io/badge/version-1.7-greeb.svg"></a>
   <a href="https://github.com/imengyu/JiYuTrainer/blob/master/LICENSE"><img src="https://img.shields.io/badge/liscence-MIT-orange.svg"></a>
 </p>
-
----
 
 简介
 ---
@@ -73,8 +73,6 @@ title: 极域掉段！！！
 > 附加说明：本软件不依赖任何运行库，您只需复制一个 **JiYuTrainer.exe** 至目标电脑即可运行，本软件已将需要的DLL打包，它会自动进行安装。
 
 [完整帮助文档](https://raw.githubusercontent.com/imengyu/JiYuTrainer/master/帮助.png)
-
----
 
 一些提示
 ---
@@ -180,15 +178,20 @@ JiYu Trainer 是一款针对极域电子教室的工具软件，主要功能为�
 
 :::
 
-官方下载链接<mark>（不推荐，速度慢）</mark>：https://github.com/imengyu/JiYuTrainer/releases/latest<br>
-镜像下载链接<mark>（WGdocs附属镜像，但是速度一般）</mark>：https://cdn1.kesug.com/application/single/JiYuTrainer/JiYuTrainer.zip<br>
-蓝奏云盘下载链接：https://wwxb.lanzn.com/ig5ma31gb5qd
-
 ::: warning 关于配置文件
 官方下载链接不带配置文件，其余方式附带最佳配置文件。
 :::
 
+官方下载链接<mark>（不推荐，速度慢）</mark>：https://github.com/imengyu/JiYuTrainer/releases/latest<br>
+镜像下载链接<mark>（WGdocs附属镜像）</mark>：https://cdn1.kesug.com/application/single/JiYuTrainer/JiYuTrainer.zip<br>
+蓝奏云盘下载链接：https://wwxb.lanzn.com/ig5ma31gb5qd
+
+
+
 ## NoTopDomain<badge type="warning" text="半停更" /><badge type="tip" text="官方镜像" />
+
+>作者：[Ariasaka🍥](https://github.com/LYXOfficial)，原Github仓库地址：[NoTopDomain](https://github.com/LYXOfficial/NoTopDomain)
+
 ::: details 官方介绍
 这个蒟蒻很久没更新了qwq，今年有空还会折腾的
 
@@ -460,6 +463,9 @@ IP地址：从对方电脑获取到的它的局域网IP，如果想同时发多�
 
 ## MythwareToolkit<badge type="tip" text="活跃" /><badge type="tip" text="镜像加速" />
 
+>作者：[小流汗黄豆](https://github.com/BengbuGuards)，原Github仓库地址：[MythwareToolkit](https://github.com/BengbuGuards/MythwareToolkit)
+
+
 ::: details 官方介绍
 
 # MythwareToolkit
@@ -668,8 +674,10 @@ public class Program
 
 :::
 
-官方下载链接<mark>（不推荐，速度慢）</mark>：https://github.com/BengbuGuards/MythwareToolkit/releases/latest<br>
-镜像下载链接<mark>（WGdocs附属镜像，但是速度一般）</mark>：https://cdn1.kesug.com/application/single/MythwareToolkit/MythwareToolkit.zip<br>
-蓝奏云盘下载链接：https://wwxb.lanzn.com/iZKnj31ge01g
+:::tip
+镜像下载均已附带RootCA.reg
+:::
 
-##### 镜像下载均已附带RootCA.reg
+官方下载链接<mark>（不推荐，速度慢）</mark>：https://github.com/BengbuGuards/MythwareToolkit/releases/latest<br>
+镜像下载链接<mark>（WGdocs附属镜像）</mark>：https://cdn1.kesug.com/application/single/MythwareToolkit/MythwareToolkit.zip<br>
+蓝奏云盘下载链接：https://wwxb.lanzn.com/iZKnj31ge01g
