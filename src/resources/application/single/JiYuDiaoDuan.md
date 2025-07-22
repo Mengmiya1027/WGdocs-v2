@@ -681,3 +681,9 @@ public class Program
 官方下载链接<mark>（不推荐，速度慢）</mark>：https://github.com/BengbuGuards/MythwareToolkit/releases/latest<br>
 镜像下载链接<mark>（WGdocs附属镜像）</mark>：https://cdn1.kesug.com/application/single/MythwareToolkit/MythwareToolkit.zip<br>
 蓝奏云盘下载链接：https://wwxb.lanzn.com/iZKnj31ge01g
+
+<div style="display: flex; justify-content: center; flex-wrap: nowrap; gap: 10px; width: 100%;">
+  <img src="/eggy/AnSuan-1.png" alt="潜行-1" style="max-height: 200px;">
+  <img src="/eggy/WuDi-1.png" alt="潜行-2" style="max-height: 200px;">
+  <img src="/eggy/AW-1.jpg" alt="暗无-1" style="max-height: 200px;">
+</div>

@@ -44,3 +44,8 @@ comment: false
     https://lddl01.ldmnq.com/downloader/ldplayerinst9.exe?n=ldplayer9_ld_999_ld.exe
   </NCard>
 :::
+
+<div style="display: flex; justify-content: center; flex-wrap: nowrap; gap: 10px; width: 100%;">
+  <img src="/eggy/SX-1.jpeg" alt="双心-1" style="max-height: 200px;">
+  <img src="/eggy/SX-2.jpg" alt="双心-2" style="max-height: 200px;">
+</div>

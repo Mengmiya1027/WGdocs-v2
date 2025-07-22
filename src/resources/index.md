@@ -16,7 +16,7 @@ comment: false
 
 ### 🎵/🖼️  杂项文件
 <br>
-<NCard title="🖼️  照片" link="../resources/single">
+<NCard title="🖼️  照片" link="../resources/picture/">
   就是普普通通的图片a~
 </NCard>
 
