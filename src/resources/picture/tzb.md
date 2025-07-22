@@ -45,6 +45,3 @@ comment: false
 # 下载链接：<br>
 <mark>WGdocs附属镜像</mark>：https://cdn1.kesug.com/picture/tzb/唐子八.zip <br>
 <mark>蓝奏云盘（可以分图片下载,提取码5d4u）</mark>：https://wwxb.lanzn.com/b00uz7vlmd
-<mark>蓝奏云盘（可以分图片下载,提取码5d4u）</mark>：https://wwxb.lanzn.com/b00uz7vlmd
-<mark>蓝奏云盘（可以分图片下载,提取码5d4u）</mark>：https://wwxb.lanzn.com/b00uz7vlmd
-<mark>蓝奏云盘（可以分图片下载,提取码5d4u）</mark>：https://wwxb.lanzn.com/b00uz7vlmd
