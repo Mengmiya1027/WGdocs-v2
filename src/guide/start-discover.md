@@ -1,7 +1,7 @@
 ---
 comment: false
 ---
-# WGdocs<Badge type="danger" text="版本Dev2.0，Alphafix14" />
+# WGdocs<Badge type="danger" text="版本Dev2.0，Preview15.1" />
 
 ### 快速开始<Badge type="tip" text="经典" />
 <br>
@@ -10,7 +10,7 @@ comment: false
 这应该是最常用的功能了吧……
 </NCard>
 
-### 新功能
+### 新功能<badge type="warning" text="最近更新" />
 <br>
 <NCard title="🚀 更新日志与新功能介绍" link="../guide/new">
 其实网管根本不会写更新日志……<br>

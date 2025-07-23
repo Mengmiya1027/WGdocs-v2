@@ -1,12 +1,16 @@
+import { ref, onMounted, withDefaults } from 'vue'
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 
-const props = defineProps<{
+const props = withDefaults(defineProps<{
   title: string,
   author: string,
   tlink: string, // 封面图片链接
-  flink: string  // 音乐文件链接
-}>()
+  flink: string, // 音乐文件链接
+  textcolor: string
+}>(), {
+  textcolor: '#3c3c43'
+})
 
 // 状态管理：链接有效性
 const isCoverValid = ref<boolean | null>(null)    // 封面是否有效
@@ -48,8 +52,8 @@ onMounted(() => {
 
         <!-- 右侧信息与控制区 -->
         <div class="music-info">
-          <h3 class="music-title">{{ title }}</h3>
-          <p class="music-artist">{{ author }}</p>
+          <h3 class="music-title" :style="{ color: textcolor }">{{ title }}</h3>
+          <p class="music-artist" :style="{ color: textcolor }">{{ author }}</p>
 
           <!-- 音频控制区 -->
           <div class="audio-control">
@@ -81,22 +85,20 @@ onMounted(() => {
   padding: 15px; /* 内边距只影响内容，不影响背景图 */
   box-sizing: border-box;
   /* 强化毛玻璃效果 */
-  backdrop-filter: blur(3px); /* 提高模糊度 */
+  backdrop-filter: blur(7px); /* 提高模糊度 */
   background-color: rgba(255, 255, 255, 0.1); /* 半透明白色遮罩 */
   /* 保留其他样式 */
   border-radius: 12px;
-  transition: box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* 添加阴影效果 */
+  transition: all 0.3s ease; /* 可选：添加过渡动画使效果更平滑 */
 }
 
-/* 鼠标悬停阴影效果 */
 .player-container:hover {
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
 /* 左侧封面区域 */
 .album-cover {
-  width: calc(100%-20px); /* 卡片高度减去上下内边距的两倍 */
-  height: calc(100%-20px);/* 提示：编辑器报错是因为它猎奇，本处不能加空格，否则封面尺寸会出现问题 */
   overflow: hidden;
   border-radius: 8px; /* 设置封面圆角 */
 }
@@ -154,13 +156,34 @@ onMounted(() => {
 
 /* 新增背景图容器样式（无内边距） */
 .bg-wrapper {
+  position: relative; /* 新增：确保伪元素相对于容器定位 */
   width: 100%;
   height: 100%;
-  background-size: 100% auto; /* 宽度强制与卡片一致，高度按比例自适应 */
-  background-position: center; /* 图片居中显示 */
+  background-size: 100% auto;
+  background-position: center;
   background-repeat: no-repeat;
   border-radius: 12px;
-  overflow: hidden; /* 超出卡片高度的部分会被切掉 */
+  overflow: hidden;
+
+  /* 新增：阴影效果 */
+  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bg-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: inherit; /* 继承.bg-wrapper的背景设置 */
+  z-index: -1; /* 确保阴影在背景图上方 */
+}
+
+.bg-wrapper:hover {
+  transform: translateY(-5px); /* 悬停时轻微上浮 */
+  box-shadow: 0 20px 25px rgba(0, 0, 0, 0.3); /* 悬停时增强阴影 */
 }
 
 </style>
