@@ -82,7 +82,7 @@ onMounted(() => {
   width: 100%;
   height: 100%;
   display: flex;
-  padding: 15px; /* 内边距只影响内容，不影响背景图 */
+  padding: 10px; /* 内边距 */
   box-sizing: border-box;
   /* 强化毛玻璃效果 */
   backdrop-filter: blur(7px); /* 提高模糊度 */
