@@ -32,6 +32,7 @@ import Confetti from "./components/Confetti.vue";
 
 import Hero from '../theme/Layout.vue';
 import NCard from './components/NCard.vue';
+import MusicPlayer from './components/MusicPlayer.vue'
 
 import './custom.css';
 export default {
@@ -56,6 +57,7 @@ export default {
     } as Options);
     app.use(TwoslashFloatingVue);
     app.component('NCard', NCard);
+    app.component('MusicPlayer', MusicPlayer)
     app.use(TwoslashFloatingVue as unknown as Plugin);
     app.use(NolebaseGitChangelogPlugin);
     app.provide(InjectionKey, {
