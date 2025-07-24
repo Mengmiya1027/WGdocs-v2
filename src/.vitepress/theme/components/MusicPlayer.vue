@@ -230,6 +230,22 @@ onMounted(() => {
     justify-content: space-between;
   }
 
+  .music-artist {
+    font-size: clamp(0.8rem, 2vw, 1rem); /* 歌手自适应字体大小 */
+    color: #666;
+    margin: 0;
+    text-align: center;
+    max-height: 9px;
+  }
+
+  .music-title {
+    font-size: clamp(1rem, 3vw, 1.5rem); /* 标题自适应字体大小 */
+    font-weight: bold;
+    margin: 0;
+    text-align: center;
+    max-height: 14px;
+  }
+
   .audio-control {
     width: 100%;
     display: flex;
@@ -247,6 +263,12 @@ onMounted(() => {
   /* 增大移动端歌手字体大小 */
   .music-artist {
     font-size: clamp(1rem, 3vw, 1.6rem);
+  }
+
+  /* 取消移动端动态阴影 */
+  .bg-wrapper:hover {
+    transform: translateY(0); /* 取消悬停上移效果 */
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2); /* 使用默认阴影 */
   }
 }
 
