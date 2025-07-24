@@ -17,6 +17,14 @@ comment: false
 直接胡编乱造！
 </NCard>
 
+<MusicPlayer
+  title="浮游"
+  author="周深"
+  tlink="../other-pictures/songs/浮游.png"
+  flink="../songs/%E5%91%A8%E6%B7%B1%20-%20%E6%B5%AE%E6%B8%B8.ogg"
+  textcolor="white"
+/>
+
 ### 开发与共建
 <br>
 <NCard title="➕ 上传资源" link="../community/upload">

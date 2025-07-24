@@ -1,6 +1,5 @@
-import { ref, onMounted, withDefaults } from 'vue'
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, withDefaults } from 'vue'
 
 const props = withDefaults(defineProps<{
   title: string,
@@ -184,6 +183,71 @@ onMounted(() => {
 .bg-wrapper:hover {
   transform: translateY(-5px); /* 悬停时轻微上浮 */
   box-shadow: 0 20px 25px rgba(0, 0, 0, 0.3); /* 悬停时增强阴影 */
+}
+
+/* 移动端样式调整 */
+@media (max-width: 768px) {
+  .music-player {
+    aspect-ratio: 1/1;
+  }
+
+  .player-container {
+    flex-direction: column;
+    align-items: center;
+    /* 确保容器高度占满父元素 */
+    height: 100%;
+    width: 100%;
+    /* 子元素可拉伸 */
+    justify-content: space-between;
+  }
+
+  .album-cover {
+    margin-bottom: 10px;
+    /* 允许封面区域弹性增长 */
+    flex-grow: 1;
+    /* 确保封面区域有最小高度 */
+    min-height: 0;
+    /* 保留默认圆角 */
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .cover-img {
+    max-width: none;
+    max-height: none;
+    /* 确保图片占满封面区域 */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .music-info {
+    width: 100%;
+    padding: 0;
+    /* 允许音乐信息区域弹性增长 */
+    flex-grow: 1;
+    /* 确保音乐信息区域内元素垂直分布 */
+    justify-content: space-between;
+  }
+
+  .audio-control {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    /* 允许音频控制区域弹性增长 */
+    flex-grow: 1;
+  }
+
+  /* 增大移动端标题字体大小 */
+  .music-title {
+    font-size: clamp(1.2rem, 4vw, 2rem);
+  }
+
+  /* 增大移动端歌手字体大小 */
+  .music-artist {
+    font-size: clamp(1rem, 3vw, 1.6rem);
+  }
 }
 
 </style>

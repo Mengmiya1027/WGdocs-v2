@@ -20,7 +20,7 @@ comment: true
   textcolor="[文字颜色]"
 />
 ```
-```[示例]
+```[示例1]
 <MusicPlayer
   title="浮游"
   author="周深"
@@ -29,11 +29,20 @@ comment: true
   textcolor="white"
 />
 ```
+```[示例2]
+<MusicPlayer
+  title="蛋仔派对-疯狂乱斗BGM"
+  author="Autiostock"
+  tlink="../other-pictures/songs/蛋仔派对.gif"
+  flink="../songs/965326.mp3"
+  textcolor="black"
+/>
+```
 :::
 ### 参数说明：
 
-| 参数 | title、author     | tlink、flink（全称title-link、file-link） | textcolor                |
-|----|------------------|-------------------------------------|--------------------------|
+| 参数 | title、author     | tlink、flink（全称title-link、file-link） | textcolor   |
+|----|------------------|-------------------------------------|-------------|
 | 说明 | <mark>必填项</mark> | 可以不填，但是<mark>会显示链接无效</mark>。        | 可选项，默认为黑灰色。 |
 
  
@@ -48,9 +57,18 @@ comment: true
   textcolor="white"
 />
 
+<MusicPlayer
+title="蛋仔派对-疯狂乱斗BGM"
+author="Autiostock"
+tlink="../other-pictures/songs/蛋仔派对.gif"
+flink="../songs/965326.mp3"
+textcolor="black"
+/>
+
 ### 已知问题
 ::: warning
-- 移动端显示会出现问题
+- <span style="color: purple;">~~移动端显示会出现问题~~</span>   已适配✅
+- 但是过宽的移动端显示会出现元素不占满卡片的问题，目前还没有找到解决方法，也不想修了。
 - Cloudflare Pages 禁止上传超过25MB的文件，在添加音频文件时请注意。
 
 ::: details 惨痛的教训
