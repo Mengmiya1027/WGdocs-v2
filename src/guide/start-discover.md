@@ -1,7 +1,7 @@
 ---
 comment: false
 ---
-# WGdocs<Badge type="warning" text="版本Dev2.0，Preview15.2" />
+# WGdocs<Badge type="warning" text="版本Dev2.0，Preview16" />
 
 ### 快速开始<Badge type="tip" text="经典" />
 <br>
@@ -17,14 +17,6 @@ comment: false
 直接胡编乱造！
 </NCard>
 
-<MusicPlayer
-  title="浮游"
-  author="周深"
-  tlink="../other-pictures/songs/浮游.png"
-  flink="../songs/%E5%91%A8%E6%B7%B1%20-%20%E6%B5%AE%E6%B8%B8.ogg"
-  textcolor="white"
-/>
-
 ### 开发与共建
 <br>
 <NCard title="➕ 上传资源" link="../community/upload">
@@ -34,13 +26,22 @@ comment: false
 WGdocs的架构较为复杂，于是网管手搓了一份架构文档~
 </NCard>
 
+
+<ImageSlider
+  :auto="true"
+  :time="1500"
+  :images="[
+    { id: 1, text: '执法-1', link: '/eggy/ZhiFa-1.jpg' },
+    { id: 2, text: '执法-2', link: '/eggy/ZhiFa-2.png' },
+    { id: 3, text: '执法-3', link: '/eggy/ZhiFa-3.png' },
+    { id: 4, text: '执法-4', link: '/eggy/ZhiFa-4.png' }
+  ]"
+  ltext="执法~"
+  rtext="大人~"
+  rcolor="white"
+/>
+
 ---
 ::: tip 温馨提示
 如果文档中发现错误，或提交文档修改、或丰富本站文档，可点击页面底部的编辑按钮。
 :::
-
-<div style="display: flex; justify-content: center; flex-wrap: nowrap; gap: 10px; width: 100%;">
-  <img src="/eggy/ZhiFa-1.jpg" alt="执法-1" style="max-height: 200px;">
-  <img src="/eggy/ZhiFa-2.png" alt="执法-2" style="max-height: 200px;">
-  <img src="/eggy/ZhiFa-3.png" alt="执法-3" style="max-height: 200px;">
-</div>

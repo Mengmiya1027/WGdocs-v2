@@ -682,8 +682,15 @@ public class Program
 镜像下载链接<mark>（WGdocs附属镜像）</mark>：https://cdn1.kesug.com/application/single/MythwareToolkit/MythwareToolkit.zip<br>
 蓝奏云盘下载链接：https://wwxb.lanzn.com/iZKnj31ge01g
 
-<div style="display: flex; justify-content: center; flex-wrap: nowrap; gap: 10px; width: 100%;">
-  <img src="/eggy/AnSuan-1.png" alt="潜行-1" style="max-height: 200px;">
-  <img src="/eggy/WuDi-1.png" alt="潜行-2" style="max-height: 200px;">
-  <img src="/eggy/AW-1.jpg" alt="暗无-1" style="max-height: 200px;">
-</div>
+<ImageSlider
+  :auto="true"
+  :time="1500"
+  :images="[
+    { id: 1, text: '暗算-1', link: '/eggy/AnSuan-1.png' },
+    { id: 2, text: '无敌-1', link: '/eggy/WuDi-1.png' },
+    { id: 3, text: '暗无-1', link: '/eggy/AW-1.jpg' },
+  ]"
+  ltext="潜行~"
+  rtext="小潜~"
+  lcolor="white"
+/>

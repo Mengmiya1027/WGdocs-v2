@@ -45,7 +45,14 @@ comment: false
   </NCard>
 :::
 
-<div style="display: flex; justify-content: center; flex-wrap: nowrap; gap: 10px; width: 100%;">
-  <img src="/eggy/SX-1.jpeg" alt="双心-1" style="max-height: 200px;">
-  <img src="/eggy/SX-2.jpg" alt="双心-2" style="max-height: 200px;">
-</div>
+<ImageSlider
+  :auto="true"
+  :time="1500"
+  :images="[
+    { id: 1, text: '双心-1', link: '/eggy/SX-1.jpeg' },
+    { id: 2, text: '双心-2', link: '/eggy/SX-2.jpg' },
+  ]"
+  ltext="心机~"
+  rtext="真心~"
+  lcolor="white"
+/>

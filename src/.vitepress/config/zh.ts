@@ -83,7 +83,7 @@ function sidebarGuide(): DefaultTheme.Sidebar {
       collapsed: false,
       items: [
         { text: '目录导航', link: '/start-discover' },
-        { text: '新功能介绍', link: '/new' },
+        { text: '更新日志&新功能介绍', link: '/new' },
         { text: '站内快捷方式', link: '/link' }
       ]
     },

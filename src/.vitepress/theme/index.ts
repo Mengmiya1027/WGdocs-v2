@@ -3,6 +3,7 @@ import DefaultTheme from 'vitepress/theme'
 import { h, type Plugin } from 'vue';
 import { useData, useRoute } from 'vitepress';
 import type { EnhanceAppContext } from 'vitepress';
+import ImageSlider from './components/ImageSlider.vue'
 
 
 import { NolebaseGitChangelogPlugin, Options } from '@nolebase/vitepress-plugin-git-changelog/client';
@@ -58,6 +59,7 @@ export default {
     app.use(TwoslashFloatingVue);
     app.component('NCard', NCard);
     app.component('MusicPlayer', MusicPlayer)
+    app.component('ImageSlider', ImageSlider)
     app.use(TwoslashFloatingVue as unknown as Plugin);
     app.use(NolebaseGitChangelogPlugin);
     app.provide(InjectionKey, {

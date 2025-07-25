@@ -36,8 +36,15 @@ comment: false
 如需上传资源，请访问[上传资源](../community/upload)页面。
 :::
 
-<div style="display: flex; justify-content: center; flex-wrap: nowrap; gap: 10px; width: 100%;">
-  <img src="/eggy/QianXing-1.jpg" alt="潜行-1" style="max-height: 200px;">
-  <img src="/eggy/QianXing-2.jpg" alt="潜行-2" style="max-height: 200px;">
-  <img src="/eggy/QianXing-3.png" alt="潜行-2" style="max-height: 200px;">
-</div>
+<ImageSlider
+  :auto="true"
+  :time="1500"
+  :images="[
+    { id: 1, text: '潜行-1', link: '/eggy/QianXing-1.jpg' },
+    { id: 2, text: '潜行-2', link: '/eggy/QianXing-2.jpg' },
+    { id: 3, text: '潜行-3', link: '/eggy/QianXing-3.png' },
+  ]"
+  ltext="潜行~"
+  rtext="小潜~"
+  lcolor="white"
+/>
