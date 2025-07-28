@@ -18,6 +18,8 @@ const props = defineProps<{
 const currentIndex = ref(0);
 const currentImage = ref(props.images[currentIndex.value]);
 let intervalId: ReturnType<typeof setInterval> | null = null;
+// 添加过渡状态标志
+const isTransitioning = ref(false);
 
 // 重置自动轮播计时器
 const resetAutoSlide = () => {
@@ -127,6 +129,9 @@ const updateIndicatorPosition = () => {
 
 // 修改现有的图片切换方法，添加位置更新
 const prevImage = () => {
+  // 如果正在过渡，阻止新的切换操作
+  if (isTransitioning.value) return;
+  isTransitioning.value = true;
   // 循环逻辑：当前为第一张时，上一张指向最后一张
   currentIndex.value = currentIndex.value > 0
       ? currentIndex.value - 1
@@ -137,10 +142,17 @@ const prevImage = () => {
   nextTick(() => {
     updateButtonStyle();
     updateIndicatorPosition();
+    // 过渡完成后重置标志
+    setTimeout(() => {
+      isTransitioning.value = false;
+    }, 500); // 与 CSS 过渡时间一致
   });
 };
 
 const nextImage = () => {
+  // 如果正在过渡，阻止新的切换操作
+  if (isTransitioning.value) return;
+  isTransitioning.value = true;
   // 循环逻辑：当前为最后一张时，下一张指向第一张
   currentIndex.value = currentIndex.value < props.images.length - 1
       ? currentIndex.value + 1
@@ -151,6 +163,10 @@ const nextImage = () => {
   nextTick(() => {
     updateButtonStyle();
     updateIndicatorPosition();
+    // 过渡完成后重置标志
+    setTimeout(() => {
+      isTransitioning.value = false;
+    }, 500); // 与 CSS 过渡时间一致
   });
 };
 
@@ -171,12 +187,19 @@ const stopAutoSlide = () => {
 
 // 点击预览图片切换主展示图片
 const selectImage = (index: number) => {
+  // 如果正在过渡，阻止新的切换操作
+  if (isTransitioning.value) return;
+  isTransitioning.value = true;
   currentIndex.value = index;
   currentImage.value = props.images[index];
   resetAutoSlide();
   nextTick(() => {
     updateButtonStyle();
-    updateIndicatorPosition(); // 新增位置更新
+    updateIndicatorPosition();
+    // 过渡完成后重置标志
+    setTimeout(() => {
+      isTransitioning.value = false;
+    }, 500); // 与 CSS 过渡时间一致
   });
 };
 
@@ -474,7 +497,8 @@ const defaultColor = '#3c3c43';
 /* 预览图片样式 */
 .image-preview {
   width: 80px;
-  height: 80px;
+  aspect-ratio: 1 / 1; /* 保持 1:1 比例 */
+  height: auto; /* 高度自适应 */
   object-fit: cover;
   border-radius: 0.5rem;
   cursor: pointer;
@@ -536,6 +560,7 @@ const defaultColor = '#3c3c43';
   padding: 8px;
   z-index: 1;
   justify-content: center;
+  height: auto; /* 高度自适应 */
 }
 
 @media (min-width: 768px) {

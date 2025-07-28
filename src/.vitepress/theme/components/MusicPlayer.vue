@@ -158,7 +158,7 @@ onMounted(() => {
   position: relative; /* 新增：确保伪元素相对于容器定位 */
   width: 100%;
   height: 100%;
-  background-size: 100% auto;
+  background-size: cover; /* 修改为 cover，使背景图等比缩放并覆盖整个容器 */
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 12px;
@@ -188,7 +188,7 @@ onMounted(() => {
 /* 移动端样式调整 */
 @media (max-width: 768px) {
   .music-player {
-    aspect-ratio: 1/1;
+    aspect-ratio: auto;
   }
 
   .player-container {
