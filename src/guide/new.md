@@ -7,21 +7,20 @@ comment: true
 
 ## 更新日志
 
-::: tip 最新更新：2025年7月28日
-#### 更新日志：
-  ##### WGdocs版本Dev2.0,Preview16.1
-  更新日志：组件小修小补
-::: 
-
-::: info 停更结束通知
-坐牛马专列回泸州啦~（谁懂凌晨3点到成都东转车，困死我了）
+::: tip 最新更新：2025年7月29日
+##### WGdocs版本Dev2.0,Preview17
+更新日志：本来准备给音乐播放器做一个字幕的，无奈豆包还是太纸张了111  只能先把下载信息集合器做了。
+还有关于页和一些杂七杂八的修改~
 :::
 
 ::: details 往期日志
+#### 2025年07月28日
+##### WGdocs版本Dev2.0,Preview16.1
+更新日志：组件小修小补
+
 #### 2025年07月25日
 ### WGdocs版本Dev2.0,Preview16
 更新日志：制作ImageSlider组件（适配把我整惨了，花了NM两天）、制作更新日志页面
-
 
 #### 2025年07月24日
 ### WGdocs版本Dev2.0,Preview15.4
@@ -179,7 +178,8 @@ comment: true
   title="浮游"
   author="周深"
   tlink="../other-pictures/songs/浮游.png"
-  flink="../songs/%E5%91%A8%E6%B7%B1%20-%20%E6%B5%AE%E6%B8%B8.ogg"
+  flink="../songs/周深 - 浮游.ogg"
+  clink="../songs/周深 - 浮游.lrc"
   textcolor="white"
 />
 
@@ -297,3 +297,81 @@ rcolor="white"
   ~~切换过快会导致出现图片不切换的问题~~     已修复✅<br>
   ~~屏幕过窄出现预览图被压缩的情况~~     已修复✅
 :::
+
+## 下载信息集合器<badge type="warning" text="Dev2.0,Preview17" /> <badge type="tip" text="3" />
+
+### 使用方法：
+
+::: code-group
+```[HTML]
+<DownloadLinkCollector 
+  title="[标题]"
+  bg-image="[背景图片链接]"
+  tcolor="[标题颜色]"
+  bcolor="[按钮颜色]"
+  :downloads="[
+    {
+      link: '[链接]',
+      text: '[提示文字]',
+      password: '[访问密码]',
+      enable: [是否启用]（true/false，默认true）
+    },
+    ...  //可以添加多个下载链接
+  ]"
+/>
+```
+```[示例]
+<DownloadLinkCollector 
+  title="下载链接"
+  bg-image="../eggy/ZhiFa-1.jpg"
+  tcolor="#00baff"
+  bcolor="orange"
+  :downloads="[
+    {
+      link: 'https://example.com/download1',
+      text: '下载文件 1',
+      password: '123456',
+      enable: true
+    },
+    {
+      link: 'https://example.com/download2',
+      enable: false
+    },
+    {
+      link: 'https://example.com/download3',
+      text: '下载文件 3'
+    }
+  ]"
+/>
+```
+:::
+
+### 参数说明：
+| 参数 | title、bg-image                          | tcolor、bcolor                        | link     | text、enable、password |
+|----|-----------------------------------------|--------------------------------------|----------|----------------------|
+| 说明 | 标题（必填）、背景图片链接（选填，默认为vitepress默认背景色） | 标题颜色、按钮颜色<br>（均为选填，默认为vitepress默认颜色） | 下载链接（必填） | 提示文字、是否启用、访问密码（均可选）  |
+
+### 示例预览：
+<br>
+<DownloadLinkCollector
+  title="下载链接"
+  bg-image="../eggy/ZhiFa-1.jpg"
+  tcolor="#00baff"
+  bcolor="orange"
+  :downloads="[
+    {
+      link: 'https://example.com/download1',
+      text: '下载文件 1',
+      password: '123456',
+      enable: true
+    },
+    {
+      link: 'https://example.com/download2',
+      enable: false
+    },
+    {
+      link: 'https://example.com/download3',
+      text: '下载文件 3'
+    }
+  ]"
+/>

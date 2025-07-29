@@ -39,11 +39,20 @@ comment: false
 精简介绍由AI生成，请注意辨别。
 :::
 
-::: tip 下载链接（可能失效）
-  <NCard title="最后一次编辑时下载链接（点击一次即可）：" link="https://lddl01.ldmnq.com/downloader/ldplayerinst9.exe?n=ldplayer9_ld_999_ld.exe">
-    https://lddl01.ldmnq.com/downloader/ldplayerinst9.exe?n=ldplayer9_ld_999_ld.exe
-  </NCard>
-:::
+<DownloadLinkCollector
+  title="下载链接（可能失效）"
+  bg-image="../eggy/ZhiFa-1.jpg"
+  tcolor="#00baff"
+  :downloads="[
+    {
+      link: 'https://lddl01.ldmnq.com/downloader/ldplayerinst9.exe?n=ldplayer9_ld_999_ld.exe',
+      text: '➡️最后一次编辑时下载链接',
+      enable: true
+    }
+  ]"
+/>
+
+---
 
 <ImageSlider
   :auto="true"

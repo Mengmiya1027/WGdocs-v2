@@ -139,6 +139,14 @@ function sidebarGuide(): DefaultTheme.Sidebar {
         { text: '上传资源', link: '/upload' },
         { text: '架构', link: '/architecture' }
       ]
+    },
+    {
+      text: '其他',
+      base: '/other',
+      collapsed: false,
+      items: [
+        { text: '关于', link: '/' }
+      ]
     }
   ]
 }

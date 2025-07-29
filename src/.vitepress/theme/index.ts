@@ -34,6 +34,7 @@ import Confetti from "./components/Confetti.vue";
 import Hero from '../theme/Layout.vue';
 import NCard from './components/NCard.vue';
 import MusicPlayer from './components/MusicPlayer.vue'
+import DownloadLinkCollector from './components/DownloadLinkCollector.vue'
 
 import './custom.css';
 export default {
@@ -60,6 +61,7 @@ export default {
     app.component('NCard', NCard);
     app.component('MusicPlayer', MusicPlayer)
     app.component('ImageSlider', ImageSlider)
+    app.component('DownloadLinkCollector', DownloadLinkCollector)
     app.use(TwoslashFloatingVue as unknown as Plugin);
     app.use(NolebaseGitChangelogPlugin);
     app.provide(InjectionKey, {

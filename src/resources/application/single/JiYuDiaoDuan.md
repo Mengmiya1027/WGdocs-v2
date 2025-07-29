@@ -182,12 +182,34 @@ JiYu Trainer 是一款针对极域电子教室的工具软件，主要功能为�
 官方下载链接不带配置文件，其余方式附带最佳配置文件。
 :::
 
-官方下载链接<mark>（不推荐，速度慢）</mark>：https://github.com/imengyu/JiYuTrainer/releases/latest<br>
-镜像下载链接<mark>（WGdocs附属镜像）</mark>：https://cdn1.kesug.com/application/single/JiYuTrainer/JiYuTrainer.zip<br>
-蓝奏云盘下载链接：https://wwxb.lanzn.com/ig5ma31gb5qd
+<DownloadLinkCollector
+  title="下载链接"
+  bg-image="../eggy/ZhiFa-1.jpg"
+  tcolor="#00baff"
+  :downloads="[
+    {
+      link: 'https://github.com/imengyu/JiYuTrainer/releases/latest',
+      text: '官方下载链接<mark>（不推荐，速度慢）</mark>',
+      enable: true
+    },
+    {
+      link: 'https://cdn1.kesug.com/application/single/JiYuTrainer/JiYuTrainer.zip',
+      text: '镜像下载链接<mark>（WGdocs附属镜像）</mark>',
+      enable: true
+    },
+    {
+      link: 'https://wwxb.lanzn.com/ig5ma31gb5qd',
+      text: '蓝奏云下载链接<mark>（推荐）</mark>',
+      enable: true
+    }
+  ]"  
+/>
 
 
-
+::: warning 关于配置文件
+官方下载链接不带配置文件，其余方式附带最佳配置文件。
+:::
+  
 ## NoTopDomain<badge type="warning" text="半停更" /><badge type="tip" text="官方镜像" />
 
 >作者：[Ariasaka🍥](https://github.com/LYXOfficial)，原Github仓库地址：[NoTopDomain](https://github.com/LYXOfficial/NoTopDomain)
@@ -461,6 +483,25 @@ IP地址：从对方电脑获取到的它的局域网IP，如果想同时发多�
 官方GitHub下载链接<mark>（不推荐，速度慢）</mark>：https://github.com/LYXOfficial/NoTopDomain/releases/latest<br>
 官方蓝奏云下载链接<mark>（密码：2al0）</mark>：https://xydc.lanzouo.com/b018x6qza<br>
 
+<DownloadLinkCollector
+  title="下载链接"
+  bg-image="../eggy/ZhiFa-1.jpg"
+  tcolor="#00baff"
+  bcolor="orange"
+  :downloads="[
+    {
+      text: '官方Github下载链接',
+      link: 'https://github.com/LYXOfficial/NoTopDomain/releases/latest',
+    },
+    {
+      text: '官方蓝奏云下载链接',
+      link: 'https://xydc.lanzouo.com/b018x6qza',
+      password: '2al0',
+    },
+  ]"
+/>
+
+
 ## MythwareToolkit<badge type="tip" text="活跃" /><badge type="tip" text="镜像加速" />
 
 >作者：[小流汗黄豆](https://github.com/BengbuGuards)，原Github仓库地址：[MythwareToolkit](https://github.com/BengbuGuards/MythwareToolkit)
@@ -678,9 +719,26 @@ public class Program
 镜像下载均已附带RootCA.reg
 :::
 
-官方下载链接<mark>（不推荐，速度慢）</mark>：https://github.com/BengbuGuards/MythwareToolkit/releases/latest<br>
-镜像下载链接<mark>（WGdocs附属镜像）</mark>：https://cdn1.kesug.com/application/single/MythwareToolkit/MythwareToolkit.zip<br>
-蓝奏云盘下载链接：https://wwxb.lanzn.com/iZKnj31ge01g
+
+<DownloadLinkCollector
+  title="下载链接"
+  bg-image="../eggy/ZhiFa-1.jpg"
+  tcolor="#00baff"
+  :downloads="[
+    {
+      text: '官方下载链接（不推荐，速度慢）',
+      link: 'https://github.com/BengbuGuards/MythwareToolkit/releases/latest',
+    },
+    {
+      text: '镜像下载链接（WGdocs附属镜像）',
+      link: 'https://cdn1.kesug.com/application/single/MythwareToolkit/MythwareToolkit.zip',
+    },
+    {
+      text: '蓝奏云盘下载链接',
+      link: 'https://wwxb.lanzn.com/iZKnj31ge01g',
+    },
+  ]"
+/>
 
 <ImageSlider
   :auto="true"
@@ -690,7 +748,7 @@ public class Program
     { id: 2, text: '无敌-1', link: '/eggy/WuDi-1.png' },
     { id: 3, text: '暗无-1', link: '/eggy/AW-1.jpg' },
   ]"
-  ltext="潜行~"
-  rtext="小潜~"
+  ltext="暗算~"
+  rtext="无敌~"
   lcolor="white"
 />
