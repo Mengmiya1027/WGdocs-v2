@@ -205,10 +205,10 @@ export default {
   border: 1px solid var(--vp-button-brand-border);
   cursor: pointer;
   margin-left: 0;
-  flex-grow: 1; /* 按钮填满容器 */
-  transition: all 0.2s, transform 0.2s; /* 添加缩放过渡 */
+  flex-grow: 1;
+  transition: all 0.2s, transform 0.2s;
   transform-origin: center;
-  font-size: 16px; /* 新增字号设置 */
+  font-size: clamp(12px, 2vw, 16px); /* 修改为自适应字体大小 */
 }
 
 .copy-btn:hover {

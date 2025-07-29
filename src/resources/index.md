@@ -6,21 +6,21 @@ comment: false
 
 ### 💻/📱 应用程序
 <br>
-<NCard title="⚙️ 独立型应用程序" link="../resources/application/single/">
+<NCard title="⚙️ 独立型应用程序" link="/resources/application/single/">
   <mark>只包含一个文件</mark>的应用程序，类似单个exe、bat
 </NCard>
 
-<NCard title="📦 打包型应用程序" link="../resources/application/pack/">
+<NCard title="📦 打包型应用程序" link="/resources/application/pack/">
   <mark>包含多个文件</mark>的应用程序，需使用安装包或压缩包
 </NCard>
 
 ### 🎵/🖼️  杂项文件
 <br>
-<NCard title="🖼️  照片" link="../resources/picture/">
+<NCard title="🖼️  照片" link="/resources/picture/">
   就是普普通通的图片a~
 </NCard>
 
-<NCard title="🎵️  音乐" link="../resources/single">
+<NCard title="🎵️  音乐" link="/resources/single">
   大多为BGM或音效，也有一些其他的~
 </NCard>
 
@@ -33,16 +33,16 @@ comment: false
 ---
 
 ::: tip 温馨提示
-如需上传资源，请访问[上传资源](../community/upload)页面。
+如需上传资源，请访问[上传资源](/community/upload)页面。
 :::
 
 <ImageSlider
   :auto="true"
   :time="1500"
   :images="[
-    { id: 1, text: '潜行-1', link: '/eggy/QianXing-1.jpg' },
-    { id: 2, text: '潜行-2', link: '/eggy/QianXing-2.jpg' },
-    { id: 3, text: '潜行-3', link: '/eggy/QianXing-3.png' },
+    { id: 1, text: '潜行-1', link: '/pictures/eggy/QianXing-1.jpg' },
+    { id: 2, text: '潜行-2', link: '/pictures/eggy/QianXing-2.jpg' },
+    { id: 3, text: '潜行-3', link: '/pictures/eggy/QianXing-3.png' },
   ]"
   ltext="潜行~"
   rtext="小潜~"

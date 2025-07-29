@@ -1,5 +1,4 @@
 ---
-showReadingTime: false
 comment: true
 title: 关于
 ---
@@ -41,6 +40,12 @@ title: 关于
     text-decoration: none;
     cursor: pointer;
     display: inline-flex;
+    flex: 1 1 auto;
+    min-width: fit-content;
+    white-space: nowrap;
+    justify-content: center;
+    align-items: center;
+    font-size: clamp(0.8rem, 1.2vw, 1.2rem);
 ">Github↗</a>
 
 <a href="/machine/index.html" target="_blank" style="
@@ -51,6 +56,12 @@ title: 关于
     text-decoration: none;
     cursor: pointer;
     display: inline-flex;
+    flex: 1 1 auto;
+    min-width: fit-content;
+    white-space: nowrap;
+    justify-content: center;
+    align-items: center;
+    font-size: clamp(0.8rem, 1.2vw, 1.2rem);
 ">小彩蛋↗</a>
 
 <a href="https://party.163.com" target="_blank" style="
@@ -61,5 +72,11 @@ title: 关于
     text-decoration: none;
     cursor: pointer;
     display: inline-flex;
+    flex: 1 1 auto;
+    min-width: fit-content;
+    white-space: nowrap;
+    justify-content: center;
+    align-items: center;
+    font-size: clamp(0.8rem, 1.2vw, 1.2rem);
 ">占位符↗</a>
 </div>

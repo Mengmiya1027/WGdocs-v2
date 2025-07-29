@@ -184,7 +184,7 @@ JiYu Trainer 是一款针对极域电子教室的工具软件，主要功能为�
 
 <DownloadLinkCollector
   title="下载链接"
-  bg-image="../eggy/ZhiFa-1.jpg"
+  bg-image="/pictures/mythware.png"
   tcolor="#00baff"
   :downloads="[
     {
@@ -485,7 +485,7 @@ IP地址：从对方电脑获取到的它的局域网IP，如果想同时发多�
 
 <DownloadLinkCollector
   title="下载链接"
-  bg-image="../eggy/ZhiFa-1.jpg"
+  bg-image="/pictures/mythware.png"
   tcolor="#00baff"
   bcolor="orange"
   :downloads="[
@@ -722,7 +722,7 @@ public class Program
 
 <DownloadLinkCollector
   title="下载链接"
-  bg-image="../eggy/ZhiFa-1.jpg"
+  bg-image="/pictures/mythware.png"
   tcolor="#00baff"
   :downloads="[
     {
@@ -744,9 +744,9 @@ public class Program
   :auto="true"
   :time="1500"
   :images="[
-    { id: 1, text: '暗算-1', link: '/eggy/AnSuan-1.png' },
-    { id: 2, text: '无敌-1', link: '/eggy/WuDi-1.png' },
-    { id: 3, text: '暗无-1', link: '/eggy/AW-1.jpg' },
+    { id: 1, text: '暗算-1', link: '/pictures/eggy/AnSuan-1.png' },
+    { id: 2, text: '无敌-1', link: '/pictures/eggy/WuDi-1.png' },
+    { id: 3, text: '暗无-1', link: '/pictures/eggy/AW-1.jpg' },
   ]"
   ltext="暗算~"
   rtext="无敌~"

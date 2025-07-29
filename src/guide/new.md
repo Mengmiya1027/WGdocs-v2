@@ -7,15 +7,20 @@ comment: true
 
 ## 更新日志
 
-::: tip 最新更新：2025年7月29日
-##### WGdocs版本Dev2.0,Preview17
-更新日志：本来准备给音乐播放器做一个字幕的，无奈豆包还是太纸张了111  只能先把下载信息集合器做了。
-还有关于页和一些杂七杂八的修改~
+::: tip 最新更新：2025年7月30日
+### WGdocs版本Dev2.0,Preview17.1
+凌晨偷偷的更新了~依然是组件小修小补。资源上传页面做完了但是  欸嘿我就是不提交~我就要等到Preview18~<br>
+凌晨思绪：为什么MC百科的6月统计  评论区的人关注点都在百科娘上面啊？（手动狗头）
 :::
 
 ::: details 往期日志
+#### 2025年07月29日
+### WGdocs版本Dev2.0,Preview17
+更新日志：本来准备给音乐播放器做一个字幕的，无奈豆包还是太纸张了111  只能先把下载信息集合器做了。
+还有关于页和一些杂七杂八的修改~
+
 #### 2025年07月28日
-##### WGdocs版本Dev2.0,Preview16.1
+### WGdocs版本Dev2.0,Preview16.1
 更新日志：组件小修小补
 
 #### 2025年07月25日
@@ -149,8 +154,8 @@ comment: true
 <MusicPlayer
   title="浮游"
   author="周深"
-  tlink="../other-pictures/songs/浮游.png"
-  flink="../songs/%E5%91%A8%E6%B7%B1%20-%20%E6%B5%AE%E6%B8%B8.ogg"
+  tlink="/pictures/songs/浮游.png"
+  flink="/songs/周深 - 浮游.ogg"
   textcolor="white"
 />
 ```
@@ -158,8 +163,8 @@ comment: true
 <MusicPlayer
   title="蛋仔派对-疯狂乱斗BGM"
   author="Autiostock"
-  tlink="../other-pictures/songs/蛋仔派对.gif"
-  flink="../songs/965326.mp3"
+  tlink="/pictures/songs/蛋仔派对.gif"
+  flink="/songs/965326.mp3"
   textcolor="black"
 />
 ```
@@ -177,17 +182,17 @@ comment: true
 <MusicPlayer
   title="浮游"
   author="周深"
-  tlink="../other-pictures/songs/浮游.png"
-  flink="../songs/周深 - 浮游.ogg"
-  clink="../songs/周深 - 浮游.lrc"
+  tlink="/pictures/songs/浮游.png"
+  flink="/songs/周深 - 浮游.ogg"
+  clink="/songs/周深 - 浮游.lrc"
   textcolor="white"
 />
 
 <MusicPlayer
 title="蛋仔派对-疯狂乱斗BGM"
 author="Autiostock"
-tlink="../other-pictures/songs/蛋仔派对.gif"
-flink="../songs/965326.mp3"
+tlink="/pictures/songs/蛋仔派对.gif"
+flink="/songs/965326.mp3"
 textcolor="black"
 />
 
@@ -198,7 +203,7 @@ textcolor="black"
 - Cloudflare Pages 禁止上传超过25MB的文件，在添加音频文件时请注意。
 
 ::: details 惨痛的教训
-![惨痛的教训-2025-07-23-15.22.57.610.png](/other-pictures/惨痛的教训-2025-07-23-15.22.57.610.png)
+![惨痛的教训-2025-07-23-15.22.57.610.png](/pictures/惨痛的教训-2025-07-23-15.22.57.610.png)
 :::
 
 ## 自制图片轮播/展示控件 <badge type="warning" text="Dev2.0,Preview16" /> <badge type="tip" text="2" />
@@ -230,10 +235,10 @@ textcolor="black"
   :auto="true"
   :time="1500"
   :images="[
-    { id: 1, text: '执法-1', link: '/eggy/ZhiFa-1.jpg' },
-    { id: 2, text: '执法-2', link: '/eggy/ZhiFa-2.png' },
-    { id: 3, text: '执法-3', link: '/eggy/ZhiFa-3.png' },
-    { id: 4, text: '执法-4', link: '/eggy/ZhiFa-4.png' }
+    { id: 1, text: '执法-1', link: '/pictures/eggy/ZhiFa-1.jpg' },
+    { id: 2, text: '执法-2', link: '/pictures/eggy/ZhiFa-2.png' },
+    { id: 3, text: '执法-3', link: '/pictures/eggy/ZhiFa-3.png' },
+    { id: 4, text: '执法-4', link: '/pictures/eggy/ZhiFa-4.png' }
   ]"
   ltext="执法~"
   rtext="大人~"
@@ -244,9 +249,9 @@ textcolor="black"
 <ImageSlider
   :auto="false"
   :images="[
-    { id: 1, text: '潜行-1', link: '/eggy/QianXing-1.jpg' },
-    { id: 2, text: '潜行-2', link: '/eggy/QianXing-2.jpg' },
-    { id: 3, text: '潜行-3', link: '/eggy/QianXing-3.png' },
+    { id: 1, text: '潜行-1', link: '/pictures/eggy/QianXing-1.jpg' },
+    { id: 2, text: '潜行-2', link: '/pictures/eggy/QianXing-2.jpg' },
+    { id: 3, text: '潜行-3', link: '/pictures/eggy/QianXing-3.png' },
   ]"
   ltext="潜行~"
   rtext="小潜~"
@@ -268,10 +273,10 @@ textcolor="black"
   :auto="true"
   :time="1500"
   :images="[
-    { id: 1, text: '执法-1', link: '/eggy/ZhiFa-1.jpg' },
-    { id: 2, text: '执法-2', link: '/eggy/ZhiFa-2.png' },
-    { id: 3, text: '执法-3', link: '/eggy/ZhiFa-3.png' },
-    { id: 4, text: '执法-4', link: '/eggy/ZhiFa-4.png' },
+    { id: 1, text: '执法-1', link: '/pictures/eggy/ZhiFa-1.jpg' },
+    { id: 2, text: '执法-2', link: '/pictures/eggy/ZhiFa-2.png' },
+    { id: 3, text: '执法-3', link: '/pictures/eggy/ZhiFa-3.png' },
+    { id: 4, text: '执法-4', link: '/pictures/eggy/ZhiFa-4.png' },
   ]"
 ltext="执法~"
 rtext="大人~"
@@ -283,9 +288,9 @@ rcolor="white"
 <ImageSlider
   :auto="false"
   :images="[
-    { id: 1, text: '潜行-1', link: '/eggy/QianXing-1.jpg' },
-    { id: 2, text: '潜行-2', link: '/eggy/QianXing-2.jpg' },
-    { id: 3, text: '潜行-3', link: '/eggy/QianXing-3.png' },
+    { id: 1, text: '潜行-1', link: '/pictures/eggy/QianXing-1.jpg' },
+    { id: 2, text: '潜行-2', link: '/pictures/eggy/QianXing-2.jpg' },
+    { id: 3, text: '潜行-3', link: '/pictures/eggy/QianXing-3.png' },
   ]"
   ltext="潜行~"
   rtext="小潜~"
@@ -323,7 +328,7 @@ rcolor="white"
 ```[示例]
 <DownloadLinkCollector 
   title="下载链接"
-  bg-image="../eggy/ZhiFa-1.jpg"
+  bg-image="/pictures/eggy/ZhiFa-1.jpg"
   tcolor="#00baff"
   bcolor="orange"
   :downloads="[
@@ -355,7 +360,7 @@ rcolor="white"
 <br>
 <DownloadLinkCollector
   title="下载链接"
-  bg-image="../eggy/ZhiFa-1.jpg"
+  bg-image="/pictures/eggy/ZhiFa-1.jpg"
   tcolor="#00baff"
   bcolor="orange"
   :downloads="[

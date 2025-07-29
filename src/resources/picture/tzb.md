@@ -14,27 +14,27 @@ comment: false
 
 # 图片预览：
 
-<img src="/other-pictures/tzb/1.jpg" alt="1.jpg" style="width: 100%;">
+<img src="/pictures/tzb/1.jpg" alt="1.jpg" style="width: 100%;">
 
 ---
 
 <!-- 并排显示 -->
 <div style="display: flex; gap: 10px;">
-  <img src="/other-pictures/tzb/2.jpg" alt="2.jpg" style="width: 50%;">
-  <img src="/other-pictures/tzb/3.jpg" alt="3.jpg" style="width: 50%;">
+  <img src="/pictures/tzb/2.jpg" alt="2.jpg" style="width: 50%;">
+  <img src="/pictures/tzb/3.jpg" alt="3.jpg" style="width: 50%;">
 </div>
 
 ---
 
-<img src="/other-pictures/tzb/4.jpg" alt="4.jpg" style="width: 100%;">
+<img src="/pictures/tzb/4.jpg" alt="4.jpg" style="width: 100%;">
 
 ---
 
-<img src="/other-pictures/tzb/5.jpg" alt="5.jpg" style="width: 100%;">
+<img src="/pictures/tzb/5.jpg" alt="5.jpg" style="width: 100%;">
 
 ---
 
-<img src="/other-pictures/tzb/6.jpg" alt="6.jpg" style="width: 100%;">
+<img src="/pictures/tzb/6.jpg" alt="6.jpg" style="width: 100%;">
 
 ---
 
@@ -46,8 +46,9 @@ comment: false
 
 <DownloadLinkCollector
   title="tzb"
-  bg-image="../eggy/ZhiFa-1.jpg"
-  tcolor="#00baff"
+  bg-image="/pictures/tzb/3.jpg"
+  tcolor="white"
+  bcolor="gray"
   :downloads="[
     {
       text: 'WGdocs附属镜像',

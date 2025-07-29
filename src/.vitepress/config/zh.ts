@@ -69,8 +69,8 @@ function nav(): DefaultTheme.NavItem[] {
     },
     {
       text: '关于',
-      link: '/other/about',
-      activeMatch: '/other/about'
+      link: '/other/',
+      activeMatch: '/other/'
     }
   ]
 }
@@ -82,7 +82,7 @@ function sidebarGuide(): DefaultTheme.Sidebar {
       base: '/guide',
       collapsed: false,
       items: [
-        { text: '目录导航', link: '/start-discover' },
+        { text: '开始探索', link: '/start-discover' },
         { text: '更新日志&新功能介绍', link: '/new' },
         { text: '站内快捷方式', link: '/link' }
       ]

@@ -41,7 +41,7 @@ comment: false
 
 <DownloadLinkCollector
   title="下载链接（可能失效）"
-  bg-image="../eggy/ZhiFa-1.jpg"
+  bg-image="/pictures/ldmnq.jpg"
   tcolor="#00baff"
   :downloads="[
     {
@@ -58,8 +58,8 @@ comment: false
   :auto="true"
   :time="1500"
   :images="[
-    { id: 1, text: '双心-1', link: '/eggy/SX-1.jpeg' },
-    { id: 2, text: '双心-2', link: '/eggy/SX-2.jpg' },
+    { id: 1, text: '双心-1', link: '/pictures/eggy/SX-1.jpeg' },
+    { id: 2, text: '双心-2', link: '/pictures/eggy/SX-2.jpg' },
   ]"
   ltext="心机~"
   rtext="真心~"
