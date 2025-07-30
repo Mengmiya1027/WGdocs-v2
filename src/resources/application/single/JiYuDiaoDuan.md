@@ -178,9 +178,6 @@ JiYu Trainer 是一款针对极域电子教室的工具软件，主要功能为�
 
 :::
 
-::: warning 关于配置文件
-官方下载链接不带配置文件，其余方式附带最佳配置文件。
-:::
 
 <DownloadLinkCollector
   title="下载链接"
@@ -205,10 +202,8 @@ JiYu Trainer 是一款针对极域电子教室的工具软件，主要功能为�
   ]"  
 />
 
-
-::: warning 关于配置文件
-官方下载链接不带配置文件，其余方式附带最佳配置文件。
-:::
+> [!IMPORTANT] 关于配置文件
+> 官方下载链接不带配置文件，其余方式附带最佳配置文件。
   
 ## NoTopDomain<badge type="warning" text="半停更" /><badge type="tip" text="官方镜像" />
 
@@ -490,7 +485,7 @@ IP地址：从对方电脑获取到的它的局域网IP，如果想同时发多�
   bcolor="orange"
   :downloads="[
     {
-      text: '官方Github下载链接',
+      text: '官方Github下载链接<mark>（不推荐，速度慢）</mark>',
       link: 'https://github.com/LYXOfficial/NoTopDomain/releases/latest',
     },
     {
@@ -715,9 +710,8 @@ public class Program
 
 :::
 
-:::tip
-镜像下载均已附带RootCA.reg
-:::
+> [!IMPORTANT] 关于RootCA.reg
+> 镜像下载均已附带RootCA.reg
 
 
 <DownloadLinkCollector
@@ -726,11 +720,11 @@ public class Program
   tcolor="#00baff"
   :downloads="[
     {
-      text: '官方下载链接（不推荐，速度慢）',
+      text: '官方下载链接<mark>（不推荐，速度慢）</mark>',
       link: 'https://github.com/BengbuGuards/MythwareToolkit/releases/latest',
     },
     {
-      text: '镜像下载链接（WGdocs附属镜像）',
+      text: '镜像下载链接<mark>（WGdocs附属镜像）</mark>',
       link: 'https://cdn1.kesug.com/application/single/MythwareToolkit/MythwareToolkit.zip',
     },
     {
@@ -739,6 +733,12 @@ public class Program
     },
   ]"
 />
+
+---
+> [!NOTE] 话说
+> 如果只是日常逃课建议使用[JiYuTrainer](#jiyutrainer)，
+> 高级点的功能建议使用[NoTopDomain](#notopdomain)。
+> 至于[MythwareToolkit](#mythwaretoolkit)，没用过也不敢说~
 
 <ImageSlider
   :auto="true"

@@ -8,9 +8,9 @@
           <a
               class="link-card"
               :href="item.enable ? item.link : 'javascript:void(0)'"
-              target="_blank"
+              :target="item.enable ? (newtab ? '_blank' : '') : ''"
               :style="{ flex: item.password ? '0 0 70%' : '1' }">
-            <span class="link-text">{{ item.text || item.link }}</span>
+            <span class="link-text" v-html="item.text || item.link"></span>
             <span class="status">{{ item.enable ? '可用✅' : '不可用⛔️' }}</span>
           </a>
           <div v-if="item.password" class="password-section" style="flex: 0 0 30%">
@@ -46,6 +46,10 @@ export default {
     tcolor: {
       type: String,
       default: ''
+    },
+    newtab: {
+      type: Boolean,
+      default: true
     },
     downloads: {
       type: Array,

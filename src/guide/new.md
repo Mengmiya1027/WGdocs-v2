@@ -8,12 +8,17 @@ comment: true
 ## 更新日志
 
 ::: tip 最新更新：2025年7月30日
-### WGdocs版本Dev2.0,Preview17.1
-凌晨偷偷的更新了~依然是组件小修小补。资源上传页面做完了但是  欸嘿我就是不提交~我就要等到Preview18~<br>
-凌晨思绪：为什么MC百科的6月统计  评论区的人关注点都在百科娘上面啊？（手动狗头）
+### WGdocs版本Dev2.0,Preview18
+更新日志：制作upload.md和link.md。其他一些稀奇古怪的小修改。下载链接集合器现在支持本页面打开。同时加了一些人的图片（doge）<br>
+算是个半成品，明天再来继续优化（头痛ing）
 :::
 
 ::: details 往期日志
+#### 2025年07月30日
+### WGdocs版本Dev2.0,Preview17.1
+更新日志：凌晨偷偷的更新了~依然是组件小修小补。资源上传页面做完了但是  欸嘿我就是不提交~我就要等到Preview18~<br>
+凌晨思绪：为什么MC百科的6月统计  评论区的人关注点都在百科娘上面啊？（手动狗头）
+
 #### 2025年07月29日
 ### WGdocs版本Dev2.0,Preview17
 更新日志：本来准备给音乐播放器做一个字幕的，无奈豆包还是太纸张了111  只能先把下载信息集合器做了。
@@ -314,6 +319,7 @@ rcolor="white"
   bg-image="[背景图片链接]"
   tcolor="[标题颜色]"
   bcolor="[按钮颜色]"
+  :open-in-new-tab="[是否新标签打开]"（true/false，默认为true）
   :downloads="[
     {
       link: '[链接]',
@@ -325,7 +331,7 @@ rcolor="white"
   ]"
 />
 ```
-```[示例]
+```[示例1]
 <DownloadLinkCollector 
   title="下载链接"
   bg-image="/pictures/eggy/ZhiFa-1.jpg"
@@ -349,12 +355,33 @@ rcolor="white"
   ]"
 />
 ```
+```[示例2]
+<DownloadLinkCollector 
+  title="打开链接"
+  bg-image="/pictures/eggy/QianXing-1.jpg"
+  tcolor="white"
+  bcolor="purple"
+  :newtab="false"
+  :downloads="[
+    {
+      link: '/guide/start-discover',
+      text: '打开“开始探索”',
+      enable: true
+    },
+    {
+      link: 'https://example.com/download2',
+      password: '123456',
+      enable: false
+    },
+  ]"
+/>
+```
 :::
 
 ### 参数说明：
-| 参数 | title、bg-image                          | tcolor、bcolor                        | link     | text、enable、password |
-|----|-----------------------------------------|--------------------------------------|----------|----------------------|
-| 说明 | 标题（必填）、背景图片链接（选填，默认为vitepress默认背景色） | 标题颜色、按钮颜色<br>（均为选填，默认为vitepress默认颜色） | 下载链接（必填） | 提示文字、是否启用、访问密码（均可选）  |
+| 参数 | title、bg-image                          | tcolor、bcolor                        | link     | text、enable、password、open-in-new-tab |
+|----|-----------------------------------------|--------------------------------------|----------|--------------------------------------|
+| 说明 | 标题（必填）、背景图片链接（选填，默认为vitepress默认背景色） | 标题颜色、按钮颜色<br>（均为选填，默认为vitepress默认颜色） | 下载链接（必填） | 提示文字、是否启用、访问密码、是否在新标签页中打开（均可选）       |
 
 ### 示例预览：
 <br>
@@ -378,5 +405,25 @@ rcolor="white"
       link: 'https://example.com/download3',
       text: '下载文件 3'
     }
+  ]"
+/>
+<br>
+<DownloadLinkCollector
+  title="打开链接"
+  bg-image="/pictures/eggy/QianXing-1.jpg"
+  tcolor="white"
+  bcolor="purple"
+  :newtab="false"
+  :downloads="[
+    {
+      link: '/guide/start-discover',
+      text: '打开“开始探索”',
+      enable: true
+    },
+    {
+      link: 'https://example.com/download2',
+      password: '123456',
+      enable: false
+    },
   ]"
 />

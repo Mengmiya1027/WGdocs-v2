@@ -84,7 +84,7 @@ function sidebarGuide(): DefaultTheme.Sidebar {
       items: [
         { text: '开始探索', link: '/start-discover' },
         { text: '更新日志&新功能介绍', link: '/new' },
-        { text: '站内快捷方式', link: '/link' }
+        { text: '站内导览', link: '/link' }
       ]
     },
     {
@@ -126,7 +126,16 @@ function sidebarGuide(): DefaultTheme.Sidebar {
           collapsed: false,
           items: [
             { text: '概览', link: '/map' },
-            { text: '唐子9', link: '/tzb' }
+            { text: '唐子9', link: '/tzb' },
+            { text: '来自某校园摄影师', link: '/from-xysys' },
+          ]
+        },
+        {
+          text: '视频',
+          base: '/resources/video',
+          collapsed: false,
+          items: [
+            { text: '嚣张', link: '/penguin' }
           ]
         },
       ]

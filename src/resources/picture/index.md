@@ -35,7 +35,7 @@ onMounted(() => {
     <h1 class="text-2xl font-bold mb-4">页面迁移提示</h1>
     <p class="mb-2">
       您将在 <span class="font-bold text-green-500">{{ seconds }}</span> 秒后被重定向到
-      <a href="/resources/picture/map" class="text-blue-500 hover:underline">新的地图页面</a>
+      <a href="/resources/picture/map" class="text-blue-500 hover:underline">导览页面</a>
     </p>
     <p>
       <a href="/resources/picture/map" class="inline-block mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
