@@ -126,8 +126,17 @@ function sidebarGuide(): DefaultTheme.Sidebar {
           collapsed: false,
           items: [
             { text: '概览', link: '/map' },
-            { text: '唐子9', link: '/tzb' },
-            { text: '来自某校园摄影师', link: '/from-xysys' },
+            {
+              text: '有的人',
+              base: '/resources/picture/some-people',
+              collapsed: true,
+              items: [
+                { text: '唐子9', link: '/tzb' },
+                { text: '虚哥', link: '/xuge' },
+                { text: '来自某校园摄影师', link: '/from-xysys' },
+                { text: '某些其他的', link: '/others-in-class' },
+              ]
+            },
           ]
         },
         {
@@ -135,7 +144,8 @@ function sidebarGuide(): DefaultTheme.Sidebar {
           base: '/resources/video',
           collapsed: false,
           items: [
-            { text: '嚣张', link: '/penguin' }
+            { text: '概览', link: '/map' },
+            { text: '嚣张牌小品的珍贵实录', link: '/penguin' }
           ]
         },
       ]

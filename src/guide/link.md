@@ -59,12 +59,24 @@ comment: true
       text: '图片-概览',
     },
     {
-      link: '/resources/picture/tzb',
+      link: '/resources/picture/some-people/tzb',
       text: '唐子9',
     },
     {
-      link: '/resources/picture/ggat',
+      link: '/resources/picture/some-people/ggat',
       text: '甘关阿同',
+    },
+    {
+      link: '/resources/picture/some-people/xuge',
+      text: '虚哥',
+    },
+    {
+      link: '/resources/picture/some-people/from-xysys',
+      text: '来自某校园摄影师',
+    },
+    {
+      link: '/resources/picture/some-people/others-in-class',
+      text: '某些其他的',
     },
     {
       link: '/community/upload',

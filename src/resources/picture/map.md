@@ -9,6 +9,18 @@ title: 图片
 :::
 ---
 
-<NCard title="唐子八" link="/resources/picture/tzb">
+<NCard title="唐子八" link="/resources/picture/some-people/tzb">
   作为网管的好前同桌……网管自然要把他挂上来了😊
+</NCard>
+
+<NCard title="虚哥" link="/resources/picture/some-people/xuge">
+  三角函数的英文是 Trigonometric（虚哥那么虚）
+</NCard>
+
+<NCard title="来自某校园摄影师" link="/resources/picture/some-people/from-xysys">
+  没什么
+</NCard>
+
+<NCard title="某些其他的" link="/resources/picture/some-people/others-in-class">
+  没什么
 </NCard>
