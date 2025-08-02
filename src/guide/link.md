@@ -50,11 +50,6 @@ comment: true
       text: '雷电模拟器 ⚡',
     },
     {
-      link: '/resources/picture/',
-      text: '图片-介绍',
-      enable: false
-    },
-    {
       link: '/resources/picture/map',
       text: '图片-概览',
     },
@@ -77,6 +72,14 @@ comment: true
     {
       link: '/resources/picture/some-people/others-in-class',
       text: '某些其他的',
+    },
+    {
+      link: '/resources/video/map',
+      text: '视频-概览',
+    },
+    {
+      link: '/resources/video/penguin',
+      text: '嚣张牌小品的珍贵实录',
     },
     {
       link: '/community/upload',

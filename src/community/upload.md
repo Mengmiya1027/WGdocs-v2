@@ -44,7 +44,7 @@ git checkout -b add-你的用户名-资源类型
 随后在下载标记中使用`[下载链接](子文件夹（前面不含public）/文件)`的方式进行引用。<br>
 例如，示例中的`vue-组件.vue`，路径为：
 
-```file  {label: '项目结构'}
+```txt  {label: '项目结构'}
 src
  ├─public
  │  ├─vue

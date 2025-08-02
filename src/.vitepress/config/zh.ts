@@ -121,6 +121,16 @@ function sidebarGuide(): DefaultTheme.Sidebar {
           ]
         },
         {
+          text: '网站',
+          base: '/resources/website',
+          collapsed: false,
+          items: [
+            { text: '介绍', link: '/' },
+            { text: '概览', link: '/map' },
+            { text: 'MC.js', link: '/mc-js' },
+          ]
+        },
+        {
           text: '图片',
           base: '/resources/picture',
           collapsed: false,
