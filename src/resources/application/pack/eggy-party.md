@@ -4,6 +4,8 @@ comment: false
 
 # 蛋仔派对
 
+[直接去看六小只](#六小只)
+
 <DownloadLinkCollector
   title="官方链接"
   bg-image="/pictures/songs/蛋仔派对.gif"
@@ -39,6 +41,11 @@ comment: false
 ## 3.注册与实名认证
 打开蛋仔派对，由于没有手机号，点击下方“快速游戏”，输入一个身份证号
 如果没有就去网上搜点呗~~<br>[某猎奇身份证大全](http://www.uuzzw.com/down/98.html)
+
+网管自己做的猎奇小动画：
+  <video autoplay muted loop style="width: 100%; max-width: 800px; margin: 20px auto; display: block;">
+    <source src="/videos/快速游戏.mp4" type="video/mp4">
+  </video>
 
 ## 4.直接开玩！
 WASD控制移动，空格跳跃，Q滚动，R技能，左键扑（或疯狂乱斗中的额外技能），右键抓举
@@ -107,3 +114,50 @@ WASD控制移动，空格跳跃，Q滚动，R技能，左键扑（或疯狂乱�
 游戏中拥有“蛋仔工坊”系统，即地图编辑器，玩家可以通过极高自由度的地图编辑器来创作设计地图。
 <!-- vue-ignore-element tbody -->
 <table class="tableBox_QYYsc"><caption>地图组件</caption><tbody class="tableBody_B9kRo"><tr><th width="75" align="center" rowspan="1" colspan="1" class="tableTh_AE_KM"><div class="para_Fx2su table_RG0Jn MARK_MODULE" data-tag="paragraph" data-uuid="trd5Ubyh2cVd" data-idx=""><span class="text_hMg13 bold_qHWv4" data-text="true">名称</span></div></th><th width="654" align="center" rowspan="1" colspan="1" class="tableTh_AE_KM"><div class="para_Fx2su table_RG0Jn MARK_MODULE" data-tag="paragraph" data-uuid="trd5UbyCZF1Z" data-idx=""><span class="text_hMg13 bold_qHWv4" data-text="true">描述</span></div></th></tr><tr><td width="75" align="center" rowspan="1" colspan="1" class="tableTd_pgLdR" data-uuid="trd8j6uqVwmq"><div class="para_Fx2su table_RG0Jn MARK_MODULE" data-tag="paragraph" data-uuid="trd8j6uaBAWH" data-idx=""><span class="text_hMg13 bold_qHWv4" data-text="true">结构组件</span></div></td><td width="654" align="center" rowspan="1" colspan="1" class="tableTd_pgLdR" data-uuid="trd8j6uOo4ZO"><div class="para_Fx2su table_RG0Jn MARK_MODULE" data-tag="paragraph" data-uuid="trd8j6uLkxxo" data-idx=""><span class="text_hMg13" data-text="true">包括基础形状（地形模块、方块、圆环、圆台、圆锥、扇形、1/4圆环、自定义曲面、基础圆柱、球体、半球、半球壳等）、风格形状（立方体、庄园方块、冰地面、软糖方块、屏幕支撑柱等）、建材（方墙、三角墙、扇形墙等）、门窗（方形门、中式铜门、中式雕花方门、中式门钹等）、围栏（哥特铁艺围栏、冰路障、冰雪围栏、冰砖围栏等）、字符（A、B、C、D、E、F、G等）</span><span class="supWrap_w7wq9 J-supWrap"><sup data-tag="ref"><em id="sup-28"></em></sup></span></div></td></tr><tr><td width="75" align="center" rowspan="1" colspan="1" class="tableTd_pgLdR" data-uuid="trd5UbykO6As"><div class="para_Fx2su table_RG0Jn MARK_MODULE" data-tag="paragraph" data-uuid="trd5UbyHSVVM" data-idx=""><span class="text_hMg13 bold_qHWv4" data-text="true">物件组件</span></div></td><td width="654" align="center" rowspan="1" colspan="1" class="tableTd_pgLdR" data-uuid="trd5UbyOkLyp"><div class="para_Fx2su table_RG0Jn MARK_MODULE" data-tag="paragraph" data-uuid="trd5UbyNsAzX" data-idx=""><span class="text_hMg13" data-text="true">包括家具（原木茶几、圆矮桌、木质小桌、吉祥年夜饭桌、中式高脚桌等）、室内装饰（竹帘、贺岁红梅屏风、中式贵妃屏风、欧式屏风等）、灯具（球形灯、灯笼、中式灯笼、射灯等）、功能用品（货物板条箱、苹果货箱、辣椒箩筐、风扇、吊扇等）、日用品（毛线球、毛线筒、拼布针插包、缝布沙包、缝线毛衣针等）、厨卫（灶台、中式灶台、煤气罐、中式锅、星月魔法锅等）、食品（婚礼蛋糕、草莓纸杯蛋糕、提拉米苏、糖拉蛋糕、抹茶蛋糕、巧克力蛋糕等）、其他（麻将、扑克牌、烟花蜡烛、新春鞭炮、新春炮竹、积木按钮等）</span><span class="supWrap_w7wq9 J-supWrap"><sup data-tag="ref"><em id="sup-28"></em></sup></span></div></td></tr><tr><td width="75" align="center" rowspan="1" colspan="1" class="tableTd_pgLdR" data-uuid="trd5UbymZ3ms"><div class="para_Fx2su table_RG0Jn MARK_MODULE" data-tag="paragraph" data-uuid="trd5UbyQno6w" data-idx=""><span class="text_hMg13 bold_qHWv4" data-text="true">环境组件</span></div></td><td width="654" align="center" rowspan="1" colspan="1" class="tableTd_pgLdR" data-uuid="trd5Uby0uO5i"><div class="para_Fx2su table_RG0Jn MARK_MODULE" data-tag="paragraph" data-uuid="trd5UbylxlUa" data-idx=""><span class="text_hMg13" data-text="true">包括地貌（斜坡、平地、圆坡、雪山山体、海岛山体等）、树木（圆润树木、茂密树木、圆润树冠、茂密树冠、松柏树冠、花树冠球等）、植被（睡莲叶丛、竹杆、竹叶、藤本植物等）、建筑（半木架塔楼、微缩城堡、茅草屋、马戏团帐篷、大楼等）、环境装饰（中式秋千架、欧式秋千架、秋千架、中式秋千座椅、欧式秋千座椅、秋千座椅、机械齿轮等）、特效（粒子发射器、星星、火焰、星光火焰等）、贴纸（圆圈笔刷、圆点笔刷、扫、撇、捺、乱笔刷等）</span><span class="supWrap_w7wq9 J-supWrap"><sup data-tag="ref"><em id="sup-28"></em></sup></span></div></td></tr><tr><td width="75" align="center" rowspan="1" colspan="1" class="tableTd_pgLdR" data-uuid="trd6WABtfnGM"><div class="para_Fx2su table_RG0Jn MARK_MODULE" data-tag="paragraph" data-uuid="trd6WABZ9Qtm" data-idx=""><span class="text_hMg13 bold_qHWv4" data-text="true">机关组件</span></div></td><td width="654" align="center" rowspan="1" colspan="1" class="tableTd_pgLdR" data-uuid="trd6WABp8PDw"><div class="para_Fx2su table_RG0Jn MARK_MODULE" data-tag="paragraph" data-uuid="trd6WABru5Re" data-idx=""><span class="text_hMg13" data-text="true">包括运动机关（齿轮、十字齿轮、顺时针转盘、逆时针转盘、圆柱、搅拌器、圆环门等）、玩法机关（拼贴画板、炮台、大象炮台、杂耍猴炮台、史莱姆果实、追踪火箭、气球炸弹等）、功能机关（镜面、隐身区域、全息监控屏幕、电子相册、推广牌、风场等）、逻辑（指引点、蛋码路点、蛋码路径、通用触发区域、糖豆等）、物体（气垫圆柱、四面体、八面体、篮球、球、足球、保龄球等）、载具（车辆核心、船核心、飞行器核心、载具座椅、越野车轮子、月球车外观、月球卡车外观、赛车轮子、卡车轮子）、关节（弹簧、绳子、滑动导轨、门合页、球窝关节、刚性连接）</span><span class="supWrap_w7wq9 J-supWrap"><sup data-tag="ref"><em id="sup-28"></em></sup></span></div></td></tr><tr><td width="75" align="center" rowspan="1" colspan="1" class="tableTd_pgLdR" data-uuid="trd6WuxZYbMy"><div class="para_Fx2su table_RG0Jn MARK_MODULE" data-tag="paragraph" data-uuid="trd6WuxA87aT" data-idx=""><span class="text_hMg13 bold_qHWv4" data-text="true">生物组件</span></div></td><td width="654" align="center" rowspan="1" colspan="1" class="tableTd_pgLdR" data-uuid="trd6WuxINdFM"><div class="para_Fx2su table_RG0Jn MARK_MODULE" data-tag="paragraph" data-uuid="trd6WuxZbYVG" data-idx=""><span class="text_hMg13" data-text="true">包括蛋仔（平凡蛋、消防蛋、咖啡师、厨师蛋、劳动蛋、侦探蛋、学生蛋、探险蛋）、其他（变异蛋、魔鬼蛋、僵尸蛋、炸弹崽、大马哈鱼等）、自制（基础人型生物、基础四足生物、小男孩、蛋小黄—人形、蛋小粉—人形、momo岛形象、萌萌小狗）、鱼部件（长背鳍、长胸鳍、短胸鳍、弧背鳍、弧尾鳍等）</span><span class="supWrap_w7wq9 J-supWrap"><sup data-tag="ref"><em id="sup-28"></em></sup></span></div></td></tr><tr><td width="75" align="center" rowspan="1" colspan="1" class="tableTd_pgLdR" data-uuid="uNH3eYxeBYys"><div class="para_Fx2su table_RG0Jn MARK_MODULE" data-tag="paragraph" data-uuid="uNH3eYxliKJE" data-idx=""><span class="text_hMg13 bold_qHWv4" data-text="true">物品组件</span></div></td><td width="654" align="center" rowspan="1" colspan="1" class="tableTd_pgLdR" data-uuid="uNH3eYx2r2ui"><div class="para_Fx2su table_RG0Jn MARK_MODULE" data-tag="paragraph" data-uuid="uNH3pwcJbGNI" data-idx=""><span class="text_hMg13" data-text="true">包括通用（草莓奶昔、冰激凌、提拉米苏、草莓纸杯蛋糕、圣诞礼物盒、椭圆石头、古树枝杈、星星、神奇星星）、武器（连发霰弹枪、榴弹枪、狙击枪、咸鱼、盾牌、长剑、治愈之心、长枪、火箭筒、脉冲手炮、自动手枪、冲锋枪、突击步枪、重型机枪）</span><span class="supWrap_w7wq9 J-supWrap"><sup data-tag="ref"><em id="sup-28"></em></sup></span></div></td></tr><tr><td width="75" align="center" rowspan="1" colspan="1" class="tableTd_pgLdR" data-uuid="uNH3eRtNJpcg"><div class="para_Fx2su table_RG0Jn MARK_MODULE" data-tag="paragraph" data-uuid="uNH3eRtyeEGV" data-idx=""><span class="text_hMg13 bold_qHWv4" data-text="true">组合组件</span></div></td><td width="654" align="center" rowspan="1" colspan="1" class="tableTd_pgLdR" data-uuid="uNH3eRtnaj7E"><div class="para_Fx2su table_RG0Jn MARK_MODULE" data-tag="paragraph" data-uuid="uNH3pwd2MpUI" data-idx=""><span class="text_hMg13" data-text="true">包括官方（旋转栏杆、圆环发生器、摆锅、挡板转轮、摆荡秋千、彩虹秋千、哥特城墙、哥特城堡等）、自制、共享、载具（月球卡车、豪华游艇、喷气式飞机、邮差小摩托、月球车载具）、AI（AI别墅）、街区资源、谢礼</span><span class="supWrap_w7wq9 J-supWrap"><sup data-tag="ref"><em id="sup-28"></em></sup></span></div></td></tr></tbody></table>
+
+## 游戏评测
+蛋仔派对从未停下在UGC生态发展的道路，在这一路上他们对UGC深厚的热情和爱大家都有目共睹。努力尝试在有限的UGC壁垒内开拓出无限的可能，致力于为创作者的思想插上一双翅膀，加深了与玩家之间的感情链接，并在一定程度上给予了他们成就感，增强受众黏性和忠诚度的效果也就油然而生了。蛋仔派对的UGC生态文化年轻、热烈。在他们身上，我们能很明显地感受到官方想为玩家传递的一种共同成长、正向且积极的情感。（极目新闻评）
+
+《蛋仔派对》其独特的“宝宝蛋”模式，以强化未成年人社交及内容防护为基础，为未成年人营造了适宜的游戏环境。（消费日报网网评）
+
+《蛋仔派对》积极投身于文化传承的正向建设，通过创新的数字媒体形式，为传统文化注入新的活力。（新闻晨报评）
+
+## 游戏用户
+2023年12月8日晚间，网易旗下游戏《蛋仔派对》宣布，其累计注册用户数量突破5亿。
+
+2024年2月29日，网易公布了截至2023年12月31日的第四季度和财年未经审计的财务业绩。数据显示《蛋仔派对》自2022年上线以来，累计注册玩家超过5亿，在农历新年期间日活跃用户突破4000万。
+
+## 游戏事件
+截至2023年12月，已累计处理超过3万单疑似未成年相关退款申请，完成处理比率达98%。《蛋仔派对》推出的三大举措包括全渠道接入针对高风险人群调起人脸识别的机制，全平台设置未成年退款专属客服入口，以及上线一键禁止充值、禁止游戏功能。
+
+2024年3月，国民原创乐园游戏《蛋仔派对》宣布了一个重磅消息，将每年的3月正式定为「蛋仔守护月」，包括加大力度进行反诈宣传，还包括推出游戏防沉迷相关的创新举措，同时结合产品自身独具特色的UGC内容生态，进一步培养青少年玩家的公益意识等。
+
+2024年3月28日，网易《蛋仔派对》知名UGC地图《因蓝》的创作者@仟中酒在抖音发布视频称，因为创作的地图在《元梦之星》中被长期、多次地抄袭，已经向腾讯发起诉讼，案件已被受理，将于5月开庭。
+
+2024年4月23日，网易《蛋仔派对》发布声明，回应了“无法使用老年人身份证注册游戏账号”的情况。官方表示，《蛋仔派对》并未禁止老年人注册，只是强制70岁以上的用户进行人脸识别验证。《蛋仔派对》重视高龄玩家，但由于在人脸巡航中发现多起“未成年人冒用老年人身份进行游戏”的行为，所以权衡之后采取此措施巩固未成年人防沉迷。
+
+2024年6月，由网易《蛋仔派对》主导、联合社会各界共同打造的“六一关爱企划”正式上线。通过线上+线下、关爱公益与科普教育相结合的形式，《蛋仔派对》持续拓展数字文化产品的公益视野，践行企业社会责任，全面呵护青少年身心健康成长。
+
+2024年7月19日，名为“蛋仔派对”的游戏在儿童青少年群体中风靡，诈骗分子抓住了这款游戏的吸引力量身定制骗局，以“赠送皮肤、装备”等名义诱骗未成年人。7月初，株洲市公安局天元分局刑侦大队接到报警，8岁涵涵（化名）在游戏中被骗10279元。
+
+2025年1月25日，网易游戏《蛋仔派对》服务器疑似崩溃。对此，网易《蛋仔派对》官方微博回复，今夜登岛的蛋仔太过热情，导致服务器出现了不稳定，问题修复后会尽快为大家发放补偿。25日晚间，蛋仔派对官方发布《关于春节服务器异常的补偿公告》，宣布各项异常已被修复。
+
+2025年3月4日消息，据大量玩家反馈和对应官微公告，从昨晚开始，网易旗下的《蛋仔派对》等多款游戏同时出现服务器异常。用户无法登录或进行日常任务，部分玩家因为错过签到任务、活动等要求补偿。
+
+2025年3月，重庆市巴南区南泉街道市民唐先生查看账单发现，从3月下旬开始，几乎每天都有广东天宸的“蛋仔派对”等游戏扣款记录，金额从18元、30元、50元到120多元不等，“最多的一天扣了128元。唐先生告诉记者，我从不玩手机游戏，自己手机里也没预装，只有女儿在用手机玩一玩。”面对账单，唐先生才意识到，女儿可能没在查学习资料，而是去玩“蛋仔派对”等游戏。4月底，唐先生向“蛋仔派对”游戏所属公司广东天宸提交退款申请。唐先生回忆说：“第一次打客服电话，接通挺快。”根据客服要求，唐先生提供了未成年人消费的退费申请。客服在核实情况后，自4月27日至5月12日分批退回共计4660元。然而，唐先生并未松口气。5月2日，他手机又收到了30元的扣款提示，项目名为“奇妙之旅蜡烛礼包”。“游戏早卸载了，孩子也没再碰手机，游戏公司也在退款了，怎么还能继续扣？”唐先生向记者提供的交易截图显示，这一笔交易发生在退款过程中，令其深感疑惑。5月14日，上游新闻记者致电广东天宸热线核实，客服人员在核对交易单号确认该扣款存在，并表示：“将向上级部门反馈，具体情况将向当事人说明。”5月21日，唐先生收到游戏公司第二笔退款1600多元，至此累计退回金额达6200余元。“客服在沟通中解释，第一笔为游戏公司退款，第二笔为游戏平台代扣返还，未同步解绑协议可能是导致二次扣费的原因。”唐先生告诉记者，游戏公司已停止扣款。互联网观察者戴先生分析指出，一些平台即便卸载游戏、删除账号，仍保留扣费接口与授权协议。“普通家长往往并不清楚绑定逻辑，更谈不上及时关闭自动扣款服务和协议。”他建议家长在申请退款时，一并要求关闭所有自动续费功能，并保留通话录音与截图证据，以备核查。
+
+## 社会贡献
+
+2023年12月19日，网易公司及《蛋仔派对》决定向地震灾区（12月18日23时59分，甘肃临夏州积石山县发生6.2级地震）捐赠价值500万元物资，用于支持当地应急救灾、防寒取暖等工作。
+
+## 六小只
+<ImageSlider
+  :auto="true"
+  :time="1500"
+  :images="[
+    { id: 1, text: '六小只-1', link: '/pictures/eggy/eggy-all6-1.jpg' },
+    { id: 2, text: '六小只-2', link: '/pictures/eggy/eggy-all6-2.jpg' },
+    { id: 3, text: '六小只-3', link: '/pictures/eggy/eggy-all6-3.jpg' },
+    { id: 4, text: '六小只-4', link: '/pictures/eggy/eggy-all6-4.jpg' },
+  ]"
+/>

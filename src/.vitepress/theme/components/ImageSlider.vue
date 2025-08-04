@@ -239,9 +239,9 @@ const defaultColor = '#3c3c43';
     </div>
     <!-- 信息框，仅移动端可见 -->
     <!-- 信息框容器 -->
-    <div class="textbox-container">
+    <div class="textbox-container" v-if="ltext || rtext">
       <!-- 左信息框 -->
-      <div class="left-textbox image-preview-container mobile-only">
+      <div class="left-textbox image-preview-container mobile-only" v-if="ltext">
         <!-- 背景图 -->
         <div class="image-preview-bg">
           <div
@@ -258,7 +258,7 @@ const defaultColor = '#3c3c43';
         <span class="side-text left" :style="{ color: lcolor || defaultColor }">{{ ltext }}</span>
       </div>
       <!-- 右信息框 -->
-      <div class="right-textbox image-preview-container mobile-only">
+      <div class="right-textbox image-preview-container mobile-only" v-if="rtext">
         <!-- 背景图 -->
         <div class="image-preview-bg">
           <div
