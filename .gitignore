@@ -5,3 +5,4 @@ dist
 .idea
 .history/*
 /qodana.yaml
+/package-lock.json

@@ -115,7 +115,8 @@ function sidebarGuide(): DefaultTheme.Sidebar {
               items: [
                 { text: '介绍', link: '/' },
                 { text: '概览', link: '/map' },
-                { text: '雷电模拟器 ⚡', link: '/ldmnq' }
+                { text: '雷电模拟器 ⚡', link: '/ldmnq' },
+                { text: '蛋仔派对', link: '/eggy-party' }
               ]
             }
           ]

@@ -1,6 +1,6 @@
 {
   "name": "wg.docs",
-  "version": "Dev2.0,Preview19",
+  "version": "Dev2.0,Preview20",
   "type": "module",
   "scripts": {
     "docs:dev": "vitepress dev src",

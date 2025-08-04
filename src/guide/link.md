@@ -50,6 +50,10 @@ comment: true
       text: '雷电模拟器 ⚡',
     },
     {
+      link: '/resources/application/pack/eggy-party',
+      text: '蛋仔派对',
+    },
+    {
       link: '/resources/picture/map',
       text: '图片-概览',
     },

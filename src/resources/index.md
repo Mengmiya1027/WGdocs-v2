@@ -4,7 +4,7 @@ comment: false
 # 资源中心
 欢迎来到资源中心！本站资源按照以下类别进行分类：
 
-### 💻/📱 应用程序
+### 💻/📱 应用程序<badge type="warning" text="最近更新" />
 <br>
 <NCard title="⚙️ 独立型应用程序" link="/resources/application/single/">
   <mark>只包含一个文件</mark>的应用程序，类似单个exe、bat
@@ -14,13 +14,23 @@ comment: false
   <mark>包含多个文件</mark>的应用程序，需使用安装包或压缩包
 </NCard>
 
+### 🌐网站
+<br>
+<NCard title="网站" link="/resources/website/">
+  一些网站，如游戏网站、工具网站之类的
+</NCard>
+
 ### 🎵/🖼️  杂项文件
 <br>
 <NCard title="🖼️  照片" link="/resources/picture/">
   就是普普通通的图片a~
 </NCard>
 
-<NCard title="🎵️  音乐" link="/resources/single">
+<NCard title="⏯️  视频" link="/resources/video/">
+  咳咳  有些猎奇
+</NCard>
+
+<NCard title="🎵  音乐" link="/resources/music/">
   大多为BGM或音效，也有一些其他的~
 </NCard>
 
