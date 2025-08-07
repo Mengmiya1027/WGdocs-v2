@@ -162,6 +162,16 @@ function sidebarGuide(): DefaultTheme.Sidebar {
       ]
     },
     {
+      text: 'WGDocs Pro Service',
+      base: '/pro',
+      collapsed: false,
+      items: [
+        { text: '概览', link: '/' },
+        { text: '加速访问&镜像站点', link: '/speed' },
+        { text: '文件快递柜', link: '/filehelper' }
+      ]
+    },
+    {
       text: '社区',
       base: '/community',
       collapsed: false,

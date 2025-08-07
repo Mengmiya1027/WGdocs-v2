@@ -35,6 +35,7 @@ import Hero from '../theme/Layout.vue';
 import NCard from './components/NCard.vue';
 import MusicPlayer from './components/MusicPlayer.vue'
 import DownloadLinkCollector from './components/DownloadLinkCollector.vue'
+import LinkCard from './components/LinkCard.vue'
 
 import './custom.css';
 export default {
@@ -62,6 +63,7 @@ export default {
     app.component('MusicPlayer', MusicPlayer)
     app.component('ImageSlider', ImageSlider)
     app.component('DownloadLinkCollector', DownloadLinkCollector)
+    app.component('LinkCard', LinkCard)
     app.use(TwoslashFloatingVue as unknown as Plugin);
     app.use(NolebaseGitChangelogPlugin);
     app.provide(InjectionKey, {
