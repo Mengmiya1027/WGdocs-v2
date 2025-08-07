@@ -143,8 +143,8 @@ jobs:
         id: upload-to-lanzou
 
       # 错误报告
-      - name: Error summary
-        if: failure()
+      - name: 错误报告
+        if: failure()  # 修正此处的条件判断
         run: |
           echo "❌ 工作流执行失败"
-          echo "失败步骤: ${{ failure() && github.job }}"
+          echo "失败步骤所在任务: ${{ github.job }}"
