@@ -23,6 +23,13 @@ def main():
     # 解析 Cookie 字符串为字典
     lanzou_cookie = parse_cookie(lanzou_cookie_str)
 
+    # 调试：打印解析后的 Cookie 所有键（仅打印键名，避免泄露值）
+    print("解析后的 Cookie 包含以下键：", list(lanzou_cookie.keys()))
+
+    # 检查是否包含 ylogin 字段
+    if 'ylogin' not in lanzou_cookie:
+        raise ValueError("Cookie 中缺少 ylogin 字段，请重新获取完整的蓝奏云 Cookie")
+
     # 初始化蓝奏云客户端
     lzy = LanZouCloud()
 
