@@ -90,6 +90,10 @@ jobs:
               print(f"登录失败，错误码: {login_result}")
               exit(1)
 
+          # 获取环境变量中的文件名和文件夹ID
+          zip_name = os.environ['ZIP_NAME']
+          folder_id = os.environ['LANZOU_FOLDER_ID']
+
           # 上传文件
           file_id = lzy.upload_file(zip_name, folder_id)
           if file_id == LanZouCloud.FAILED:  # 明确判断失败状态码
