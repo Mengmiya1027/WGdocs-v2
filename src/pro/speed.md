@@ -23,9 +23,9 @@ title: Speed Service
 
 这样有了自定义域名，就可以享受Cloudflare的CDN服务了。
 
-wgdocs.dpdns.org访问的秒加载，就是这个偶然的发现带来的
-
 :::
+
+可以前往[站点列表](#镜像站点)或者[终极方案](#加速终极解决方案)
 
 ## 镜像站点
 
@@ -64,7 +64,7 @@ railway项目默认分配的地址。速度相比Cloudflare Pages要快一点，
 
 ::: danger 警告
 人机四川电信会把dpdns.org为后缀的域名解析到127.0.0.1本地回环地址，导致显示“拒绝连接”。<br>
-需要手动设置DNS为优质公共DNS，如CF的1.1.1.1，华为的114.114.114.114，谷歌的8.8.8.8。<br><a href="ms-settings:network-status" target="_blank">打开网络连接设置</a>
+需要手动设置DNS为优质公共DNS，如CF的1.1.1.1，华为的114.114.114.114，谷歌的8.8.8.8。<br><a href="ms-settings:network-status">打开网络连接设置</a>
 :::
 
 <LinkCard
@@ -84,15 +84,15 @@ railway项目默认分配的地址。速度相比Cloudflare Pages要快一点，
 ### 4.域名来自ClouDNS<badge type='tip' text='主同步频道' /><badge type='tip' text='快速' />
 
 <LinkCard
-  title="mengmiya1027.ip-ddns.com"
+  title="wgdocs.ip-ddns.com"
   bg-image="https://www.cloudns.net/i/cloudns_yt_image-fs8.png"
-  link="mengmiya1027.ip-ddns.com"
+  link="wgdocs.ip-ddns.com"
 />
 
 <LinkCard
-  title="mengmiya1027.ddns-ip.net"
+  title="wgdocs.ddns-ip.net"
   bg-image="https://www.cloudns.net/i/cloudns_yt_image-fs8.png"
-  link="mengmiya1027.ddns-ip.net"
+  link="wgdocs.ddns-ip.net"
 />
 
 ### 5.InfinityFree<badge type='tip' text='主同步频道' /><badge type='info' text='中速' />
@@ -127,3 +127,48 @@ link="0.0.0.0"
 如果你现在是在本地开发，那么localhost和0.0.0.0右侧按钮应该至少有一个为绿色选中状态。<br>
 否则右侧按钮应该为访问状态，如果你没启动开发服务请不要点击（因为点了也没用啊）
 :::
+
+## 加速终极解决方案
+
+直接下载最新构建版本的WGdocs。需要使用本地服务器工具。<br>
+内含最新版本：<mark>WGdocs版本Dev2.0, patch02, Preview21.1</mark>
+
+### 使用方法
+首先先在下方下载WGdocs构建文件。
+然后根据自己的电脑情况选择以下方式：
+
+::: details 1.Windows原生IIS工具
+1.<a href="ms-settings:optionalfeatures">点击此处打开可选应用</a>，翻到最下面点击`更多Windows功能`，勾选`Internet information services`下拉框的全部选项。
+
+2.搜索`IIS`打开`Internet information services（IIS）`，右击左侧网站导航栏，添加网站；如果没有找到IIS管理器，就需要看看第一步是否有勾选上IIS。
+
+3.配置网站信息，网站名称可以输入`www.wgdocs.top`，物理路径选择你刚刚下载的`dist`文件夹，IP可以不填，端口自定义，如果保存报错的话可能是端口被占用了。
+
+4.点击右侧的`浏览网站`下的`浏览*.****`，即可访问。
+:::
+
+::: details 2.使用Python的本地服务器（需要安装Python）
+1.先找到你下载的`dist`文件夹并打开。<br>
+2.点击上方地址栏，删除原有内容，并根据自己的Python版本输入以下命令：
+```bash
+# Python3.x
+python -m http.server 8080
+
+# Python2.x
+python -m SimpleHTTPServer 8080
+```
+3.访问 http://localhost:8080 。<br>
+:::
+
+<DownloadLinkCollector
+  title="WGdocs构建文件"
+  bg-image="https://img3.downza.cn/zt/202212/103056-6397e3e0afd4a.jpg"
+  bcolor="gold"
+  :downloads="[
+  {
+    text: '蓝奏云盘',
+    link: 'https://wwxb.lanzn.com/b00uzcsirc',
+    password: 'wgds',
+  },
+  ]"
+/>

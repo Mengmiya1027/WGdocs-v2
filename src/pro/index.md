@@ -8,8 +8,8 @@ title: Pro Service
 
 当前增强版本：
 
-::: warning WGdocs Pro Service版本Patch01
-更新日志：这次更新加入了部署在railway上的文件快递柜功能，以及一些镜像站点加速访问！
+::: warning WGdocs Pro Service版本Patch02
+更新日志：修正了加速服务被我手滑打错的域名，加入了网络终极解决方案：直接把源码上传到蓝奏云。
 :::
 
 ## Pro Menu

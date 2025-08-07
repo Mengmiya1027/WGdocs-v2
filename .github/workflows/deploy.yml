@@ -1,0 +1,55 @@
+name: Build and Upload to LanZouCloud
+
+on:
+  push:
+    branches: [ main ]  # 监听 main 分支推送
+
+jobs:
+  build-upload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build VitePress
+        run: npm run docs:build  # 假设构建命令为 docs:build，需与实际项目一致
+
+      - name: Get version and date
+        id: info
+        run: |
+          # 从 package.json 提取版本号
+          VERSION=$(node -p "require('./package.json').version")
+          # 获取当前日期（年-月-日）
+          DATE=$(date +"%Y-%m-%d")
+          # 组合文件名
+          ZIP_NAME="${VERSION}-${DATE}.zip"
+          echo "zip_name=$ZIP_NAME" >> $GITHUB_OUTPUT
+
+      - name: Package build files
+        run: |
+          # VitePress 构建输出目录为 src/.vitepress/dist
+          zip -r ${{ steps.info.outputs.zip_name }} src/.vitepress/dist
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.8
+
+      - name: Install Lanzou API
+        run: pip install lanzou-api
+
+      - name: Upload to LanZouCloud
+        run: python .github/scripts/upload_lanzou.py
+        env:
+          ZIP_PATH: ${{ steps.info.outputs.zip_name }}
+          LANZOU_COOKIE: ${{ secrets.LANZOU_COOKIE }}
+          LANZOU_FOLDER_ID: ${{ secrets.LANZOU_FOLDER_ID || '-1' }}  # -1 表示根目录
