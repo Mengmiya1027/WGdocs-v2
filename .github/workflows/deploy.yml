@@ -2,54 +2,149 @@ name: Build and Upload to LanZouCloud
 
 on:
   push:
-    branches: [ main ]  # 监听 main 分支推送
+    branches: [ main, master ]  # 触发分支
 
 jobs:
   build-upload:
     runs-on: ubuntu-latest
     steps:
-      - name: 检查代码
+      # 1. 检查代码
+      - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
 
-      - name: 安装Node.js
+      # 2. 安装Node.js和依赖
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20.x
           cache: 'npm'
 
-      - name: 安装依赖
-        run: npm install
+      - name: Install Node dependencies
+        run: npm ci
+        id: install-node
 
-      - name: 构建VitePress
-        run: npm run docs:build  # 假设构建命令为 docs:build，需与实际项目一致
+      # 3. 构建Vitepress
+      - name: Build Vitepress
+        run: npm run docs:build
+        working-directory: ${{ github.workspace }}
+        id: build-vitepress
+        continue-on-error: false
 
-      - name: 获取版本号和日期
-        id: info
+      # 4. 获取版本号和日期（北京时间）
+      - name: Get version and Beijing time
+        id: get-info
         run: |
-          # 从 package.json 提取版本号
           VERSION=$(node -p "require('./package.json').version")
-          # 获取当前日期（年-月-日）
-          DATE=$(date +"%Y-%m-%d")
-          # 组合文件名
-          ZIP_NAME="${VERSION}-${DATE}.zip"
-          echo "zip_name=$ZIP_NAME" >> $GITHUB_OUTPUT
+          # 设置时区为北京时间并格式化日期
+          DATE=$(TZ='Asia/Shanghai' date +'%Y-%m-%d')
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+          echo "DATE=$DATE" >> $GITHUB_ENV
+          echo "ZIP_NAME=${VERSION}-${DATE}.zip" >> $GITHUB_ENV
 
-      - name: 打包构建文件
+      # 5. 打包构建文件
+      - name: Package dist files
         run: |
-          # VitePress 构建输出目录为 src/.vitepress/dist
-          zip -r ${{ steps.info.outputs.zip_name }} src/.vitepress/dist
+          # 进入构建目录并打包
+          cd src/.vitepress/dist
+          zip -r ../../../${{ env.ZIP_NAME }} .
+          # 记录ZIP路径
+          echo "ZIP_PATH=${{ github.workspace }}/${{ env.ZIP_NAME }}" >> $GITHUB_ENV
+        id: package-zip
 
-      - name: 安装 Python 3.8
+      # 6. 安装Python
+      - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: 3.8
+          python-version: '3.10'
+          cache: 'pip'
 
-      - name: 安装最新 lanzou-api
-        run: pip install --upgrade lanzou-api  # 强制安装 2024+ 版本
+      # 7. 安装lanzou-api（从GitHub拉取最新版）
+      - name: Install LanZouCloud-API
+        run: |
+          git clone https://github.com/zaxtyson/LanZouCloud-API.git
+          cd LanZouCloud-API
+          pip install -r requirements.txt
+          pip install .
+        id: install-lanzou
 
-      - name: 上传到蓝奏云
-        run: python .github/scripts/upload_lanzou.py
+      # 8. 准备上传脚本
+      - name: Create upload script
+        run: |
+          cat > upload_to_lanzou.py << 'EOF'
+          import os
+          import json
+          from lanzou.api import LanZouCloud
+
+          def main():
+              # 读取环境变量
+              lanzou_cookie = os.getenv('LANZOU_COOKIE')
+              folder_id = os.getenv('LANZOU_FOLDER_ID')
+              zip_path = os.getenv('ZIP_PATH')
+              zip_name = os.getenv('ZIP_NAME')
+
+              # 验证环境变量
+              required_vars = [lanzou_cookie, folder_id, zip_path, zip_name]
+              if None in required_vars or '' in required_vars:
+                  raise ValueError("缺少必要的环境变量")
+
+              # 解析Cookie
+              try:
+                  cookie_dict = json.loads(lanzou_cookie)
+                  if not isinstance(cookie_dict, dict):
+                      raise TypeError("Cookie必须是JSON对象")
+              except json.JSONDecodeError:
+                  raise ValueError("Cookie格式错误，不是有效的JSON")
+
+              # 初始化客户端
+              lzy = LanZouCloud()
+
+              # 登录蓝奏云
+              login_result = lzy.login_by_cookie(cookie_dict)
+              if login_result != LanZouCloud.SUCCESS:
+                  raise Exception(f"登录失败，错误码: {login_result}")
+              print("✅ 蓝奏云登录成功")
+
+              # 检查文件是否存在
+              if not os.path.exists(zip_path):
+                  raise FileNotFoundError(f"打包文件不存在: {zip_path}")
+
+              # 上传文件
+              print(f"开始上传文件: {zip_name}")
+              upload_result = lzy.upload_file(zip_path, folder_id)
+          
+              # 处理上传结果
+              if upload_result[0] != LanZouCloud.SUCCESS:
+                  raise Exception(f"上传失败，错误码: {upload_result[0]}, 信息: {upload_result[1]}")
+          
+              print(f"✅ 上传成功！")
+              print(f"文件ID: {upload_result[1]}")
+              print(f"文件名: {upload_result[2]}")
+              print(f"文件大小: {upload_result[3]} bytes")
+
+          if __name__ == "__main__":
+              try:
+                  main()
+              except Exception as e:
+                  print(f"❌ 错误: {str(e)}")
+                  exit(1)
+          EOF
+        id: create-script
+
+      # 9. 登录并上传至蓝奏云
+      - name: Upload to LanZouCloud
         env:
-          ZIP_PATH: ${{ steps.info.outputs.zip_name }}
           LANZOU_COOKIE: ${{ secrets.LANZOU_COOKIE }}
-          LANZOU_FOLDER_ID: ${{ secrets.LANZOU_FOLDER_ID || '-1' }}  # -1 表示根目录
+          LANZOU_FOLDER_ID: ${{ secrets.LANZOU_FOLDER_ID }}
+          ZIP_PATH: ${{ env.ZIP_PATH }}
+          ZIP_NAME: ${{ env.ZIP_NAME }}
+        run: python upload_to_lanzou.py
+        id: upload-to-lanzou
+
+      # 错误报告
+      - name: Error summary
+        if: failure()
+        run: |
+          echo "❌ 工作流执行失败"
+          echo "失败步骤: ${{ failure() && github.job }}"
