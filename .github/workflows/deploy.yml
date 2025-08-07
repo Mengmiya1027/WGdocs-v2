@@ -91,15 +91,15 @@ jobs:
               exit(1)
 
           # 上传文件
-          folder_id = int(os.environ['LANZOU_FOLDER_ID'])
-          zip_name = os.environ['ZIP_NAME']
-          print(f"开始上传文件: {zip_name} 到文件夹ID: {folder_id}")
-
-          # 关键修复：根据API版本调整返回值处理
           file_id = lzy.upload_file(zip_name, folder_id)
-          if file_id <= 0:  # 失败时返回负数错误码，成功时返回正整数文件ID
-              print(f"上传失败，错误码: {file_id}")
-              exit(1)
+          if file_id == LanZouCloud.FAILED:  # 明确判断失败状态码
+            print(f"上传失败，错误码: {file_id}")
+            exit(1)
+          elif file_id > 0:  # 成功时返回正整数文件ID（符合源码中成功逻辑）
+            print(f"上传成功，文件ID: {file_id}")
+          else:
+            print(f"未知错误，返回值: {file_id}")
+            exit(1)
 
           print(f"上传成功，文件ID: {file_id}")
           exit(0)
