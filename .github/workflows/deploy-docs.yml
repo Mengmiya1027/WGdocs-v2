@@ -48,26 +48,14 @@ jobs:
           fi
 
       # 方案1：修改后的上传方式
-      - name: Upload to WebDAV (修正)
+      - name: Upload to WebDAV
         uses: bxb100/action-upload@main
         with:
           provider: webdav
           provider_options: |
-            endpoint=https://pan.huang1111.cn/dav
+            endpoint=https://https://pan.huang1111.cn/dav
             username=${{ secrets.WEBDAV_USERNAME }}
             password=${{ secrets.WEBDAV_PASSWORD }}
+            root=/Dev2.0/
           include: ${{ steps.info.outputs.ZIP_NAME }}
-          destination: /uploads/
-          flatten: true
-
-      # 方案3备选：cURL手动上传
-      - name: [备选] Upload with cURL
-        if: ${{ failure() }}  # 只有前一步失败时才运行
-        run: |
-          echo "尝试使用cURL手动上传..."
-          curl -v -T "$ZIP" -u "$USER:$PASS" "https://pan.huang1111.cn/dav/$ZIP_NAME"
-        env:
-          USER: ${{ secrets.WEBDAV_USERNAME }}
-          PASS: ${{ secrets.WEBDAV_PASSWORD }}
-          ZIP: ${{ steps.info.outputs.ZIP_NAME }}
-          ZIP_NAME: ${{ steps.info.outputs.ZIP_NAME }}
+          flatten: 'true'
