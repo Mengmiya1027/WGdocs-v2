@@ -48,13 +48,16 @@ jobs:
           zip -r ../../../WGdocs-${{ steps.get_version.outputs.VERSION }}-${{ steps.get_date.outputs.DATE }}.zip .
           cd ../../../
 
-      # 上传到WebDAV服务器
-      - name: Upload to WebDAV
-        uses: mikehaertl/webdav-action@v1
-        with:
-          url: https://pan.huang1111.cn/dav
-          path: '根目录/WGdocs构建文件'
-          user: ${{ secrets.WEBDAV_USERNAME }}
-          password: ${{ secrets.WEBDAV_PASSWORD }}
-          local: WGdocs-${{ steps.get_version.outputs.VERSION }}-${{ steps.get_date.outputs.DATE }}.zip
-          remote: WGdocs-${{ steps.get_version.outputs.VERSION }}-${{ steps.get_date.outputs.DATE }}.zip
+      # 安装curl并上传到WebDAV服务器
+      - name: Upload to WebDAV using curl
+        run: |
+          # 安装curl（通常已预装，但保险起见）
+          sudo apt-get update && sudo apt-get install -y curl
+          
+          # 定义文件名变量
+          FILENAME="WGdocs-${{ steps.get_version.outputs.VERSION }}-${{ steps.get_date.outputs.DATE }}.zip"
+          
+          # 使用curl上传到WebDAV
+          curl -u ${{ secrets.WEBDAV_USERNAME }}:${{ secrets.WEBDAV_PASSWORD }} \
+               -T "$FILENAME" \
+               "https://pan.huang1111.cn/dav/根目录/WGdocs构建文件/$FILENAME"
