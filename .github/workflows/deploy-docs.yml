@@ -1,51 +1,92 @@
-name: Build and Upload VitePress Docs
+name: 构建并上传VitePress文档
 
 on:
   push:
     branches:
       - main
+  workflow_dispatch:  # 允许手动触发，无需推送代码
 
 jobs:
   build-and-upload:
     runs-on: ubuntu-latest
+    name: 构建文档并上传到WebDAV
     steps:
-      - name: Checkout code
+      - name: 检出代码
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # 确保完整检出代码
 
-      - name: Setup Node.js
+      - name: 配置Node.js环境
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
+          cache-dependency-path: package-lock.json
 
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build VitePress site
-        run: npm run docs:build
-
-      - name: Extract version and date
-        id: info
+      - name: 安装依赖包
         run: |
-          VERSION=$(node -p "require('./package.json').version")
-          DATE=$(date +'%Y-%m-%d')
-          ZIP_NAME="WGdocs-${VERSION}-${DATE}.zip"
-          echo "ZIP_NAME=$ZIP_NAME" >> $GITHUB_OUTPUT
-          echo "✅ 生成文件名: $ZIP_NAME"
-
-      - name: Create zip package
-        run: |
-          cd src/.vitepress/dist
-          zip -r ../../../${{ steps.info.outputs.ZIP_NAME }} .
-          cd ../../../
-          if [ -f "${{ steps.info.outputs.ZIP_NAME }}" ]; then
-            echo "✅ 打包成功，文件大小: $(du -h ${{ steps.info.outputs.ZIP_NAME }})"
+          echo "🔧 开始安装项目依赖..."
+          if npm ci; then
+            echo "✅ 依赖安装成功"
           else
-            echo "❌ 打包失败，文件不存在"
+            echo "❌ 依赖安装失败，尝试使用npm install重试..."
+            npm install && echo "⚠️ 使用npm install安装成功" || (echo "❌ 依赖安装彻底失败" && exit 1)
+          fi
+
+      - name: 构建VitePress文档
+        run: |
+          echo "🔨 开始构建文档站点..."
+          if npm run docs:build; then
+            echo "✅ 文档构建成功"
+            echo "📂 构建目录内容："
+            ls -la src/.vitepress/dist
+          else
+            echo "❌ 文档构建失败"
             exit 1
           fi
 
-      - name: Upload to WebDAV root (指定库)
+      - name: 提取版本号和日期
+        id: info
+        run: |
+          echo "📌 提取版本信息..."
+          VERSION=$(node -p "require('./package.json').version")
+          if [ -z "$VERSION" ]; then
+            echo "❌ 无法从package.json获取版本号"
+            exit 1
+          fi
+          DATE=$(date +'%Y-%m-%d')
+          ZIP_NAME="WGdocs-${VERSION}-${DATE}.zip"
+          echo "ZIP_NAME=$ZIP_NAME" >> $GITHUB_OUTPUT
+          echo "✅ 生成压缩包名称：$ZIP_NAME"
+
+      - name: 压缩构建结果
+        id: zip
+        run: |
+          echo "🗜️ 开始压缩构建文件..."
+          cd src/.vitepress/dist
+          if zip -r ../../../${{ steps.info.outputs.ZIP_NAME }} .; then
+            cd ../../../
+            echo "✅ 压缩成功"
+            echo "📦 压缩包信息："
+            ls -la ${{ steps.info.outputs.ZIP_NAME }}
+            echo "文件大小：$(du -h ${{ steps.info.outputs.ZIP_NAME }})"
+            echo "SIZE=$(du -h ${{ steps.info.outputs.ZIP_NAME }})" >> $GITHUB_OUTPUT
+          else
+            echo "❌ 压缩失败"
+            exit 1
+          fi
+
+      - name: 验证WebDAV机密配置
+        run: |
+          echo "🔍 验证WebDAV认证信息..."
+          if [ -z "${{ secrets.WEBDAV_USERNAME }}" ] || [ -z "${{ secrets.WEBDAV_PASSWORD }}" ]; then
+            echo "❌ 错误：WebDAV用户名或密码未配置"
+            exit 1
+          else
+            echo "✅ 认证信息已配置"
+          fi
+
+      - name: 上传到WebDAV根目录
         uses: bxb100/action-upload@main
         with:
           provider: webdav
@@ -53,6 +94,26 @@ jobs:
             endpoint=https://pan.huang1111.cn/dav
             username=${{ secrets.WEBDAV_USERNAME }}
             password=${{ secrets.WEBDAV_PASSWORD }}
-            root=/  # 明确指定根目录
+            root=/
           include: ${{ steps.info.outputs.ZIP_NAME }}
-          flatten: true  # 强制直接上传文件，不创建任何子目录
+          flatten: true
+        continue-on-error: true  # 出错后不立即终止，继续执行后续检查
+        id: upload
+
+      - name: 上传结果检查
+        run: |
+          echo "📋 检查上传结果..."
+          if [ "${{ steps.upload.outcome }}" = "success" ]; then
+            echo "🎉 上传成功！"
+            echo "上传文件：${{ steps.info.outputs.ZIP_NAME }}"
+            echo "文件大小：${{ steps.zip.outputs.SIZE }}"
+          else
+            echo "❌ 上传失败，尝试使用curl手动上传..."
+            # 备用上传方案
+            curl -u ${{ secrets.WEBDAV_USERNAME }}:${{ secrets.WEBDAV_PASSWORD }} \
+              -T ${{ steps.info.outputs.ZIP_NAME }} \
+              "https://pan.huang1111.cn/dav/${{ steps.info.outputs.ZIP_NAME }}" \
+              --show-error --fail \
+              && echo "✅ 备用方案上传成功" \
+              || (echo "❌ 所有上传方案均失败" && exit 1)
+          fi
