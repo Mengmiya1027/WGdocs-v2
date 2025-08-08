@@ -1,6 +1,5 @@
 name: Build and Deploy VitePress Docs
 
-# 监听main分支的推送事件
 on:
   push:
     branches: [ main ]
@@ -10,54 +9,63 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 检出代码仓库
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      # 设置Node.js环境
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20.x
           cache: 'npm'
 
-      # 安装依赖
       - name: Install dependencies
         run: npm ci
+        continue-on-error: false
 
-      # 构建文档
       - name: Build docs
         run: npm run docs:build
+        continue-on-error: false
 
-      # 读取package.json中的版本号
+      - name: Check build directory exists
+        run: |
+          if [ -d "src/.vitepress/dist" ]; then
+            echo "Build directory exists"
+            ls -la src/.vitepress/dist
+          else
+            echo "Error: Build directory not found!"
+            exit 1
+          fi
+
       - name: Get version from package.json
         id: get_version
         run: echo "VERSION=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
 
-      # 获取当前日期
       - name: Get current date
         id: get_date
         run: echo "DATE=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
 
-      # 打包构建结果为zip文件
       - name: Package build files
         run: |
           cd src/.vitepress/dist
           zip -r ../../../WGdocs-${{ steps.get_version.outputs.VERSION }}-${{ steps.get_date.outputs.DATE }}.zip .
           cd ../../../
+          echo "Created zip file:"
+          ls -la WGdocs-${{ steps.get_version.outputs.VERSION }}-${{ steps.get_date.outputs.DATE }}.zip
 
-      # 安装curl并上传到WebDAV服务器
-      - name: Upload to WebDAV using curl
+      - name: Upload to WebDAV
+        uses: guillaumebriday/webdav-action@v1.7.0
+        with:
+          webdav_hostname: https://pan.huang1111.cn
+          webdav_username: ${{ secrets.WEBDAV_USERNAME }}
+          webdav_password: ${{ secrets.WEBDAV_PASSWORD }}
+          webdav_path: /dav/根目录/WGdocs构建文件
+          local_path: ./WGdocs-${{ steps.get_version.outputs.VERSION }}-${{ steps.get_date.outputs.DATE }}.zip
+          options: '-v'  # 详细输出模式，显示上传过程和服务器响应
+
+      - name: Verify upload
+        if: success() || failure()
         run: |
-          # 安装curl（通常已预装，但保险起见）
-          sudo apt-get update && sudo apt-get install -y curl
-          
-          # 定义文件名变量
-          FILENAME="WGdocs-${{ steps.get_version.outputs.VERSION }}-${{ steps.get_date.outputs.DATE }}.zip"
-          
-          # 使用curl上传到WebDAV
-          curl -u ${{ secrets.WEBDAV_USERNAME }}:${{ secrets.WEBDAV_PASSWORD }} \
-               -T "$FILENAME" \
-               "https://pan.huang1111.cn/dav/根目录/WGdocs构建文件/$FILENAME"
+          echo "Upload process completed with status: ${{ job.status }}"
+          echo "If upload failed, check the WebDAV Action logs above for server response details"
