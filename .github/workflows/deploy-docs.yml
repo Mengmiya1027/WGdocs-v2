@@ -56,6 +56,6 @@ jobs:
             endpoint=https://https://pan.huang1111.cn/dav
             username=${{ secrets.WEBDAV_USERNAME }}
             password=${{ secrets.WEBDAV_PASSWORD }}
-            root=/Dev2.0/
+            root=/
           include: ${{ steps.info.outputs.ZIP_NAME }}
           flatten: 'true'
