@@ -30,7 +30,7 @@ jobs:
           RAW_VERSION=$(node -p "require('./package.json').version")
           CLEAN_VERSION=$(echo "$RAW_VERSION" | sed 's/,/_/g')
           DATE=$(date +'%Y-%m-%d')
-          ZIP_NAME="WGdocs-${CLEAN_VERSION}-${DATE}.zip"
+          ZIP_NAME="WGdocs-${DATE}.zip"
           echo "ZIP_NAME=$ZIP_NAME" >> $GITHUB_OUTPUT
           echo "✅ 生成文件名: $ZIP_NAME"
 
