@@ -1,4 +1,4 @@
-name: Build and Upload Docs
+name: Build and Upload VitePress Docs
 
 on:
   push:
@@ -8,45 +8,44 @@ on:
 jobs:
   build-and-upload:
     runs-on: ubuntu-latest
-
     steps:
-      # 1. 检出源码
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      # 2. 安装 Node 环境
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: npm
+          node-version: '20'
+          cache: 'npm'
 
-      # 3. 安装依赖
       - name: Install dependencies
         run: npm ci
 
-      # 4. 构建文档
-      - name: Build docs
+      - name: Build VitePress site
         run: npm run docs:build
 
-      # 5. 读取版本号并生成文件名
-      - name: Get version and date
-        id: vars
+      - name: Extract version and date
+        id: info
         run: |
-          # 先在仓库里找到 package.json
-          PKG_FILE=$(find . -type f -name 'package.json' | head -n 1)
-          VERSION=$(jq -r '.version' "$PKG_FILE")
-          DATE=$(date +%Y-%m-%d)
-          echo "package_name=WGdocs-${VERSION}-${DATE}.zip" >> $GITHUB_OUTPUT
+          VERSION=$(node -p "require('./package.json').version")
+          DATE=$(date +'%Y-%m-%d')
+          ZIP_NAME="WGdocs-${VERSION}-${DATE}.zip"
+          echo "ZIP_NAME=$ZIP_NAME" >> $GITHUB_OUTPUT
+          echo "✅ 生成文件名: $ZIP_NAME"
 
-      # 6. 将构建结果打包为 zip
-      - name: Zip dist
+      - name: Create zip package
         run: |
           cd src/.vitepress/dist
-          zip -r "../../../${{ steps.vars.outputs.package_name }}" .
+          zip -r ../../../${{ steps.info.outputs.ZIP_NAME }} .
+          cd ../../../
+          if [ -f "${{ steps.info.outputs.ZIP_NAME }}" ]; then
+            echo "✅ 打包成功，文件名称: $(du -h ${{ steps.info.outputs.ZIP_NAME }})"
+          else
+            echo "❌ 打包失败，文件不存在"
+            exit 1
+          fi
 
-      # 7. 上传到 WebDAV
-      - name: Upload to WebDAV
+      - name: Upload to WebDAV root
         uses: bxb100/action-upload@main
         with:
           provider: webdav
@@ -55,4 +54,5 @@ jobs:
             username=${{ secrets.WEBDAV_USERNAME }}
             password=${{ secrets.WEBDAV_PASSWORD }}
             root=/
-          include: ${{ steps.vars.outputs.package_name }}
+          include: ${{ steps.info.outputs.ZIP_NAME }}
+          flatten: true
