@@ -53,7 +53,7 @@ jobs:
         with:
           provider: webdav
           provider_options: |
-            endpoint=https://https://pan.huang1111.cn/dav
+            endpoint=https://pan.huang1111.cn/dav
             username=${{ secrets.WEBDAV_USERNAME }}
             password=${{ secrets.WEBDAV_PASSWORD }}
             root=/
