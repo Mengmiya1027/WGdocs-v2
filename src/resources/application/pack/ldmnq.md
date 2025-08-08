@@ -41,7 +41,7 @@ comment: false
 
 <DownloadLinkCollector
   title="下载链接（可能失效）"
-  bg-image="/pictures/ldmnq.jpg"
+  bg-image="/pictures/application/ldmnq.jpg"
   tcolor="#00baff"
   :downloads="[
     {

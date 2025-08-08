@@ -181,7 +181,7 @@ JiYu Trainer 是一款针对极域电子教室的工具软件，主要功能为�
 
 <DownloadLinkCollector
   title="下载链接"
-  bg-image="/pictures/mythware.png"
+  bg-image="/pictures/application/mythware.png"
   tcolor="#00baff"
   :downloads="[
     {
@@ -480,7 +480,7 @@ IP地址：从对方电脑获取到的它的局域网IP，如果想同时发多�
 
 <DownloadLinkCollector
   title="下载链接"
-  bg-image="/pictures/mythware.png"
+  bg-image="/pictures/application/mythware.png"
   tcolor="#00baff"
   bcolor="orange"
   :downloads="[
@@ -716,7 +716,7 @@ public class Program
 
 <DownloadLinkCollector
   title="下载链接"
-  bg-image="/pictures/mythware.png"
+  bg-image="/pictures/application/mythware.png"
   tcolor="#00baff"
   :downloads="[
     {

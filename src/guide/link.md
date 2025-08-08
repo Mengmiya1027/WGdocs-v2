@@ -54,6 +54,22 @@ comment: true
       text: '蛋仔派对',
     },
     {
+      link: '/resources/website/',
+      text: '网站-介绍',
+    },
+    {
+      link: '/resources/website/map',
+      text: '网站-概览',
+    },
+    {
+      link: '/resources/website/mc-js',
+      text: 'MC.js',
+    },
+    {
+      link: '/resources/website/yschou',
+      text: '原神抽卡模拟器',
+    },
+    {
       link: '/resources/picture/map',
       text: '图片-概览',
     },
@@ -84,6 +100,18 @@ comment: true
     {
       link: '/resources/video/penguin',
       text: '嚣张牌小品的珍贵实录',
+    },
+    {
+      link: '/pro',
+      text: 'WGdocs Pro Service-概览',
+    },
+    {
+      link: '/pro/speed',
+      text: '加速访问&镜像站点',
+    },
+    {
+      link: '/pro/filehelper',
+      text: '文件快递柜',
     },
     {
       link: '/community/upload',

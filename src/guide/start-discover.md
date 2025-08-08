@@ -1,9 +1,9 @@
 ---
 comment: false
 ---
-# WGdocs<Badge type="warning" text="版本Dev2.0, Patch02, Preview21.1" />
+# WGdocs<Badge type="warning" text="版本Dev2.0, Preview22" />
 
-### 快速开始<Badge type="tip" text="经典" />
+### 快速开始<Badge type="tip" text="经典" /><badge type="warning" text="最近更新" />
 <br>
 <NCard title="🔎 探索资源" link="/resources/">
 查看、了解、下载本站收录资源。<br>
@@ -17,7 +17,7 @@ comment: false
 直接胡编乱造！
 </NCard>
 
-### WGdocs Pro Service<badge type="warning" text="最近更新" />
+### WGdocs Pro Service
 <br>
 <NCard title="✨ WGdocs Pro Service" link="/pro/">
 专业版服务！提供一些额外功能~

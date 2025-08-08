@@ -99,7 +99,7 @@ WASD控制移动，空格跳跃，Q滚动，R技能，左键扑（或疯狂乱�
 
 ---
 
-![蛋仔岛](/pictures/蛋仔岛.webp)
+![蛋仔岛](/pictures/application/蛋仔岛.webp)
 
 ## 特色系统
 ### 游戏模式

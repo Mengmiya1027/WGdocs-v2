@@ -69,7 +69,7 @@ railway项目默认分配的地址。速度相比Cloudflare Pages要快一点，
 
 <LinkCard
   title="wgdocs.dpdns.org"
-  bg-image="/pictures/Cloudflare账户.png"
+  bg-image="/pictures/application/Cloudflare账户.png"
   link="wgdocs.dpdns.org"
 />
 
@@ -77,7 +77,7 @@ railway项目默认分配的地址。速度相比Cloudflare Pages要快一点，
 
 <LinkCard
   title="mengmiya1027.dpdns.org"
-  bg-image="/pictures/Cloudflare账户.png"
+  bg-image="/pictures/application/Cloudflare账户.png"
   link="mengmiya1027.dpdns.org"
 />
 
@@ -99,10 +99,18 @@ railway项目默认分配的地址。速度相比Cloudflare Pages要快一点，
 
 <LinkCard
   title="wgdocs.mmy.kesug.com"
-  bg-image="/pictures/Cloudflare账户.png"
+  bg-image="/pictures/application/Cloudflare账户.png"
   link="wgdocs.mmy.kesug.com"
 />
 从infinityfree分出来的CNAME记录的域名
+
+### 6.Netlify部署分配地址<badge type='tip' text='主同步频道' /><badge type='info' text='中速' />
+
+<LinkCard
+  title="wgdocs.netlify.app"
+  bg-image="https://www.netlify.com/assets/logos/full/small/lightmode/logo-netlify-small-monochrome-lightmode.svg"
+  link="wgdocs.netlify.app"
+/>
 
 ---
 
@@ -110,7 +118,7 @@ railway项目默认分配的地址。速度相比Cloudflare Pages要快一点，
 
 ---
 
-### 6.Localhost<badge type='warning' text='测试用' />
+### 7.Localhost<badge type='warning' text='测试用' />
 <LinkCard
   title="localhost"
   bg-image="https://www.keneuc.cn/uploads/allimg/20221207/1-22120FI502V1.jpg"
@@ -131,7 +139,7 @@ link="0.0.0.0"
 ## 加速终极解决方案
 
 直接下载最新构建版本的WGdocs。需要使用本地服务器工具。<br>
-内含最新版本：<mark>WGdocs版本Dev2.0, patch02, Preview21.1</mark>
+内含最新版本：<mark>WGdocs版本Dev2.0, Preview22</mark>
 
 ### 使用方法
 首先先在下方下载WGdocs构建文件。
@@ -170,9 +178,8 @@ https://localhost:8080
   bcolor="gold"
   :downloads="[
   {
-    text: '蓝奏云盘',
-    link: 'https://wwxb.lanzn.com/b00uzcsirc',
-    password: 'wgds',
+    text: 'huang1111网盘',
+    link: 'https://pan.huang1111.cn/s/DVOn5I4',
   },
   ]"
 />

@@ -5,6 +5,7 @@ export const zh = defineConfig({
   description: '使用VitePress进行构建、NapcatQQ Docs模板进行开发的v2新版',
 
   themeConfig: {
+
     nav: nav(),
     sidebar: sidebarGuide(),
 
@@ -56,6 +57,15 @@ export const zh = defineConfig({
           }
         }
       }
+    },
+    notFound: {
+        code: '404',
+        title: '页面未找到',
+        quote: '您访问的页面找不到啦~\n' +
+            '可以试试返回上个链接\n' +
+            '或者点击下面的按钮返回主页哦~',
+        linkLabel: '返回主页面',
+        linkText: '返回主页面'
     }
   }
 })
@@ -96,12 +106,12 @@ function sidebarGuide(): DefaultTheme.Sidebar {
         {
           text: '应用程序',
           base: '/resources/application',
-          collapsed: false,
+          collapsed: true,
           items: [  /* 应用程序 仿照这里的格式进行编写*/
             {
               text: '独立型应用程序',
               base: '/resources/application/single',
-              collapsed: false,
+              collapsed: true,
               items: [
                 { text: '介绍', link: '/' },
                 { text: '概览', link: '/map' },
@@ -111,7 +121,7 @@ function sidebarGuide(): DefaultTheme.Sidebar {
             {
               text: '打包型应用程序',
               base: '/resources/application/pack',
-              collapsed: false,
+              collapsed: true,
               items: [
                 { text: '介绍', link: '/' },
                 { text: '概览', link: '/map' },
@@ -124,17 +134,18 @@ function sidebarGuide(): DefaultTheme.Sidebar {
         {
           text: '网站',
           base: '/resources/website',
-          collapsed: false,
+          collapsed: true,
           items: [
             { text: '介绍', link: '/' },
             { text: '概览', link: '/map' },
             { text: 'MC.js', link: '/mc-js' },
+            { text: '原神抽卡模拟器', link: '/yschou' },
           ]
         },
         {
           text: '图片',
           base: '/resources/picture',
-          collapsed: false,
+          collapsed: true,
           items: [
             { text: '概览', link: '/map' },
             {
@@ -153,7 +164,7 @@ function sidebarGuide(): DefaultTheme.Sidebar {
         {
           text: '视频',
           base: '/resources/video',
-          collapsed: false,
+          collapsed: true,
           items: [
             { text: '概览', link: '/map' },
             { text: '嚣张牌小品的珍贵实录', link: '/penguin' }
@@ -162,7 +173,7 @@ function sidebarGuide(): DefaultTheme.Sidebar {
       ]
     },
     {
-      text: 'WGDocs Pro Service',
+      text: 'WGdocs Pro Service',
       base: '/pro',
       collapsed: false,
       items: [
