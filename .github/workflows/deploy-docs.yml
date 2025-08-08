@@ -1,77 +1,56 @@
-name: 构建并上传VitePress文档
+name: Build and Upload Docs
 
 on:
   push:
     branches:
       - main
-  workflow_dispatch:
 
 jobs:
   build-and-upload:
     runs-on: ubuntu-latest
+
     steps:
-      - name: 检出代码
+      # 1. 检出源码
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: 配置Node.js
+      # 2. 安装 Node 环境
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'
+          node-version: 20
+          cache: npm
 
-      - name: 安装依赖
+      # 3. 安装依赖
+      - name: Install dependencies
         run: npm ci
 
-      - name: 构建文档
+      # 4. 构建文档
+      - name: Build docs
         run: npm run docs:build
 
-      - name: 提取版本和日期
-        id: info
+      # 5. 读取版本号并生成文件名
+      - name: Get version and date
+        id: vars
         run: |
-          VERSION=$(node -p "require('./package.json').version")
-          DATE=$(date +'%Y-%m-%d')
-          ZIP_NAME="WGdocs-${VERSION}-${DATE}.zip"
-          echo "ZIP_NAME=$ZIP_NAME" >> $GITHUB_OUTPUT
+          VERSION=$(jq -r '.version' WGdocs-package.json)
+          DATE=$(date +%Y-%m-%d)
+          echo "package_name=${VERSION}-${DATE}.zip" >> $GITHUB_OUTPUT
 
-      - name: 压缩文件
+      # 6. 将构建结果打包为 zip
+      - name: Zip dist
         run: |
           cd src/.vitepress/dist
-          zip -r ../../../${{ steps.info.outputs.ZIP_NAME }} .
-          cd ../../../
-          echo "文件大小: $(du -h ${{ steps.info.outputs.ZIP_NAME }})"
+          zip -r ../../../${{ steps.vars.outputs.package_name }} .
 
-      - name: 模拟手动上传（关键优化）
-        run: |
-          echo "📤 开始模拟手动上传环境..."
-          # 1. 先获取手动上传时的Cookie（如果手动上传需要登录态）
-          # 注意：以下Cookie仅为示例，需要替换为你手动上传时浏览器的真实Cookie
-          # 如何获取：手动上传时打开浏览器F12→Network→找到上传请求→复制Request Headers中的Cookie
-          COOKIE="your_manual_upload_cookie_here"  # 替换为你的真实Cookie
-
-          # 2. 完全模拟手动上传的请求头（从浏览器复制）
-          curl -v \  # 显示详细请求日志，方便对比
-            -u ${{ secrets.WEBDAV_USERNAME }}:${{ secrets.WEBDAV_PASSWORD }} \
-            -T ${{ steps.info.outputs.ZIP_NAME }} \
-            "https://pan.huang1111.cn/dav/${{ steps.info.outputs.ZIP_NAME }}" \
-            -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36" \
-            -H "Accept: */*" \
-            -H "Accept-Language: zh-CN,zh;q=0.9" \
-            -H "Connection: keep-alive" \
-            -H "Content-Type: application/zip" \
-            -H "Cookie: $COOKIE" \  # 携带手动上传时的Cookie
-            --http1.1 \  # 强制使用HTTP/1.1（很多手动上传工具默认用这个版本）
-            --show-error --fail
-
-      - name: 若以上失败，尝试无认证信息但带Cookie上传（特殊情况）
-        if: failure()
-        run: |
-          echo "📤 尝试仅用Cookie上传（部分服务器依赖Cookie而非账号密码）..."
-          COOKIE="your_manual_upload_cookie_here"  # 同上，替换为真实Cookie
-          curl -v \
-            -T ${{ steps.info.outputs.ZIP_NAME }} \
-            "https://pan.huang1111.cn/dav/${{ steps.info.outputs.ZIP_NAME }}" \
-            -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36" \
-            -H "Cookie: $COOKIE" \
-            -H "Content-Type: application/zip" \
-            --http1.1 \
-            --show-error --fail
+      # 7. 上传到 WebDAV
+      - name: Upload to WebDAV
+        uses: bxb100/action-upload@main
+        with:
+          provider: webdav
+          provider_options: |
+            endpoint=https://pan.huang1111.cn/dav
+            username=${{ secrets.WEBDAV_USERNAME }}
+            password=${{ secrets.WEBDAV_PASSWORD }}
+            root=/
+          include: ${{ steps.vars.outputs.package_name }}
