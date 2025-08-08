@@ -29,7 +29,6 @@ jobs:
         run: |
           VERSION=$(node -p "require('./package.json').version")
           DATE=$(date +'%Y-%m-%d')
-          # 保持原始版本号格式（包含逗号等特殊字符）
           ZIP_NAME="WGdocs-${VERSION}-${DATE}.zip"
           echo "ZIP_NAME=$ZIP_NAME" >> $GITHUB_OUTPUT
           echo "✅ 生成文件名: $ZIP_NAME"
@@ -39,25 +38,14 @@ jobs:
           cd src/.vitepress/dist
           zip -r ../../../${{ steps.info.outputs.ZIP_NAME }} .
           cd ../../../
-          # 确认文件存在且为正常文件
           if [ -f "${{ steps.info.outputs.ZIP_NAME }}" ]; then
-            echo "✅ 验证成功：${{ steps.info.outputs.ZIP_NAME }} 是有效文件"
-            ls -la ${{ steps.info.outputs.ZIP_NAME }}
+            echo "✅ 打包成功，文件大小: $(du -h ${{ steps.info.outputs.ZIP_NAME }})"
           else
-            echo "❌ 验证失败：${{ steps.info.outputs.ZIP_NAME }} 不是有效文件"
+            echo "❌ 打包失败，文件不存在"
             exit 1
           fi
 
-      - name: Test WebDAV file upload with curl
-        run: |
-          # 使用curl手动尝试上传，验证是否支持带特殊字符的文件名
-          echo "📤 尝试用curl手动上传测试..."
-          curl -u ${{ secrets.WEBDAV_USERNAME }}:${{ secrets.WEBDAV_PASSWORD }} \
-            -T ${{ steps.info.outputs.ZIP_NAME }} \
-            "https://pan.huang1111.cn/dav/WGdocs构建文件/${{ steps.info.outputs.ZIP_NAME }}" \
-            --show-error
-
-      - name: Upload to WebDAV (保留原始文件名)
+      - name: Upload to WebDAV root (指定库)
         uses: bxb100/action-upload@main
         with:
           provider: webdav
@@ -65,6 +53,6 @@ jobs:
             endpoint=https://pan.huang1111.cn/dav
             username=${{ secrets.WEBDAV_USERNAME }}
             password=${{ secrets.WEBDAV_PASSWORD }}
-            root=/WGdocs构建文件/
+            root=/  # 明确指定根目录
           include: ${{ steps.info.outputs.ZIP_NAME }}
-          flatten: true  # 强制扁平化，避免创建目录
+          flatten: true  # 强制直接上传文件，不创建任何子目录
