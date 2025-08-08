@@ -27,9 +27,8 @@ jobs:
       - name: Extract version and date
         id: info
         run: |
-          # 获取版本号并将逗号替换为下划线
           RAW_VERSION=$(node -p "require('./package.json').version")
-          CLEAN_VERSION=$(echo "$RAW_VERSION" | sed 's/,/_/g')  # 仅替换逗号
+          CLEAN_VERSION=$(echo "$RAW_VERSION" | sed 's/,/_/g')
           DATE=$(date +'%Y-%m-%d')
           ZIP_NAME="WGdocs-${CLEAN_VERSION}-${DATE}.zip"
           echo "ZIP_NAME=$ZIP_NAME" >> $GITHUB_OUTPUT
@@ -39,15 +38,17 @@ jobs:
         run: |
           cd src/.vitepress/dist
           zip -r ../../../${{ steps.info.outputs.ZIP_NAME }} .
-          cd ../../../
+          cd ../../..
           if [ -f "${{ steps.info.outputs.ZIP_NAME }}" ]; then
-            echo "✅ 打包成功，文件名称: $(du -h ${{ steps.info.outputs.ZIP_NAME }})"
+            SIZE=$(du -h "${{ steps.info.outputs.ZIP_NAME }}" | cut -f1)
+            echo "✅ 打包成功: ${{ steps.info.outputs.ZIP_NAME }} ($SIZE)"
           else
             echo "❌ 打包失败，文件不存在"
             exit 1
           fi
 
-      - name: Upload to WebDAV
+      # 方案1：修改后的上传方式
+      - name: Upload to WebDAV (修正)
         uses: bxb100/action-upload@main
         with:
           provider: webdav
@@ -55,6 +56,18 @@ jobs:
             endpoint=https://pan.huang1111.cn/dav
             username=${{ secrets.WEBDAV_USERNAME }}
             password=${{ secrets.WEBDAV_PASSWORD }}
-            root=/
           include: ${{ steps.info.outputs.ZIP_NAME }}
+          destination: /uploads/
           flatten: true
+
+      # 方案3备选：cURL手动上传
+      - name: [备选] Upload with cURL
+        if: ${{ failure() }}  # 只有前一步失败时才运行
+        run: |
+          echo "尝试使用cURL手动上传..."
+          curl -v -T "$ZIP" -u "$USER:$PASS" "https://pan.huang1111.cn/dav/$ZIP_NAME"
+        env:
+          USER: ${{ secrets.WEBDAV_USERNAME }}
+          PASS: ${{ secrets.WEBDAV_PASSWORD }}
+          ZIP: ${{ steps.info.outputs.ZIP_NAME }}
+          ZIP_NAME: ${{ steps.info.outputs.ZIP_NAME }}
