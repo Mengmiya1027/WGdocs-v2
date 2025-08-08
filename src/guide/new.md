@@ -232,10 +232,12 @@ textcolor="black"
 ::: warning
 - <span style="color: purple;">~~移动端显示会出现问题~~</span>   已适配✅
 - ~~但是过宽的移动端显示会出现元素不占满卡片的问题，目前还没有找到解决方法，也不想修了。~~    没想到吧被修啦✅~
-- Cloudflare Pages 禁止上传超过25MB的文件，在添加音频文件时请注意。
+- Cloudflare Pages 禁止上传超过25MB的文件，在添加音频和其他文件时请注意。
 
 ::: details 惨痛的教训
 ![惨痛的教训-2025-07-23-15.22.57.610.png](/pictures/惨痛的教训-2025-07-23-15.22.57.610.png)
+---
+![惨痛的教训-2025-08-09-01.21.54.152.png](/pictures/惨痛的教训-2025-08-09-01.21.54.152.png)
 :::
 
 ## 自制图片轮播/展示控件 <badge type="warning" text="Dev2.0,Preview16" /> <badge type="tip" text="2" />

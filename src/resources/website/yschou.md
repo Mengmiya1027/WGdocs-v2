@@ -39,3 +39,17 @@ comment: true
 
 >[!IMPORTANT] 为什么文档上的有些地址网管没写？
 > 那™都打不开我写他干嘛
+
+<DownloadLinkCollector
+  title="yschou-tzb.mp4"
+  bg-image="/pictures/some-people/tzb/11.jpg"
+  tcolor="white"
+  bcolor="pink"
+  :downloads="[
+    {
+      text: '蓝奏云盘',
+      link: 'https://wwxb.lanzn.com/i8nq2331hgne',
+      password: 'tzb',
+    },
+  ]"
+/>
