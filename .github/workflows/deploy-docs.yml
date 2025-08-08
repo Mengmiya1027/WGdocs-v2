@@ -21,51 +21,72 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm ci
-        continue-on-error: false
+        run: |
+          echo "Installing dependencies..."
+          npm ci
+          echo "Dependency installation complete"
 
       - name: Build docs
-        run: npm run docs:build
-        continue-on-error: false
-
-      - name: Check build directory exists
         run: |
+          echo "Starting build process..."
+          npm run docs:build
+          echo "Build process complete"
+
+      - name: Verify build output
+        run: |
+          echo "Checking build directory structure..."
           if [ -d "src/.vitepress/dist" ]; then
-            echo "Build directory exists"
+            echo "Build directory exists. Contents:"
             ls -la src/.vitepress/dist
+            echo "Total files in build directory:"
+            find src/.vitepress/dist -type f | wc -l
           else
-            echo "Error: Build directory not found!"
+            echo "Error: Build directory 'src/.vitepress/dist' not found!"
             exit 1
           fi
 
       - name: Get version from package.json
         id: get_version
-        run: echo "VERSION=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          echo "Found version: $VERSION"
+          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
 
       - name: Get current date
         id: get_date
-        run: echo "DATE=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+        run: |
+          DATE=$(date +'%Y-%m-%d')
+          echo "Current date: $DATE"
+          echo "DATE=$DATE" >> $GITHUB_OUTPUT
 
       - name: Package build files
         run: |
+          FILENAME="WGdocs-${{ steps.get_version.outputs.VERSION }}-${{ steps.get_date.outputs.DATE }}.zip"
+          echo "Creating zip package: $FILENAME"
           cd src/.vitepress/dist
-          zip -r ../../../WGdocs-${{ steps.get_version.outputs.VERSION }}-${{ steps.get_date.outputs.DATE }}.zip .
+          zip -r ../../../$FILENAME .
           cd ../../../
-          echo "Created zip file:"
-          ls -la WGdocs-${{ steps.get_version.outputs.VERSION }}-${{ steps.get_date.outputs.DATE }}.zip
+          
+          echo "Zip package created. Details:"
+          ls -la $FILENAME
+          echo "File size:"
+          du -h $FILENAME
 
-      - name: Upload to WebDAV
-        uses: guillaumebriday/webdav-action@v1.7.0
+      - name: Upload to WebDAV (using confirmed working action)
+        uses: mattieserver/webdav-upload-action@v1
         with:
-          webdav_hostname: https://pan.huang1111.cn
-          webdav_username: ${{ secrets.WEBDAV_USERNAME }}
-          webdav_password: ${{ secrets.WEBDAV_PASSWORD }}
-          webdav_path: /dav/根目录/WGdocs构建文件
-          local_path: ./WGdocs-${{ steps.get_version.outputs.VERSION }}-${{ steps.get_date.outputs.DATE }}.zip
-          options: '-v'  # 详细输出模式，显示上传过程和服务器响应
+          webdav_url: "https://pan.huang1111.cn/dav/根目录/WGdocs构建文件"
+          username: ${{ secrets.WEBDAV_USERNAME }}
+          password: ${{ secrets.WEBDAV_PASSWORD }}
+          local_path: "WGdocs-${{ steps.get_version.outputs.VERSION }}-${{ steps.get_date.outputs.DATE }}.zip"
+          remote_filename: "WGdocs-${{ steps.get_version.outputs.VERSION }}-${{ steps.get_date.outputs.DATE }}.zip"
+          debug: true
 
-      - name: Verify upload
-        if: success() || failure()
-        run: |
-          echo "Upload process completed with status: ${{ job.status }}"
-          echo "If upload failed, check the WebDAV Action logs above for server response details"
+      - name: Upload debug logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: workflow-logs
+          path: |
+            ${{ github.workspace }}/*.zip
+            /home/runner/work/_logs/*.log
