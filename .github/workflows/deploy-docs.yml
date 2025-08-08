@@ -33,15 +33,17 @@ jobs:
       - name: Get version and date
         id: vars
         run: |
-          VERSION=$(jq -r '.version' WGdocs-package.json)
+          # 先在仓库里找到 package.json
+          PKG_FILE=$(find . -type f -name 'package.json' | head -n 1)
+          VERSION=$(jq -r '.version' "$PKG_FILE")
           DATE=$(date +%Y-%m-%d)
-          echo "package_name=${VERSION}-${DATE}.zip" >> $GITHUB_OUTPUT
+          echo "package_name=WGdocs-${VERSION}-${DATE}.zip" >> $GITHUB_OUTPUT
 
       # 6. 将构建结果打包为 zip
       - name: Zip dist
         run: |
           cd src/.vitepress/dist
-          zip -r ../../../${{ steps.vars.outputs.package_name }} .
+          zip -r "../../../${{ steps.vars.outputs.package_name }}" .
 
       # 7. 上传到 WebDAV
       - name: Upload to WebDAV
