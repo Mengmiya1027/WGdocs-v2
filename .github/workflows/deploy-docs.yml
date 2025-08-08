@@ -1,92 +1,49 @@
-name: Build and Deploy VitePress Docs
+name: Build and Upload VitePress Docs
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
-  build-and-deploy:
+  build-and-upload:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20.x
+          node-version: '20'
           cache: 'npm'
 
       - name: Install dependencies
-        run: |
-          echo "Installing dependencies..."
-          npm ci
-          echo "Dependency installation complete"
+        run: npm ci
 
-      - name: Build docs
-        run: |
-          echo "Starting build process..."
-          npm run docs:build
-          echo "Build process complete"
+      - name: Build VitePress site
+        run: npm run docs:build
 
-      - name: Verify build output
-        run: |
-          echo "Checking build directory structure..."
-          if [ -d "src/.vitepress/dist" ]; then
-            echo "Build directory exists. Contents:"
-            ls -la src/.vitepress/dist
-            echo "Total files in build directory:"
-            find src/.vitepress/dist -type f | wc -l
-          else
-            echo "Error: Build directory 'src/.vitepress/dist' not found!"
-            exit 1
-          fi
-
-      - name: Get version from package.json
-        id: get_version
-        run: |
-          VERSION=$(node -p "require('./package.json').version")
-          echo "Found version: $VERSION"
-          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+      - name: Extract version from package.json
+        id: extract_version
+        run: echo "VERSION=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
 
       - name: Get current date
         id: get_date
-        run: |
-          DATE=$(date +'%Y-%m-%d')
-          echo "Current date: $DATE"
-          echo "DATE=$DATE" >> $GITHUB_OUTPUT
+        run: echo "DATE=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
 
-      - name: Package build files
+      - name: Create zip package
         run: |
-          FILENAME="WGdocs-${{ steps.get_version.outputs.VERSION }}-${{ steps.get_date.outputs.DATE }}.zip"
-          echo "Creating zip package: $FILENAME"
           cd src/.vitepress/dist
-          zip -r ../../../$FILENAME .
-          cd ../../../
-          
-          echo "Zip package created. Details:"
-          ls -la $FILENAME
-          echo "File size:"
-          du -h $FILENAME
+          zip -r ../../../WGdocs-${{ steps.extract_version.outputs.VERSION }}-${{ steps.get_date.outputs.DATE }}.zip .
 
-      - name: Upload to WebDAV (using confirmed working action)
-        uses: mattieserver/webdav-upload-action@v1
+      - name: Upload to WebDAV
+        uses: bxb100/action-upload@main
         with:
-          webdav_url: "https://pan.huang1111.cn/dav/根目录/WGdocs构建文件"
-          username: ${{ secrets.WEBDAV_USERNAME }}
-          password: ${{ secrets.WEBDAV_PASSWORD }}
-          local_path: "WGdocs-${{ steps.get_version.outputs.VERSION }}-${{ steps.get_date.outputs.DATE }}.zip"
-          remote_filename: "WGdocs-${{ steps.get_version.outputs.VERSION }}-${{ steps.get_date.outputs.DATE }}.zip"
-          debug: true
-
-      - name: Upload debug logs
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: workflow-logs
-          path: |
-            ${{ github.workspace }}/*.zip
-            /home/runner/work/_logs/*.log
+          provider: webdav
+          provider_options: |
+            endpoint=https://pan.huang1111.cn/dav
+            username=${{ secrets.WEBDAV_USERNAME }}
+            password=${{ secrets.WEBDAV_PASSWORD }}
+            root=/WGdocs构建文件/
+          include: 'WGdocs-${{ steps.extract_version.outputs.VERSION }}-${{ steps.get_date.outputs.DATE }}.zip'
