@@ -27,9 +27,11 @@ jobs:
       - name: Extract version and date
         id: info
         run: |
-          VERSION=$(node -p "require('./package.json').version")
+          # 获取版本号并将逗号替换为下划线
+          RAW_VERSION=$(node -p "require('./package.json').version")
+          CLEAN_VERSION=$(echo "$RAW_VERSION" | sed 's/,/_/g')  # 仅替换逗号
           DATE=$(date +'%Y-%m-%d')
-          ZIP_NAME="WGdocs-${VERSION}-${DATE}.zip"
+          ZIP_NAME="WGdocs-${CLEAN_VERSION}-${DATE}.zip"
           echo "ZIP_NAME=$ZIP_NAME" >> $GITHUB_OUTPUT
           echo "✅ 生成文件名: $ZIP_NAME"
 
@@ -45,7 +47,7 @@ jobs:
             exit 1
           fi
 
-      - name: Upload to WebDAV root
+      - name: Upload to WebDAV
         uses: bxb100/action-upload@main
         with:
           provider: webdav
