@@ -12,3 +12,7 @@ title: 视频
 <NCard title="嚣张牌小品的珍贵实录" link="/resources/video/penguin">
   你的！企鹅！小品大大滴好的干活！
 </NCard>
+
+<NCard title="几个子儿" link="/resources/video/im-wzxq">
+  不是，谁™说旺仔小乔没有原创歌曲的？
+</NCard>

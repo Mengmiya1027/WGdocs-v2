@@ -27,8 +27,14 @@ title: 虚哥
 
 ---
 
-<video src="/pictures/some-people/xuge/5.mp4" controls style="width: 100%;"></video>
+  <img src="/pictures/some-people/xuge/6.png" alt="6.jpg">
 
+---
+
+<div style="display: flex; gap: 10px;">
+  <img src="/pictures/some-people/xuge/5.jpg" alt="5.jpg" style="width: 60%;">
+  <video src="/pictures/some-people/xuge/7.mp4" controls style="width: 40%;"></video>
+</div>
 
 
 ## 下载地址

@@ -156,6 +156,7 @@ function sidebarGuide(): DefaultTheme.Sidebar {
                 { text: '唐子9', link: '/tzb' },
                 { text: '虚哥', link: '/xuge' },
                 { text: '来自某校园摄影师', link: '/from-xysys' },
+                { text: '来自泸高服务号', link: '/from-LGFWH' },
                 { text: '某些其他的', link: '/others-in-class' },
               ]
             },
@@ -167,7 +168,8 @@ function sidebarGuide(): DefaultTheme.Sidebar {
           collapsed: true,
           items: [
             { text: '概览', link: '/map' },
-            { text: '嚣张牌小品的珍贵实录', link: '/penguin' }
+            { text: '嚣张牌小品的珍贵实录', link: '/penguin' },
+            { text: '几个子儿', link: '/im-wzxq' }
           ]
         },
       ]

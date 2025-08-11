@@ -90,6 +90,10 @@ comment: true
       text: '来自某校园摄影师',
     },
     {
+      link: '/resources/picture/some-people/from-LGFWH',
+      text: '来自泸高服务号',
+    },
+    {
       link: '/resources/picture/some-people/others-in-class',
       text: '某些其他的',
     },
@@ -100,6 +104,10 @@ comment: true
     {
       link: '/resources/video/penguin',
       text: '嚣张牌小品的珍贵实录',
+    },
+    {
+      link: '/resources/video/im-wzxq',
+      text: '几个子儿',
     },
     {
       link: '/pro',

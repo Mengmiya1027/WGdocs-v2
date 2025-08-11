@@ -16,13 +16,23 @@ title: 某些其他的
 
 ---
 
-<!-- 并排显示 -->
 <img src="/pictures/some-people/others-in-class/2.jpg" alt="2.jpg" style="width: 100%;">
 
 ---
 
 <img src="/pictures/some-people/others-in-class/4.png" alt="4.jpg" style="width: 100%;">
 
+---
+
+<!-- 并排显示 -->
+<div style="display: flex; gap: 10px;">
+  <img src="/pictures/some-people/others-in-class/5.jpg" alt="5.jpg" style="width: 50%;">
+  <img src="/pictures/some-people/others-in-class/6.jpg" alt="6.jpg" style="width: 50%;">
+</div>
+
+---
+
+<img src="/pictures/some-people/others-in-class/7.jpg" alt="7.jpg" style="width: 100%;">
 
 
 ## 下载地址

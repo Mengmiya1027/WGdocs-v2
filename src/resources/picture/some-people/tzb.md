@@ -65,6 +65,14 @@ comment: false
 
 ---
 
+<img src="/pictures/some-people/tzb/14.webp" alt="14.webp" style="width: 100%;">
+
+---
+
+<img src="/pictures/some-people/tzb/15.jpg" alt="15.jpg" style="width: 100%;">
+
+---
+
 
 咳咳……
 

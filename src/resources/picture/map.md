@@ -21,6 +21,10 @@ title: 图片
   没什么
 </NCard>
 
+<NCard title="来自泸高服务号" link="/resources/picture/some-people/from-LGFWH">
+  这上面是真™的有好东西😅
+</NCard>
+
 <NCard title="某些其他的" link="/resources/picture/some-people/others-in-class">
   没什么
 </NCard>
