@@ -36,6 +36,7 @@ import NCard from './components/NCard.vue';
 import MusicPlayer from './components/MusicPlayer.vue'
 import DownloadLinkCollector from './components/DownloadLinkCollector.vue'
 import LinkCard from './components/LinkCard.vue'
+import UpdateLogPopup from './components/UpdateLogPopup.vue';
 
 import './custom.css';
 export default {
@@ -64,6 +65,7 @@ export default {
     app.component('ImageSlider', ImageSlider)
     app.component('DownloadLinkCollector', DownloadLinkCollector)
     app.component('LinkCard', LinkCard)
+    app.component('UpdateLogPopup', UpdateLogPopup)
     app.use(TwoslashFloatingVue as unknown as Plugin);
     app.use(NolebaseGitChangelogPlugin);
     app.provide(InjectionKey, {

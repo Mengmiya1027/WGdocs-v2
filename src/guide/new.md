@@ -7,13 +7,19 @@ comment: true
 
 ## 更新日志
 
-::: tip 最新更新：2025年8月11日
-### WGdocs版本Dev2.0,Preview23
-更新日志：把某些人在泸高服务号上的帅照办了过来~ 还有，谁™说旺仔小乔没有原创歌曲的？？
-下期预告：制作自动更新提醒
+::: tip 最新更新：2025年8月12日
+### WGdocs版本Dev2.0,Preview24
+更新日志：制作了更新信息提醒组件！本来说在这个版本把音乐播放器一起做了，奈何工作量太多了，就推一下吧
+这个组件的最早支持可以到WGdocs版本Dev2.0,Preview20。因为一些技术原因就不放到新功能介绍去了。
+其他2个小修改
 :::
 
 ::: details 往期日志
+#### 2025年8月11日
+### WGdocs版本Dev2.0,Preview23
+更新日志：把某些人在泸高服务号上的帅照搬了过来~ 还有，谁™说旺仔小乔没有原创歌曲的？？
+下期预告：制作自动更新提醒
+
 #### 2025年8月9日
 ### WGdocs版本Dev2.0,Preview22
 更新日志：汉化404页面和制作原神抽卡模拟器！自动上传到网盘倒是废了，已经不想做了 下期预告：制作自动更新提醒，再把某些人在微信公众号上的帅照也搬过来~
@@ -461,3 +467,107 @@ rcolor="white"
     },
   ]"
 />
+
+## 更新信息提醒组件<badge type="warning" text="Dev2.0,Preview24" /> <badge type="tip" text="4" />
+
+> [!IMPORTANT] 说明
+> 技术原因，暂不放使用示例和预览。
+
+### 原理：
+
+**文件路径**：`.vitepress\theme\components\UpdateLogPopup.vue`
+### 页面介绍：
+组件分为“更新日志”和“首次访问”两部分。
+
+“更新日志”是检测到存储有版本信息时，会根据版本信息对比当前版本号，若当前版本号与存储版本号不同，则会弹出更新日志弹窗。<br>
+“首次访问”是检测到存储无版本信息时，会弹出首次访问弹窗。
+
+### 核心功能模块
+::: code-group
+```[javascript]
+methods: {
+  // 版本检测逻辑
+  checkIfNeedShowPopup() {
+    // 首次访问标记检测
+    if (this.isFirstVisit) {
+      this.showPopup = true;
+      return;
+    }
+    // 版本更新检测
+    if (this.lastVisitedVersion !== latestVersion) {
+      this.showPopup = true;
+    }
+  },
+
+  // 滚动事件绑定优化
+  rebindScrollEvent() {
+    // 先解绑旧事件防止重复监听
+    this.tabsNav.removeEventListener('scroll', this.handleTabsScroll);
+    // 获取最新DOM引用
+    this.tabsNav = this.$refs.tabsNav;
+    // 绑定新滚动监听
+    this.tabsNav.addEventListener('scroll', this.handleTabsScroll);
+  }
+}
+```
+:::
+
+### 工作流程介绍
+
+这个弹窗组件就像网站的「更新管家」，主要通过以下机制工作：
+
+1. **版本号对比**
+    - 每次访问时会对比浏览器存储的版本号（上次看到的版本）和当前最新版本号
+
+2. **滚动条防卡顿设计**
+    - 当滚动更新内容时，会暂时解除页面滚动绑定
+    - 滚动结束后自动恢复，避免出现「滚动套滚动」的卡顿现象
+
+3. **首次见面提醒**
+    - 新访客或从未看过更新日志的用户，必定会收到欢迎提示
+    - 确保重要更新不会被错过
+
+4. **记忆关闭状态**
+    - 点击关闭后会在浏览器存个localStorage记录当前版本号
+    - 下次访问时如果版本没变就不会重复打扰
+
+### 细节说明
+
+- 通过CSS实现丝滑的淡入淡出动画效果
+- 更新日志按版本号倒序排列，最新内容置顶
+- 应急出口：长时间不操作会自动隐藏弹窗，避免遮挡内容
+
+### 开发工具
+
+::: danger 警告
+工具仅供开发使用，非开发者请谨慎使用下面的LocalStorage编辑功能，否则可能导致组件出现异常。
+:::
+
+---
+
+<div style="display:flex;flex-direction:column;gap:15px;">
+  <!-- 第一排：获取和删除按钮 -->
+  <div style="display:flex;justify-content:center;gap:15px;">
+    <button onclick="const value = localStorage.getItem('lastVisitedVersion'); alert('当前值: ' + (value || '未设置'))" style="padding:8px 16px;background-color:#ffc444;color:#ffffff;border:none;border-radius:4px;cursor:pointer;">
+      获取 lastVisitedVersion
+    </button>
+    <button onclick="localStorage.removeItem('lastVisitedVersion');alert('已删除 lastVisitedVersion')" style="padding:8px 16px;background-color:#ff4444;color:white;border:none;border-radius:4px;cursor:pointer;">
+      删除 lastVisitedVersion
+    </button>
+  </div>
+
+  <!-- 第二排：修改区域 -->
+  <div style="display:flex;justify-content:center;align-items:center;gap:10px;">
+    <input type="text" id="newVersionValue" placeholder="输入新值" style="padding:8px;border:1px solid #ddd;border-radius:4px;width:200px;">
+    <button onclick="const value = document.getElementById('newVersionValue').value; if(value) { localStorage.setItem('lastVisitedVersion', value); alert('已更新为: ' + value); } else { alert('请输入值'); }" style="padding:8px 16px;background-color:#00C49F;color:white;border:none;border-radius:4px;cursor:pointer;">
+      修改 lastVisitedVersion
+    </button>
+  </div>
+</div>
+
+---
+
+::: warning 提示
+如果想查看“首次访问”页面，可以点击上面的`删除 lastVisitedVersion`按钮后[点击此处回到主页](/)<br>
+查看“更新日志”页面，可以在上方输入框输入“Dev2.0,Preview20”，然后点击`修改 lastVisitedVersion`按钮后[点击此处回到主页](/)
+:::

@@ -30,3 +30,5 @@ features:
     details: v2版本新增 "文件快递柜" 功能，源码由Filecodebox提供
 ---
 <Confetti />
+
+<UpdateLogPopup />

@@ -1,10 +1,10 @@
 {
   "name": "wgdocs",
-  "version": "Dev2.0,Preview22",
+  "version": "Dev2.0,Preview24",
   "type": "module",
   "scripts": {
-    "docs:dev": "vitepress dev src",
-    "docs:build": "vitepress build src",
+    "docs:dev": "node scripts/Update-VersionInfo.js && vitepress dev src",
+    "docs:build": "node scripts/Update-VersionInfo.js && vitepress build src",
     "docs:preview": "vitepress preview src"
   },
   "author": "",
