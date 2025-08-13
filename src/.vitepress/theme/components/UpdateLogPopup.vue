@@ -52,7 +52,25 @@
                 @click="activeTabIndex = index"
             >
               <span class="tab-version">{{ version.version }}</span>
-              <span class="tab-date">{{ version.date }}</span>
+              <!-- 移动端日期显示 -->
+              <span class="tab-date mobile-date">
+                <!-- 月份动态调整字号 -->
+                <span
+                    class="month"
+                    :style="{'font-size': String(formatMonth(version.date)).length === 1 ? '16px' : '14px'}"
+                >
+                  {{ formatMonth(version.date) }}
+                </span>
+                <!-- 动态调整日期字体大小 -->
+                <span
+                    class="day"
+                    :style="{'font-size': String(formatDay(version.date)).length === 2 ? '15px' : '18px'}"
+                >
+                  {{ formatDay(version.date) }}
+                </span>
+              </span>
+              <!-- 桌面端日期显示 -->
+              <span class="tab-date desktop-date">{{ version.date }}</span>
             </div>
           </div>
           <!-- 滚动指示器（放在容器内但与tabs-nav同级） -->
@@ -262,6 +280,19 @@ export default {
     }
   },
   methods: {
+    formatMonth(dateString) {
+      if (!dateString) return '';
+      const date = new Date(dateString);
+      // 修改：直接返回数字月份，不加"月"字
+      return (date.getMonth() + 1).toString();
+    },
+
+    formatDay(dateString) {
+      if (!dateString) return '';
+      const date = new Date(dateString);
+      return date.getDate();
+    },
+
     sortVersions(versions) {
       return [...versions].sort((a, b) => {
         // 按日期排序（新日期在前）
@@ -544,7 +575,7 @@ export default {
   border-bottom-color: #9333ea; /* 紫色主色调 */
   color: #9333ea;
   font-weight: 600;
-  background-color: rgba(147, 51, 234, 0.05);
+  background-color: rgba(147, 51, 234, 0.1);
 }
 
 .tab-item:hover:not(.active) {
@@ -561,6 +592,11 @@ export default {
   display: inline-block;
   font-size: 14px; /* 增大日期文字 */
   color: #888;
+}
+
+/* 日期显示适配 */
+.mobile-date {
+  display: none;
 }
 
 /* 内容区域 */
@@ -597,7 +633,7 @@ export default {
 }
 
 .update-log-content {
-  color: #333;
+  color: #535353;
   font-size: 17px; /* 增大内容文字 */
 }
 
@@ -759,9 +795,104 @@ export default {
     padding: 20px;
   }
 
+  .tabs-nav {
+    padding: 6px 8px; /* 减小内边距 */
+  }
+
+  /* 选项卡项 - 变为正方形 */
   .tab-item {
-    padding: 10px 16px;
-    font-size: 15px;
+    width: 56px;
+    height: 56px;
+    padding: 0;
+    margin: 0 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    /* 添加过渡动画核心属性 */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* 统一过渡所有可动画属性 */
+    will-change: width, background-color, border-color; /* 优化动画性能 */
+  }
+  .tab-item.active{
+    background-color: rgba(147, 51, 234, 0.15);
+    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1); /* 稍微调整曲线让展开更自然 */
+    will-change: width, background-color, border-color; /* 优化动画性能 */
+  }
+
+  /* 隐藏版本号 */
+  .tab-version {
+    display: none;
+  }
+
+  /* 日期容器 - 对角线布局 */
+  .tab-date {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  /* 对角线分隔线 */
+  .tab-date::before {
+    content: '';
+    position: absolute;
+    top: 12px; /* 距离顶部12px */
+    left: 12px; /* 距离左侧12px */
+    width: calc(100% - 24px); /* 宽度减去左右间距 */
+    height: calc(100% - 24px); /* 高度减去上下间距 */
+    background: linear-gradient(135deg, rgba(147, 51, 234, 0.15) 50%, transparent 50%);
+    z-index: -1;
+  }
+
+  /* 添加实际对角线 */
+  .tab-date::after {
+    content: '';
+    position: absolute;
+    top: 12px; /* 距离顶部12px */
+    left: 11px; /* 距离左侧12px */
+    width: calc(100% - 24px); /* 宽度减去左右间距 */
+    height: calc(100% - 24px); /* 高度减去上下间距 */
+    background: linear-gradient(135deg,
+    transparent calc(50% - 2px),  /* 左侧透明区域 */
+    rgba(147, 51, 234, 0.4) calc(50% - 2px),  /* 线条起始点 */
+    rgba(147, 51, 234, 0.4) calc(50% + 2px),  /* 线条结束点 */
+    transparent calc(50% + 2px)   /* 右侧透明区域 */
+    );
+    z-index: 1;
+    border-radius: 3px; /* 对角线两端圆角 */
+  }
+
+  /* 月份 - 左上角三角形 */
+  .tab-date .month {
+    position: absolute;
+    top: 8px;
+    right: 31px;
+    font-weight: 600;
+    color: #9333ea;
+  }
+
+  /* 日期 - 右下角三角形 */
+  .tab-date .day {
+    position: absolute;
+    bottom: 8px;
+    left: 31px;
+    font-weight: 700;
+    color: #333;
+  }
+
+  .single-version-layout {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .version-badge {
+    margin: 0 auto;
+    width: auto;
+    align-items: center;
+    min-width: auto;
+    padding: 8px 16px;
+    font-size: 16px;
   }
 
   .show-all-btn, .confirm-btn {
@@ -771,6 +902,84 @@ export default {
 
   .popup-content {
     border-radius: 20px;
+  }
+
+  /* 移动端日期显示控制 */
+  .desktop-date {
+    display: none;
+  }
+
+  .mobile-date {
+    display: inline-block;
+  }
+
+  .tab-date .month {
+    margin-right: 4px;
+  }
+  .tabs-nav {
+    /* 允许容器横向扩展 */
+    width: auto;
+    min-width: 100%;
+    /* 禁止内容换行 */
+    flex-wrap: nowrap;
+    /* 保留滚动能力 */
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  /* 所有选项卡项禁止压缩 */
+  .tab-item {
+    flex-shrink: 0; /* 关键属性：禁止压缩 */
+    width: 56px;
+    height: 56px;
+    /* 其他原有样式保持不变 */
+  }
+
+  /* 选中项特殊处理 - 自动宽度并禁止压缩 */
+  .tab-item.active {
+    flex-shrink: 0; /* 关键属性：选中项也禁止压缩 */
+    width: auto; /* 自动适应内容宽度 */
+    height: auto;
+    padding: 12px 20px; /* 恢复内边距 */
+    /* 恢复版本号和桌面端日期显示 */
+  }
+
+  /* 选中项显示版本号 */
+  .tab-item.active .tab-version {
+    display: inline-block;
+    margin-right: 10px;
+  }
+
+  /* 选中项显示桌面端日期 */
+  .tab-item.active .desktop-date {
+    display: inline-block;
+  }
+
+  /* 选中项隐藏移动端日期样式 */
+  .tab-item.active .mobile-date {
+    display: none;
+  }
+
+  /* 移除选中项的对角线样式 */
+  .tab-item.active .tab-date {
+    position: static;
+    width: auto;
+    height: auto;
+  }
+
+  .tab-item.active .tab-date::before,
+  .tab-item.active .tab-date::after {
+    display: none;
+  }
+
+  /* 重置选中项的日期定位 */
+  .tab-item.active .tab-date .month,
+  .tab-item.active .tab-date .day {
+    position: static;
+    font-size: inherit;
+    color: inherit;
+    font-weight: inherit;
+    margin: 0;
   }
 }
 </style>

@@ -179,7 +179,7 @@ https://localhost:8080
   :downloads="[
   {
     text: 'huang1111网盘',
-    link: 'https://pan.huang1111.cn/s/DVOn5I4',
+    link: 'https://pan.huang1111.cn/s/YLQ9WCA',
   },
   ]"
 />

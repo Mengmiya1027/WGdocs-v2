@@ -9,7 +9,8 @@
               class="link-card"
               :href="item.enable ? item.link : 'javascript:void(0)'"
               :target="item.enable ? (newtab ? '_blank' : '') : ''"
-              :style="{ flex: item.password ? '0 0 70%' : '1' }">
+              :style="{ flex: item.password ? '0 0 70%' : '1' }"
+              @click="handleLinkClick($event, item)">
             <span class="link-text" v-html="item.text || item.link"></span>
             <span class="status">{{ item.enable ? '可用✅' : '不可用⛔️' }}</span>
           </a>
@@ -28,64 +29,89 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    title: {
-      type: String,
-      default: '下载链接'
-    },
-    bgImage: {
-      type: String,
-      default: ''
-    },
-    bcolor: {
-      type: String,
-      default: ''
-    },
-    tcolor: {
-      type: String,
-      default: ''
-    },
-    newtab: {
-      type: Boolean,
-      default: true
-    },
-    downloads: {
-      type: Array,
-      required: true,
-      validator: value => value.every(item => 'link' in item)
-    }
+<script setup>
+import { ref, computed } from 'vue'
+import { useRouter } from 'vitepress'
+
+const props = defineProps({
+  title: {
+    type: String,
+    default: '下载链接'
   },
-  data() {
-    return {
-      copiedIndex: -1  // 新增数据项跟踪复制状态
-    }
+  bgImage: {
+    type: String,
+    default: ''
   },
-  computed: {
-    filteredDownloads() {
-      return this.downloads.map(item => ({
-        text: item.link,
-        enable: true,
-        ...item
-      }));
-    }
+  bcolor: {
+    type: String,
+    default: ''
   },
-  methods: {
-    async copyPassword(password, index) {
-      try {
-        await navigator.clipboard.writeText(password);
-        this.copiedIndex = index;  // 更新复制状态索引
-        setTimeout(() => {
-          this.copiedIndex = -1;  // 2秒后重置状态
-        }, 2000);
-      } catch (err) {
-        alert('复制失败，请手动复制');
-      }
-    }
+  tcolor: {
+    type: String,
+    default: ''
+  },
+  newtab: {
+    type: Boolean,
+    default: true
+  },
+  downloads: {
+    type: Array,
+    required: true,
+    validator: value => value.every(item => 'link' in item)
+  }
+})
+
+const router = useRouter()
+const copiedIndex = ref(-1)
+
+const filteredDownloads = computed(() => {
+  return props.downloads.map(item => ({
+    text: item.link,
+    enable: true,
+    ...item
+  }))
+})
+
+// 检查是否为外部链接
+const isExternalLink = (path) => {
+  return /^(?:[a-z]+:)?\/\//i.test(path) ||
+      path.startsWith('mailto:') ||
+      path.startsWith('tel:') ||
+      path.startsWith('//') ||
+      path.startsWith('http:') ||
+      path.startsWith('https:')
+}
+
+// 处理链接点击
+const handleLinkClick = (e, item) => {
+  // 如果链接不可用，直接返回
+  if (!item.enable) return
+
+  // 如果是外部链接或特殊目标，不处理
+  if (isExternalLink(item.link) ||
+      (props.newtab) ||
+      e.ctrlKey || e.metaKey || e.shiftKey) {
+    return
+  }
+
+  // 阻止默认行为并使用 VitePress 路由
+  e.preventDefault()
+  router.go(item.link)
+}
+
+const copyPassword = async (password, index) => {
+  try {
+    await navigator.clipboard.writeText(password)
+    copiedIndex.value = index
+    setTimeout(() => {
+      copiedIndex.value = -1
+    }, 2000)
+  } catch (err) {
+    alert('复制失败，请手动复制')
   }
 }
 </script>
+
 
 <style scoped>
 .desktop-view {
