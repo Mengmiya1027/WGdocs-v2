@@ -1,5 +1,10 @@
 [
   {
+    "version": "Dev2.0,Preview26",
+    "date": "2025.08.15",
+    "content": "更新日志：制作了WG-WebGame小游戏~<br>顺便也想说更新给我累死了，纯手搓32个文件满意了吧~<br>想看一下小游戏的话可以<a data-v-01dee525=\"\" class=\"VPNolebaseInlinePreviewLink\" relative=\"\" href=\"/resources/website/WG-WebGame\">戳这里<!--teleport start--><!--teleport end--></a>"
+  },
+  {
     "version": "Dev2.0,Preview25",
     "date": "2025.08.13",
     "content": "更新日志：库库修开屏组件的bug！主要优化移动端小屏幕的体验。有史以来写过最大的组件，28kb！<br>然后更新了含有链接的组件，用上了VP的快速路由。"

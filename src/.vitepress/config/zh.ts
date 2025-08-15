@@ -140,6 +140,7 @@ function sidebarGuide(): DefaultTheme.Sidebar {
             { text: '概览', link: '/map' },
             { text: 'MC.js', link: '/mc-js' },
             { text: '原神抽卡模拟器', link: '/yschou' },
+            { text: 'WG-WebGame', link: '/WG-WebGame/' },
           ]
         },
         {

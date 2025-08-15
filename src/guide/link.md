@@ -70,6 +70,10 @@ comment: true
       text: '原神抽卡模拟器',
     },
     {
+      link: '/resources/website/WG-WebGame',
+      text: 'WG-WebGame',
+    },
+    {
       link: '/resources/picture/map',
       text: '图片-概览',
     },

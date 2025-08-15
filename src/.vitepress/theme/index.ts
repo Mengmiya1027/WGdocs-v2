@@ -37,6 +37,7 @@ import MusicPlayer from './components/MusicPlayer.vue'
 import DownloadLinkCollector from './components/DownloadLinkCollector.vue'
 import LinkCard from './components/LinkCard.vue'
 import UpdateLogPopup from './components/UpdateLogPopup.vue';
+import WGWebGameChecker from './components/WG-WebGame-Checker.vue';
 
 import './custom.css';
 export default {
@@ -66,6 +67,7 @@ export default {
     app.component('DownloadLinkCollector', DownloadLinkCollector)
     app.component('LinkCard', LinkCard)
     app.component('UpdateLogPopup', UpdateLogPopup)
+    app.component('WGwgc', WGWebGameChecker)
     app.use(TwoslashFloatingVue as unknown as Plugin);
     app.use(NolebaseGitChangelogPlugin);
     app.provide(InjectionKey, {

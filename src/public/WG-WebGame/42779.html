@@ -1,0 +1,181 @@
+<div class="nine-keyboard-container" style="margin: 2rem auto; max-width: 600px;">
+    <!-- 候选区 -->
+    <div id="candidateArea" style="
+        background: white;
+        border-radius: 8px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.6rem;
+        font-weight: 500;
+        border: 1px solid #e5e7eb;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    ">
+        <span id="candidateText"></span>
+    </div>
+
+    <!-- 键盘主体 -->
+    <table style="width: 100%; border-collapse: separate; border-spacing: 10px;">
+        <colgroup>
+            <col style="width: 15%;"> <!-- 左侧列 -->
+            <col style="width: 20%;"> <!-- 中间列1 -->
+            <col style="width: 20%;"> <!-- 中间列2 -->
+            <col style="width: 20%;"> <!-- 中间列3 -->
+            <col style="width: 15%;"> <!-- 右侧列 -->
+        </colgroup>
+
+        <!-- 第一行 -->
+        <tbody><tr>
+            <td><div class="key symbol-key" data-key="symbol-1">，</div></td>
+            <td><div class="key letter-key" data-key="1">1<br>.,</div></td>
+            <td><div class="key letter-key" data-key="2">2<br>ABC</div></td>
+            <td><div class="key letter-key" data-key="3">3<br>DEF</div></td>
+            <td><div class="key function-key" data-key="backspace">⌫</div></td>
+        </tr>
+
+        <!-- 第二行 -->
+        <tr>
+            <td><div class="key symbol-key" data-key="symbol-2">。</div></td>
+            <td><div class="key letter-key" data-key="4">4<br>GHI</div></td>
+            <td><div class="key letter-key" data-key="5">5<br>JKL</div></td>
+            <td><div class="key letter-key" data-key="6">6<br>MNO</div></td>
+            <td><div class="key function-key" data-key="clear">重输</div></td>
+        </tr>
+
+        <!-- 第三行 -->
+        <tr>
+            <td><div class="key symbol-key" data-key="symbol-3">？</div></td>
+            <td><div class="key letter-key" data-key="7">7<br>PQRS</div></td>
+            <td><div class="key letter-key" data-key="8">8<br>TUV</div></td>
+            <td><div class="key letter-key" data-key="9">9<br>WXYZ</div></td>
+            <td><div class="key function-key" data-key="word-separate">分词</div></td>
+        </tr>
+
+        <!-- 第四行 -->
+        <tr>
+            <td><div class="key bottom-key" data-key="symbols">符号</div></td>
+            <td><div class="key bottom-key" data-key="switch-cn">中/英</div></td>
+            <td><div class="key letter-key" data-key="0">0<br>空格</div></td>
+            <td><div class="key bottom-key" data-key="numbers">123</div></td>
+            <td><div class="key bottom-key" data-key="linebreak">换行</div></td>
+        </tr>
+        </tbody></table>
+</div>
+
+<style>
+    /* 键盘容器样式 */
+    .nine-keyboard-container {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        padding: 1rem;
+        border-radius: 12px;
+        background-color: #f3f4f6;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+
+    /* 按键基础样式 */
+    .key {
+        display: flex;
+        flex-direction: column; /* 垂直排列内容 */
+        align-items: center;    /* 水平居中 */
+        justify-content: center;/* 垂直居中 */
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: all 0.1s ease;
+        user-select: none;
+        cursor: pointer;
+        font-weight: 500;
+        height: 70px;
+        width: 100%;
+        font-size: 18px;
+        text-align: center; /* 确保文本居中 */
+    }
+
+    /* 按键按下效果 */
+    .key:active {
+        transform: scale(0.95);
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    /* 字母按键 */
+    .letter-key {
+        background-color: white;
+        color: #1f2937;
+        line-height: 1.2;
+    }
+
+    /* 功能按键 */
+    .function-key {
+        background-color: #e5e7eb;
+        color: #1f2937;
+    }
+
+    /* 符号按键 */
+    .symbol-key {
+        background-color: #e5e7eb;
+        color: #1f2937;
+    }
+
+    /* 底部按键（蓝色） */
+    .bottom-key {
+        background-color: #3b82f6;
+        color: white;
+    }
+</style>
+
+<script>
+    // 等待DOM加载完成
+    document.addEventListener('DOMContentLoaded', () => {
+        // 获取元素
+        const candidateText = document.getElementById('candidateText');
+        const keys = document.querySelectorAll('.key');
+
+        // 记录按键序列
+        let keySequence = [];
+        // 目标序列: 4,2,7,7,9 对应 happy
+        const targetSequence = ['4', '2', '7', '7', '9'];
+
+        // 为所有按键添加点击事件
+        keys.forEach(key => {
+            key.addEventListener('click', () => {
+                const keyValue = key.getAttribute('data-key');
+
+                // 只记录数字键的点击
+                if (/^[0-9]$/.test(keyValue)) {
+                    keySequence.push(keyValue);
+
+                    // 检查是否匹配目标序列
+                    if (keySequence.length >= targetSequence.length) {
+                        // 截取最后n位进行比较
+                        const recentSequence = keySequence.slice(-targetSequence.length);
+                        if (arraysEqual(recentSequence, targetSequence)) {
+                            candidateText.textContent = 'happy';
+                        }
+                    }
+                } else if (keyValue === 'clear') {
+                    // 清除序列和候选区
+                    keySequence = [];
+                    candidateText.textContent = '';
+                } else if (keyValue === 'backspace') {
+                    // 退格
+                    keySequence.pop();
+                    if (keySequence.length < targetSequence.length) {
+                        candidateText.textContent = '';
+                    }
+                }
+                // 其他按键仅显示动画，不做处理
+            });
+        });
+
+        // 辅助函数: 比较两个数组是否相等
+        function arraysEqual(a, b) {
+            if (a.length !== b.length) return false;
+            for (let i = 0; i < a.length; i++) {
+                if (a[i] !== b[i]) return false;
+            }
+            return true;
+        }
+    });
+</script>

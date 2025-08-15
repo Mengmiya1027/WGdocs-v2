@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base64加解密工具</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f0f2f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #1a73e8;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #5f6368;
+            font-weight: 500;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #dadce0;
+            border-radius: 4px;
+            min-height: 120px;
+            resize: vertical;
+            font-size: 14px;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: #1a73e8;
+            box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2);
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 10px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            flex: 1;
+            min-width: 120px;
+        }
+
+        #encodeBtn {
+            background: #1a73e8;
+            color: white;
+        }
+
+        #decodeBtn {
+            background: #34a853;
+            color: white;
+        }
+
+        #clearBtn {
+            background: #f1f3f4;
+            color: #5f6368;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        #outputText {
+            background: #f8f9fa;
+        }
+
+        .copy-container {
+            position: relative;
+        }
+
+        #copyBtn {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            padding: 6px 10px;
+            background: #f1f3f4;
+            color: #5f6368;
+            min-width: auto;
+        }
+
+        #copyMessage, #redirectMessage {
+            font-size: 13px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        #copyMessage {
+            color: #34a853;
+        }
+
+        #redirectMessage {
+            color: #ea4335;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Base64加解密工具</h1>
+
+    <div class="card">
+        <div class="input-group">
+            <label for="inputText">输入内容:</label>
+            <textarea id="inputText" placeholder="请输入要编码或解码的内容..."></textarea>
+        </div>
+
+        <div class="btn-group">
+            <button id="encodeBtn">编码</button>
+            <button id="decodeBtn">解码</button>
+            <button id="clearBtn">清空</button>
+        </div>
+
+        <div class="input-group">
+            <label for="outputText">输出结果:</label>
+            <div class="copy-container">
+                <textarea id="outputText" readonly placeholder="结果将显示在这里..."></textarea>
+                <button id="copyBtn">复制</button>
+            </div>
+            <div id="copyMessage">已复制到剪贴板!</div>
+            <div id="redirectMessage">2秒后将自动跳转...</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // 获取DOM元素
+    const inputText = document.getElementById('inputText');
+    const outputText = document.getElementById('outputText');
+    const encodeBtn = document.getElementById('encodeBtn');
+    const decodeBtn = document.getElementById('decodeBtn');
+    const clearBtn = document.getElementById('clearBtn');
+    const copyBtn = document.getElementById('copyBtn');
+    const copyMessage = document.getElementById('copyMessage');
+    const redirectMessage = document.getElementById('redirectMessage');
+
+    // Base64编码函数
+    function encodeBase64(str) {
+        try {
+            return btoa(unescape(encodeURIComponent(str)));
+        } catch (e) {
+            return "编码错误: " + e.message;
+        }
+    }
+
+    // Base64解码函数
+    function decodeBase64(str) {
+        // 特殊条件：当输入为"2119564"时，解密输出"succeed"并等待跳转
+        if (str.trim() === "2119564") {
+            outputText.value = "succeed";
+
+            // 显示跳转提示
+            redirectMessage.style.display = "block";
+
+            // 2秒后跳转到指定地址
+            let seconds = 2;
+            const countdown = setInterval(() => {
+                seconds--;
+                redirectMessage.textContent = `${seconds}秒后将自动跳转...`;
+
+                if (seconds <= 0) {
+                    clearInterval(countdown);
+                    // 页面跳转
+                    window.location.href = "/songs/周深 - 不群.ogg";
+                }
+            }, 1000);
+
+            return "succeed";
+        }
+
+        try {
+            return decodeURIComponent(escape(atob(str)));
+        } catch (e) {
+            return "解码错误: 输入不是有效的Base64编码";
+        }
+    }
+
+    // 事件监听
+    encodeBtn.addEventListener('click', () => {
+        // 隐藏跳转提示
+        redirectMessage.style.display = "none";
+        outputText.value = inputText.value ? encodeBase64(inputText.value) : '';
+    });
+
+    decodeBtn.addEventListener('click', () => {
+        // 隐藏跳转提示
+        redirectMessage.style.display = "none";
+        outputText.value = inputText.value ? decodeBase64(inputText.value) : '';
+    });
+
+    clearBtn.addEventListener('click', () => {
+        inputText.value = '';
+        outputText.value = '';
+        // 隐藏跳转提示
+        redirectMessage.style.display = "none";
+        inputText.focus();
+    });
+
+    copyBtn.addEventListener('click', () => {
+        if (outputText.value) {
+            outputText.select();
+            document.execCommand('copy');
+            copyMessage.style.display = 'block';
+            setTimeout(() => copyMessage.style.display = 'none', 2000);
+        }
+    });
+
+    // 初始化焦点
+    inputText.focus();
+</script>
+</body>
+</html>
