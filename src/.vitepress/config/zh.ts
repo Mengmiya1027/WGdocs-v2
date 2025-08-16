@@ -126,7 +126,8 @@ function sidebarGuide(): DefaultTheme.Sidebar {
                 { text: '介绍', link: '/' },
                 { text: '概览', link: '/map' },
                 { text: '雷电模拟器 ⚡', link: '/ldmnq' },
-                { text: '蛋仔派对', link: '/eggy-party' }
+                { text: '蛋仔派对', link: '/eggy-party' },
+                { text: 'Minecraft（我的世界）', link: '/minecraft' }
               ]
             }
           ]
@@ -182,7 +183,8 @@ function sidebarGuide(): DefaultTheme.Sidebar {
       items: [
         { text: '概览', link: '/' },
         { text: '加速访问&镜像站点', link: '/speed' },
-        { text: '文件快递柜', link: '/filehelper' }
+        { text: '文件快递柜', link: '/filehelper' },
+        { text: '哈基米语翻译器', link: '/hajimi' }
       ]
     },
     {

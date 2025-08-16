@@ -50,8 +50,12 @@ comment: true
       text: '雷电模拟器 ⚡',
     },
     {
-      link: '/resources/application/pack/eggy-party',
+      link: '/resources//eggy-party',
       text: '蛋仔派对',
+    },
+    {
+      link: '/resources/application/pack/minecraft',
+      text: 'Minecraft',
     },
     {
       link: '/resources/website/',
@@ -124,6 +128,10 @@ comment: true
     {
       link: '/pro/filehelper',
       text: '文件快递柜',
+    },
+    {
+      link: '/pro/hajimi',
+      text: '哈基米语翻译器',
     },
     {
       link: '/community/upload',

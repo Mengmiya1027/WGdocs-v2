@@ -8,8 +8,8 @@ title: Pro Service
 
 当前增强版本：
 
-::: warning WGdocs Pro Service版本Patch02
-更新日志：修正了加速服务被我手滑打错的域名，加入了网络终极解决方案：直接把源码上传到蓝奏云。
+::: warning WGdocs Pro Service版本Patch03
+更新日志：加入了哈基米语翻译器~
 :::
 
 ## Pro Menu
@@ -20,6 +20,10 @@ Pro Service提供加速访问功能。本站原部署于Cloudflare Pages，使�
 
 <NCard title="📦 文件快递柜" link="/pro/filehelper">
 Pro Service提供文件快递柜-Filehelper功能。你可以在Filehelper上上传文件，然后通过链接分享文件
+</NCard>
+
+<NCard title="🔤 哈基米语翻译器" link="/pro/hajimi">
+Pro Service提供哈基米语翻译器。你可以在翻译器上实现加密通信，也可以和哈基友畅聊~
 </NCard>
 
 

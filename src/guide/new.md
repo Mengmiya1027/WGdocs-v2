@@ -7,12 +7,16 @@ comment: true
 
 ## 更新日志
 
-::: tip 最新更新：2025年8月15日
-### WGdocs版本Dev2.0,Preview26
-更新日志：制作了WG-WebGame小游戏~<br>顺便也想说更新给我累死了，纯手搓32个文件满意了吧~<br>想看一下小游戏的话可以<a data-v-01dee525="" class="VPNolebaseInlinePreviewLink" relative="" href="/resources/website/WG-WebGame">戳这里<!--teleport start--><!--teleport end--></a>
+::: tip 最新更新：2025年8月16日
+### WGdocs版本Dev2.0,Preview27
+更新日志：凌晨手搓出来的更新~都要开学了我摘抄笔记还没做111😭这次更新加入了哈吉米语翻译器和我的世界的一些介绍a~等到Preview30过了以后就是v2的正式版啦~
 :::
 
 ::: details 往期日志
+### 2025年8月15日
+### WGdocs版本Dev2.0,Preview26
+更新日志：制作了WG-WebGame小游戏~<br>顺便也想说更新给我累死了，纯手搓32个文件满意了吧~<br>想看一下小游戏的话可以<a data-v-01dee525="" class="VPNolebaseInlinePreviewLink" relative="" href="/resources/website/WG-WebGame">戳这里<!--teleport start--><!--teleport end--></a>
+
 #### 2025年8月13日
 ### WGdocs版本Dev2.0,Preview25
 更新日志：库库修开屏组件的bug！主要优化移动端小屏幕的体验。有史以来写过最大的组件，28kb！<br>然后更新了含有链接的组件，用上了VP的快速路由。
