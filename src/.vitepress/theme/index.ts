@@ -30,7 +30,7 @@ import '@nolebase/vitepress-plugin-enhanced-mark/client/style.css';
 import Confetti from "./components/Confetti.vue";
 
 import Hero from '../theme/Layout.vue';
-import APC from './APC/Bottom.vue';
+import APC from '../theme/APC/Bottom.vue';
 import NCard from './components/NCard.vue';
 import MusicPlayer from './components/MusicPlayer.vue'
 import MusicPlayerAllPage from './components/MusicPlayerAllPage.vue'
