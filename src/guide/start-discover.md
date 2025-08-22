@@ -1,16 +1,16 @@
 ---
 comment: false
 ---
-# WGdocs<Badge type="warning" text="版本Dev2.0, Preview27" />
+# WGdocs<Badge type="warning" text="版本Dev2.0, Preview28" />
 
-### 快速开始<Badge type="tip" text="经典" /><Badge type="warning" text="最近更新" />
+### 快速开始<Badge type="tip" text="经典" />
 <br>
 <NCard title="🔎 探索资源" link="/resources/">
 查看、了解、下载本站收录资源。<br>
 这应该是最常用的功能了吧……
 </NCard>
 
-### 新功能
+### 新功能<Badge type="warning" text="最近更新" />
 <br>
 <NCard title="🚀 更新日志与新功能介绍" link="/guide/new">
 其实网管根本不会写更新日志……<br>

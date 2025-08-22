@@ -1,0 +1,35 @@
+[
+  {
+    "title": "浮游",
+    "author": "周深",
+    "tlink": "/pictures/songs/浮游.png",
+    "flink": "/songs/周深 - 浮游.ogg",
+    "maincolor": "#ffffff"
+  },
+  {
+    "title": "不群",
+    "author": "周深",
+    "tlink": "/pictures/songs/不群.jpg",
+    "flink": "/songs/周深 - 不群.ogg"
+  },
+  {
+    "title": "空荡荡",
+    "author": "周深",
+    "tlink": "/pictures/songs/空荡荡.jpg",
+    "flink": "/songs/周深 - 空荡荡.ogg"
+  },
+  {
+    "title": "室内系的TrackMaker",
+    "author": "hanser",
+    "tlink": "/pictures/songs/室内系的TrackMaker.jpg",
+    "flink": "/songs/hanser - 室内系的TrackMaker.mp3",
+    "maincolor": "#fff"
+  },
+  {
+    "title": "唯一",
+    "author": "G.E.M.邓紫棋",
+    "tlink": "/pictures/songs/唯一.webp",
+    "flink": "/songs/G.E.M.邓紫棋 - 唯一.ogg",
+    "maincolor": "#ffb085"
+  }
+]

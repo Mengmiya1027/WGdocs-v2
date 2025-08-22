@@ -19,6 +19,11 @@ export const shared = defineConfig({
   cleanUrls: true,
   metaChunk: true,
   vite: {
+    server: {
+      host: '0.0.0.0', // 监听所有 IPv4 网络接口
+      port: 5173,      // 保持端口不变
+      strictPort: true,
+    },
     ssr: {
       noExternal: [
         '@nolebase/*',

@@ -168,3 +168,17 @@ comment: true
     },
   ]"
 />
+
+<ImageSlider
+  :auto="true"
+  :time="2000"
+  :images="[
+    { id: 1, text: '小蓝-1', link: '/pictures/eggy/eggy-lan-1.jpg' },
+    { id: 2, text: '小粉-1', link: '/pictures/eggy/eggy-fen-1.jpg' },
+    { id: 3, text: '蓝粉-1', link: '/pictures/eggy/eggy-LF-1.jpg' },
+    { id: 4, text: '蓝粉-2', link: '/pictures/eggy/eggy-LF-2.jpg' },
+  ]"
+  ltext="执法~"
+  rtext="大人~"
+  rcolor="white"
+/>
