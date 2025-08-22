@@ -18,7 +18,7 @@ title: 关于
 </div>
 
 <div style="display: flex; justify-content: center; margin: 20px 0">
-  <Badge type="warning" text="版本Dev2.0,Preview27" />
+  <Badge type="warning" text="版本Dev2.0,Preview28"></Badge>
 </div>
 
 <div style="display: flex; justify-content: center; margin: 20px 0">

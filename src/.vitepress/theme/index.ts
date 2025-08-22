@@ -3,8 +3,6 @@ import DefaultTheme from 'vitepress/theme'
 import { h, type Plugin } from 'vue';
 import { useData, useRoute } from 'vitepress';
 import type { EnhanceAppContext } from 'vitepress';
-import ImageSlider from './components/ImageSlider.vue'
-
 
 import { NolebaseGitChangelogPlugin, Options } from '@nolebase/vitepress-plugin-git-changelog/client';
 import { NolebasePagePropertiesPlugin } from '@nolebase/vitepress-plugin-page-properties';
@@ -32,12 +30,16 @@ import '@nolebase/vitepress-plugin-enhanced-mark/client/style.css';
 import Confetti from "./components/Confetti.vue";
 
 import Hero from '../theme/Layout.vue';
+import APC from '../theme/APC/Bottom.vue';
 import NCard from './components/NCard.vue';
 import MusicPlayer from './components/MusicPlayer.vue'
+import MusicPlayerAllPage from './components/MusicPlayerAllPage.vue'
+import ImageSlider from './components/ImageSlider.vue'
 import DownloadLinkCollector from './components/DownloadLinkCollector.vue'
 import LinkCard from './components/LinkCard.vue'
 import UpdateLogPopup from './components/UpdateLogPopup.vue';
 import WGWebGameChecker from './components/WG-WebGame-Checker.vue';
+import BGMusicEd from './components/BGMusicEd.vue';
 
 import './custom.css';
 export default {
@@ -46,7 +48,7 @@ export default {
     return h(DefaultTheme.Layout, null, {
       // 'aside-outline-before': () => h(ShareButton),
       'home-hero-before': () => h(Hero),
-      'layout-bottom': () => h(HomeFooter, { Footer_Data }),
+      'layout-bottom': () => [h(HomeFooter, { Footer_Data }), h(APC)],
       'nav-bar-content-after': () => h(NolebaseEnhancedReadabilitiesMenu),
       'nav-screen-content-after': () => h(NolebaseEnhancedReadabilitiesScreenMenu),
       'layout-top': () => [h(NolebaseHighlightTargetedHeading)],
@@ -63,11 +65,13 @@ export default {
     app.use(TwoslashFloatingVue);
     app.component('NCard', NCard);
     app.component('MusicPlayer', MusicPlayer)
+    app.component('MusicPlayerAP', MusicPlayerAllPage)
     app.component('ImageSlider', ImageSlider)
     app.component('DownloadLinkCollector', DownloadLinkCollector)
     app.component('LinkCard', LinkCard)
     app.component('UpdateLogPopup', UpdateLogPopup)
     app.component('WGwgc', WGWebGameChecker)
+    app.component('BGMusicEd', BGMusicEd)
     app.use(TwoslashFloatingVue as unknown as Plugin);
     app.use(NolebaseGitChangelogPlugin);
     app.provide(InjectionKey, {

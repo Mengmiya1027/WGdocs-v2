@@ -22,11 +22,11 @@ comment: false
 
 ### 🎵/🖼️  杂项文件
 <br>
-<NCard title="🖼️  照片" link="/resources/picture/">
+<NCard title="🖼️  照片" link="/resources/picture/map">
   就是普普通通的图片a~
 </NCard>
 
-<NCard title="⏯️  视频" link="/resources/video/">
+<NCard title="⏯️  视频" link="/resources/video/map">
   咳咳  有些猎奇
 </NCard>
 

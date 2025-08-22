@@ -105,13 +105,14 @@
 
         <!-- 底部区域 -->
         <div class="popup-footer">
-          <button
+          <a
               class="show-all-btn"
               v-if="isFirstVisit && displayVersions.length < allVersions.length"
+              href="/guide/new"
               @click="handleShowAll"
           >
             查看全部更新
-          </button>
+          </a>
           <button class="confirm-btn" @click="closePopup">
             {{ isFirstVisit ? '开始使用' : '我知道了' }}
           </button>
@@ -122,6 +123,7 @@
 </template>
 
 <script>
+import { useRouter } from 'vitepress'
 export default {
   name: 'UpdateLogPopup',
   data() {
@@ -358,6 +360,15 @@ export default {
       }
     },
 
+    isExternalLink(path) {
+      return /^(?:[a-z]+:)?\/\//i.test(path) ||
+          path.startsWith('mailto:') ||
+          path.startsWith('tel:') ||
+          path.startsWith('//') ||
+          path.startsWith('http:') ||
+          path.startsWith('https:')
+    },
+
     handleTabsScroll(e) {
       if (!e.target) {
         console.log('handleTabsScroll: e.target 不存在');
@@ -373,16 +384,28 @@ export default {
       console.log('是否需要显示左阴影:', this.scrollLeft > 0);
       console.log('是否滚动到最右:', this.isScrolledToEnd);
     },
-    handleShowAll() {
-      // 关闭弹窗
-      this.showPopup = false;
-      // 记录当前最新版本（保持原有的本地存储逻辑）
+    handleShowAll(e) {
+      // 记录当前最新版本
       if (this.allVersions.length > 0) {
         const latestVersion = this.allVersions[0].version;
         localStorage.setItem('lastVisitedVersion', latestVersion);
       }
-      // 重定向到 /guide/new
-      window.location.href = '/guide/new';
+
+      // 关闭弹窗
+      this.showPopup = false;
+
+      const targetPath = '/guide/new'
+
+      // 如果是外部链接或特殊操作，不处理
+      if (this.isExternalLink(targetPath) ||
+          e.ctrlKey || e.metaKey || e.shiftKey) {
+        return
+      }
+
+      // 阻止默认行为并使用 VitePress 路由
+      e.preventDefault()
+      const router = useRouter()
+      router.go(targetPath)
     },
   }
 };

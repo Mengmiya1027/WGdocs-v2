@@ -7,13 +7,18 @@ comment: true
 
 ## 更新日志
 
-::: tip 最新更新：2025年8月16日
-### WGdocs版本Dev2.0,Preview27
-更新日志：凌晨手搓出来的更新~都要开学了我摘抄笔记还没做111😭这次更新加入了哈吉米语翻译器和我的世界的一些介绍a~等到Preview30过了以后就是v2的正式版啦~
+::: tip 最新更新：2025年8月22日
+### WGdocs版本Dev2.0,Preview28
+更新日志：也是托更了很久……1500多行的音乐播放器被做出来了~<br>就是也不知道为了防止和谐，做出来的防止一体机自动播放能不能生效~<br>
+下期预告：可能有点水，加一些蛋仔~
 :::
 
 ::: details 往期日志
-### 2025年8月15日
+#### 2025年8月16日
+### WGdocs版本Dev2.0,Preview27
+更新日志：凌晨手搓出来的更新~都要开学了我摘抄笔记还没做111😭这次更新加入了哈吉米语翻译器和我的世界的一些介绍a~等到Preview30过了以后就是v2的正式版啦~
+
+#### 2025年8月15日
 ### WGdocs版本Dev2.0,Preview26
 更新日志：制作了WG-WebGame小游戏~<br>顺便也想说更新给我累死了，纯手搓32个文件满意了吧~<br>想看一下小游戏的话可以<a data-v-01dee525="" class="VPNolebaseInlinePreviewLink" relative="" href="/resources/website/WG-WebGame">戳这里<!--teleport start--><!--teleport end--></a>
 
@@ -66,7 +71,7 @@ comment: true
 算是个半成品，明天再来继续优化（头痛ing）
 
 ### WGdocs版本Dev2.0,Preview17.1
-更新日志：凌晨偷偷的更新了~依然是组件小修小补。资源上传页面做完了但是  欸嘿我就是不提交~我就要等到Preview18~<br>
+更新日志：凌晨偷偷地更新了~依然是组件小修小补。资源上传页面做完了但是  欸嘿我就是不提交~我就要等到Preview18~<br>
 凌晨思绪：为什么MC百科的6月统计  评论区的人关注点都在百科娘上面啊？（手动狗头）
 
 #### 2025年07月29日
@@ -583,3 +588,120 @@ methods: {
 如果想查看“首次访问”页面，可以点击上面的`删除 lastVisitedVersion`按钮后[点击此处回到主页](/)<br>
 查看“更新日志”页面，可以在上方输入框输入“Dev2.0,Preview20”，然后点击`修改 lastVisitedVersion`按钮后[点击此处回到主页](/)
 :::
+
+## 背景音乐播放器<badge type="warning" text="Dev2.0,Preview28" /> <badge type="tip" text="5" />
+
+> 为了做这个，网管也是把所有自定义组件的路由全部重写了一遍😭
+
+游浮望着天，誓言追光影~~~
+
+### 主要特点说明
+
+本来在博客中，从一篇文章切换另一篇文章是需要完全重新加载网页的。
+
+这也就导致音乐播放器在切换文章时会被打断，况且我还没做保存进度的功能，打断了就得从头重新播放。
+
+但是我注意到一个问题，Vitepress原生的路由可以把页面变为“单页应用程序”，即保持顶栏、侧栏等常驻元素不变，动态更新文章部分。
+
+那么我就可以直接把音乐播放器注册为全局常驻组件，这样就可以在切换文章时候让vitepress不重新加载音乐播放器。
+
+所以你会在[Github仓库](https://github.com/Mengmiya1027/WGdocs-main)中，在 src/.vitepress/theme 目中看到一个APC文件夹。APC（我定义的😅）全称为All Page Components，即“所有页面组件”，这里面就存放常驻组件定义器。
+
+### 简单细节小说明
+
+- 移动端适配把我整残了！111人机浏览器
+- 为了防止被▮▮和谐，加入了检测是否为一体机设备的检测，禁止自动播放。检测逻辑如下：
+
+<style>
+  .scrollable-table-container {
+    width: 100%;
+    overflow-x: auto; /* 启用水平滚动 */
+    margin: 1rem 0;
+  }
+  .scrollable-table {
+    min-width: 100%; /* 确保表格宽度至少占满容器 */
+    border-collapse: collapse;
+  }
+  .scrollable-table th,
+  .scrollable-table td {
+    white-space: nowrap; /* 强制内容不换行 */
+    padding: 0.8rem 1.2rem;
+    border: 1px solid #e0e0e0;
+  }
+  .scrollable-table th {
+    background-color: #f5f5f5;
+    font-weight: bold;
+  }
+  .scrollable-table tr:nth-child(even) {
+    background-color: #fafafa;
+  }
+  .section-header {
+    background-color: #f0f7ff;
+    font-weight: bold;
+  }
+</style>
+
+<!-- 在Markdown中使用带样式的表格 -->
+<div class="scrollable-table-container">
+  <table class="scrollable-table">
+    <thead>
+      <tr>
+        <th>检测阶段</th>
+        <th>检测项</th>
+        <th>检测内容</th>
+        <th>分值</th>
+        <th>判定逻辑/处理方式</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="section-header">
+        <td>第一阶段：强信号</td>
+        <td>UA品牌关键词</td>
+        <td>解析navigator.userAgent，检测是否包含 seewo、iclass、hite、hitevision、infocus 任一关键词</td>
+        <td>+100</td>
+        <td>强信号，一票通过制。匹配则直接判定为目标设备，禁用自动播放</td>
+      </tr>
+      <tr>
+        <td>弱信号1</td>
+        <td>触控能力</td>
+        <td>检测设备是否支持10点及以上触控（navigator.maxTouchPoints ≥ 10）</td>
+        <td>+30</td>
+        <td>满足条件则加分</td>
+      </tr>
+      <tr>
+        <td>弱信号2</td>
+        <td>屏幕分辨率</td>
+        <td>检测屏幕分辨率是否≥1920x1080</td>
+        <td>+30</td>
+        <td>满足条件则加分，确保为大尺寸显示设备</td>
+      </tr>
+      <tr>
+        <td>弱信号3</td>
+        <td>操作系统与内核</td>
+        <td>检测userAgent是否同时包含 Windows 10/11（Windows NT 10.0）和 Chrome 内核</td>
+        <td>+40</td>
+        <td>需同时满足两个条件才加分</td>
+      </tr>
+      <tr>
+        <td>最终判定</td>
+        <td>总分计算</td>
+        <td>累加上述各项得分</td>
+        <td>-</td>
+        <td>总分≥100分则判定为目标设备，禁用自动播放；否则进入第二阶段</td>
+      </tr>
+      <tr class="section-header">
+        <td>第二阶段：交互环境</td>
+        <td>触屏交互与屏幕检测</td>
+        <td>监听用户首次交互类型，若为触屏事件（touchstart）且屏幕分辨率≥1920x1080</td>
+        <td>-</td>
+        <td>满足条件则拒绝自动播放，停止监听用户交互</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+- 在移动端音频列表和播放按钮会自动隐藏
+- 这™似仁鸡配色我真的配不来😅
+
+### 示例预览：
+右下角那个白色小按钮看到了吗🥰点一下调出卡片
