@@ -29,3 +29,37 @@ Pro Service提供哈基米语翻译器。你可以在翻译器上实现加密通
 
 ## Thanks for chossing Pro Service~
 暂时就这么点啦~都是零成本薅出来的~
+
+---
+
+<ImageSlider
+  :auto="true"
+  :time="3000"
+  :images="[
+    { id: 1, text: '小红-ZH1', link: '/pictures/eggy/eggy-hong-ZH1.jpg' },
+    { id: 2, text: '小黑-ZH1', link: '/pictures/eggy/eggy-hei-ZH1.jpg' },
+    { id: 3, text: '小黄-ZH1', link: '/pictures/eggy/eggy-huang-ZH1.jpg' },
+    { id: 4, text: '六小只-ZH1', link: '/pictures/eggy/eggy-all-ZH1.jpg' },
+  ]"
+  ltext="整活集"
+  rtext="（已笑死）"
+  lcolor="MediumVioletRed"
+  rcolor="white"
+/>
+
+---
+
+<ImageSlider
+  :auto="true"
+  :time="3000"
+  :images="[
+    { id: 1, text: '小蓝-ZH1', link: '/pictures/eggy/eggy-lan-ZH1.jpg' },
+    { id: 2, text: '小粉-ZH1', link: '/pictures/eggy/eggy-fen-ZH1.jpg' },
+    { id: 3, text: '蓝粉-ZH1', link: '/pictures/eggy/eggy-LF-ZH1.jpg' },
+    { id: 4, text: '小绿-ZH1', link: '/pictures/eggy/eggy-lv-ZH1.jpg' },
+  ]"
+  ltext="我算是知道"
+  rtext="小红书有好东西"
+  lcolor="MediumVioletRed"
+  rcolor="orange"
+/>

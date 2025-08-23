@@ -55,17 +55,17 @@ link="wgdocs-hajimi.pages.dev"
 1. 完全下载项目仓库到本地，并且安装有 `Node.js` 环境，可以使用 `pnpm` 等包管理工具
 2. 在项目目录下依次运行命令
 ```bash
-pnpm install
+npm install
 ```
 
 ---
 
 ```bash
-pnpm run build
+npm run build
 ```
 3. 使用 Web 容器挂载输出的静态资源文件（在目录 `./dist/` 下），你也可以直接运行如下命令本地启动
 ```bash
-pnpm run preview
+npm run preview
 ```
 接下来就可以在本地环境使用了
 :::

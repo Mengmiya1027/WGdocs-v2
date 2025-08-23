@@ -28,3 +28,20 @@ title: 图片
 <NCard title="某些其他的" link="/resources/picture/some-people/others-in-class">
   没什么
 </NCard>
+
+<ImageSlider
+  :auto="true"
+  :time="1500"
+  :images="[
+    { id: 1, text: '惊魂夜阿巴-1', link: '/pictures/eggy/pursuer-aba-1.jpg' },
+    { id: 2, text: '惊魂夜斯黛拉-1', link: '/pictures/eggy/pursuer-sidaila-1.jpg' },
+    { id: 3, text: '惊魂夜艾琳-1', link: '/pictures/eggy/pursuer-ailin-1.jpg' },
+    { id: 4, text: '惊魂夜疯象-1', link: '/pictures/eggy/pursuer-elephant-1.jpg' },
+  ]"
+  ltext="来点追捕者~"
+  rtext="逃出惊魂夜"
+  lcolor="white"
+  rcolor="#3c3c43"
+/>
+
+666找图找到网管自己了~

@@ -108,3 +108,18 @@ graph LR
 ```
 
 从前端的像素级渲染到后端的毫秒级响应，网站技术体系是多学科交叉的产物。每一行代码都在构建更流畅的用户体验，每一次架构优化都在提升系统的稳定性 —— 这正是技术开发的魅力所在。
+
+<ImageSlider
+  :auto="true"
+  :time="1500"
+  :images="[
+    { id: 1, text: '小绿-1', link: '/pictures/eggy/eggy-lv-1.jpg' },
+    { id: 2, text: '小绿-2', link: '/pictures/eggy/eggy-lv-2.jpg' },
+    { id: 3, text: '粉绿-1', link: '/pictures/eggy/eggy-FL-1.jpg' },
+    { id: 4, text: '粉绿-2', link: '/pictures/eggy/eggy-FL-2.jpg' },
+  ]"
+  ltext="我真服了"
+  rtext="怎么有人磕粉绿"
+  lcolor="MediumVioletRed"
+  rcolor="LimeGreen"
+/>

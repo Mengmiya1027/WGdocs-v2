@@ -120,3 +120,18 @@ comment: false
 
 
 通过以上维度，可以清晰理解打包型应用程序在软件开发和用户体验中的定位与价值。
+
+<ImageSlider
+  :auto="true"
+  :time="1500"
+  :images="[
+    { id: 1, text: '小黑-1', link: '/pictures/eggy/eggy-hei-1.jpg' },
+    { id: 2, text: '小黑-2', link: '/pictures/eggy/eggy-hei-2.jpg' },
+    { id: 3, text: '劳蓝-1', link: '/pictures/eggy/eggy-LL-1.jpg' },
+    { id: 4, text: '劳蓝-2', link: '/pictures/eggy/eggy-LL-2.jpg' },
+  ]"
+  ltext="劳~"
+  rtext="蓝~"
+  lcolor="white"
+  rcolor="#99FFFF"
+/>

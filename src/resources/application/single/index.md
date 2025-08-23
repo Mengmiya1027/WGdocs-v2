@@ -44,3 +44,18 @@ comment: false
 - **功能天花板**：代码量超过数千行后，可读性和可维护性急剧下降，难以实现复杂功能。
 - **扩展困难**：新增功能可能需要重构整个文件，牵一发而动全身。
 - **资源处理麻烦**：图片、音频等资源需通过Base64编码嵌入，可能导致文件体积膨胀。
+
+<ImageSlider
+  :auto="true"
+  :time="1500"
+  :images="[
+    { id: 1, text: '小黄-1', link: '/pictures/eggy/eggy-huang-1.jpg' },
+    { id: 2, text: '小黄-2', link: '/pictures/eggy/eggy-huang-2.jpg' },
+    { id: 3, text: '劳初-1', link: '/pictures/eggy/eggy-LC-1.jpg' },
+    { id: 4, text: '劳初-2', link: '/pictures/eggy/eggy-LC-2.jpg' },
+  ]"
+  ltext="劳~"
+  rtext="初~"
+  lcolor="#FFFFBB"
+  rcolor="#3c3c43"
+/>

@@ -35,10 +35,10 @@ comment: false
 ---
 
 <div style="display: flex; gap: 10px;">
-  <img src="/pictures/some-people/xysys/10.jpg" alt="10.jpg" style="width: 25%;">
-  <img src="/pictures/some-people/xysys/11.jpg" alt="11.jpg" style="width: 25%;">
-  <img src="/pictures/some-people/xysys/12.jpg" alt="12.jpg" style="width: 25%;">
-  <img src="/pictures/some-people/xysys/13.jpg" alt="13.jpg" style="width: 25%;">
+  <img src="/pictures/some-people/xysys/10.jpg" alt="10.jpg" style="width: 22%;">
+  <img src="/pictures/some-people/xysys/11.jpg" alt="11.jpg" style="width: 22%;">
+  <img src="/pictures/some-people/xysys/12.jpg" alt="12.jpg" style="width: 27%;">
+  <img src="/pictures/some-people/xysys/13.jpg" alt="13.jpg" style="width: 27%;">
 </div>
 
 

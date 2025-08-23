@@ -16,3 +16,18 @@ title: 视频
 <NCard title="几个子儿" link="/resources/video/im-wzxq">
   不是，谁™说旺仔小乔没有原创歌曲的？
 </NCard>
+
+<ImageSlider
+  :auto="true"
+  :time="1500"
+  :images="[
+    { id: 1, text: '小红-1', link: '/pictures/eggy/eggy-hong-1.jpg' },
+    { id: 2, text: '小红-2', link: '/pictures/eggy/eggy-hong-2.jpg' },
+    { id: 3, text: '红绿-1', link: '/pictures/eggy/eggy-HL-1.jpg' },
+    { id: 4, text: '红绿-2', link: '/pictures/eggy/eggy-HL-2.png' },
+  ]"
+  ltext="红绿~"
+  rtext="（别乱想）"
+  lcolor="orangered"
+  rcolor="lightGreen"
+/>

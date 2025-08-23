@@ -1076,7 +1076,7 @@ watch(isExpanded, (newVal) => {
   .toggle-button {
     position: relative;
     align-self: flex-start;
-    top: 37vh;
+    top: 258px !important;
   }
 
   .music-player-wrapper{

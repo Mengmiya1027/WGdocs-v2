@@ -78,6 +78,10 @@ comment: true
       text: 'WG-WebGame',
     },
     {
+      link: '/resources/website/ChinaFZ110',
+      text: '▮▮学习资料网站',
+    },
+    {
       link: '/resources/picture/map',
       text: '图片-概览',
     },

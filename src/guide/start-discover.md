@@ -1,23 +1,23 @@
 ---
 comment: false
 ---
-# WGdocs<Badge type="warning" text="版本Dev2.0, Preview28" />
+# WGdocs<Badge type="warning" text="版本Dev2.0, Preview29" />
 
-### 快速开始<Badge type="tip" text="经典" />
+### 快速开始<Badge type="tip" text="经典" /><Badge type="warning" text="最近更新" />
 <br>
 <NCard title="🔎 探索资源" link="/resources/">
 查看、了解、下载本站收录资源。<br>
 这应该是最常用的功能了吧……
 </NCard>
 
-### 新功能<Badge type="warning" text="最近更新" />
+### 新功能
 <br>
 <NCard title="🚀 更新日志与新功能介绍" link="/guide/new">
 其实网管根本不会写更新日志……<br>
 直接胡编乱造！
 </NCard>
 
-### WGdocs Pro Service<Badge type="warning" text="最近更新" />
+### WGdocs Pro Service
 <br>
 <NCard title="✨ WGdocs Pro Service" link="/pro/">
 专业版服务！提供一些额外功能~

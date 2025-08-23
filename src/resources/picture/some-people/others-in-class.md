@@ -16,7 +16,10 @@ title: 某些其他的
 
 ---
 
-<img src="/pictures/some-people/others-in-class/2.jpg" alt="2.jpg" style="width: 100%;">
+<div style="display: flex; gap: 10px;">
+  <img src="/pictures/some-people/others-in-class/2.jpg" alt="2.jpg" style="width: 60%;">
+  <img src="/pictures/some-people/others-in-class/8.gif" alt="8.gif" style="width: 40%;">
+</div>
 
 ---
 
@@ -34,6 +37,11 @@ title: 某些其他的
 
 <img src="/pictures/some-people/others-in-class/7.jpg" alt="7.jpg" style="width: 100%;">
 
+---
+
+:::details Warning
+<img src="/pictures/some-people/others-in-class/w1.jpg" alt="w1.jpg" style="width: 100%;">
+:::
 
 ## 下载地址
 
