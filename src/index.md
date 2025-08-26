@@ -5,8 +5,8 @@ title: WGdocs
 titleTemplate: 资源中转站 v2
 
 hero:
-  name: 资源中转站
-  text: VitePress v2新版本
+  name: WGdocs v2
+  text: 资源中转站新版本
   actions:
     - theme: brand
       text: 开始探索↗

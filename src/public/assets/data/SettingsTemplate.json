@@ -1,0 +1,41 @@
+{
+  "title": "偏好设置",
+  "logo": "/assets/smalllogo.png",
+  "sections": [
+    {
+      "topic": "主页设置",
+      "item": [
+        {
+          "name": "更新信息提醒",
+          "key": "updateInfoPopup",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "topic": "全局设置",
+      "item": [
+        {
+          "name": "自动播放背景音乐",
+          "key": "musicAutoPlay",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "topic": "图片展示器设置",
+      "item": [
+        {
+          "name": "非重要图片显示",
+          "key": "imageSliderVisible",
+          "type": "boolean"
+        },
+        {
+          "name": "图片展示器自动切换（如有设置）",
+          "key": "imageSliderAutoPlay",
+          "type": "boolean"
+        }
+      ]
+    }
+  ]
+}

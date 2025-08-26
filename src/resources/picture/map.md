@@ -9,6 +9,10 @@ title: 图片
 :::
 ---
 
+<NCard title="蛋仔~" link="/resources/picture/eggy">
+  整合了一下站点里面所有的蛋仔图片。对没错几乎都来自小红书
+</NCard>
+
 <NCard title="唐子八" link="/resources/picture/some-people/tzb">
   作为网管的好前同桌……网管自然要把他挂上来了😊
 </NCard>

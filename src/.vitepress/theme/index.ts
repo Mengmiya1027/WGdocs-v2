@@ -40,6 +40,8 @@ import LinkCard from './components/LinkCard.vue'
 import UpdateLogPopup from './components/UpdateLogPopup.vue';
 import WGWebGameChecker from './components/WG-WebGame-Checker.vue';
 import BGMusicEd from './components/BGMusicEd.vue';
+import { getSettings } from './components/settingsControl';
+import SettingsPanel from './components/SettingsPanel.vue';
 
 import './custom.css';
 export default {
@@ -63,6 +65,7 @@ export default {
       }
     } as Options);
     app.use(TwoslashFloatingVue);
+    console.log(getSettings());
     app.component('NCard', NCard);
     app.component('MusicPlayer', MusicPlayer)
     app.component('MusicPlayerAP', MusicPlayerAllPage)
@@ -72,6 +75,7 @@ export default {
     app.component('UpdateLogPopup', UpdateLogPopup)
     app.component('WGwgc', WGWebGameChecker)
     app.component('BGMusicEd', BGMusicEd)
+    app.component('SettingsPanel', SettingsPanel)
     app.use(TwoslashFloatingVue as unknown as Plugin);
     app.use(NolebaseGitChangelogPlugin);
     app.provide(InjectionKey, {

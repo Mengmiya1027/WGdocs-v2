@@ -7,14 +7,21 @@ comment: true
 
 ## 更新日志
 
-::: tip 最新更新：2025年8月23日
+::: tip 最新更新：2025年8月26日
+### WGdocs版本Release2.0
+更新日志：Welcome to WGdocs 2.0！<br>
+本次更新添加了<a data-v-01dee525="" class="VPNolebaseInlinePreviewLink" relative="" href="/other/settings">偏好设置功能<!--teleport start--><!--teleport end--></a>，可以自由编辑一些可选项！（虽然不多但是够用了）<br>
+同时对资源中心也进行了一些添加、小修改。这里就不过多叙述<br>
+WGdocs在开学之前都不会再更新了~主要是实在累了<br>
+:::
+
+::: details 往期日志
+#### 2025年8月23日
 ### WGdocs版本Dev2.0,Preview29
 更新日志：蛋仔不断加加加加到厌倦~<br>
 顺便还做了一个“学习资料网站”，请谨慎打开-><a data-v-01dee525="" class="VPNolebaseInlinePreviewLink" relative="" href="/resources/website/ChinaFZ110">链接直达<!--teleport start--><!--teleport end--></a><br>
 下期预告：尽量开学前出Release 2.0版本！
-:::
 
-::: details 往期日志
 #### 2025年8月22日
 ### WGdocs版本Dev2.0,Preview28
 更新日志：也是托更了很久……1500多行的音乐播放器被做出来了~<br>就是也不知道为了防止和谐，做出来的防止一体机自动播放能不能生效~<br>
@@ -277,7 +284,8 @@ textcolor="black"
 ## 自制图片轮播/展示控件 <badge type="warning" text="Dev2.0,Preview16" /> <badge type="tip" text="2" />
 
 ### 最新修改：
-修复了无ltext和rtext情况下也显示移动端信息框的问题。
+加上了important参数，在important为false并且偏好设置中关闭“非重要图片显示”时，组件将不再显示
+在偏好设置中关闭“图片展示器自动切换（如有设置）”时，无论是否开启auto，图片展示器都将不再自动切换。
 
 ### 使用方法：
 
@@ -292,6 +300,7 @@ textcolor="black"
     { id: 3, text: '[替代文字3]', link: '[图片链接3]' },
     ...
   ]"
+  important="[是否重要（可选，默认false）]"
   ltext="[左侧文字（可选）]"
   rtext="[右侧文字（可选）]"
   lcolor="[左侧文字颜色（可选）]" <!-- 默认为#3c3c43 -->
@@ -308,6 +317,7 @@ textcolor="black"
     { id: 3, text: '执法-3', link: '/pictures/eggy/ZhiFa-3.png' },
     { id: 4, text: '执法-4', link: '/pictures/eggy/ZhiFa-4.png' }
   ]"
+  important="true"
   ltext="执法~"
   rtext="大人~"
   rcolor="white"
@@ -330,12 +340,15 @@ textcolor="black"
 
 ### 参数说明：
 
-| 参数 | auto、time（可选）                       | images（必填） | ltext、rtext（可选） | lcolor、rcolor（可选）                              |
-|----|-------------------------------------|--------------|-----------------|------------------------------------------------|
-| 说明 | 自动切换功能，切换间隔单位为毫秒 | 图片链接数组，包含id、text和link属性。 | 左、右侧提示文字（可选）    | 左、右侧文字颜色（可选），默认为#3c3c43。 |
+| 参数 | auto、time、（可选）   | images（必填）               | important（可选） |
+|----|------------------|--------------------------|---------------|
+| 说明 | 自动切换功能，切换间隔单位为毫秒 | 图片链接数组，包含id、text和link属性。 | 是否重要，默认为false |
+| 参数 | ltext、rtext（可选）  | lcolor、rcolor（可选）        |
+| 说明 | 左、右侧提示文字（可选）     | 左、右侧文字颜色（可选），默认为#3c3c43。 |
 
 ### 示例预览：
-因为网络原因，可能需要稍等几秒才能显示。
+因为网络原因，可能需要稍等几秒才能显示。<br>
+在偏好设置中中关闭非重要图片展示时，你应该只能看到执法的展示器。
 
 <ImageSlider
   :auto="true"
@@ -346,9 +359,10 @@ textcolor="black"
     { id: 3, text: '执法-3', link: '/pictures/eggy/ZhiFa-3.png' },
     { id: 4, text: '执法-4', link: '/pictures/eggy/ZhiFa-4.png' },
   ]"
-ltext="执法~"
-rtext="大人~"
-rcolor="white"
+  important="true"
+  ltext="执法~"
+  rtext="大人~"
+  rcolor="white"
 />
 
 ---

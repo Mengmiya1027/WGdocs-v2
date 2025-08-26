@@ -151,6 +151,7 @@ function sidebarGuide(): DefaultTheme.Sidebar {
           collapsed: true,
           items: [
             { text: '概览', link: '/map' },
+            { text: '蛋仔~', link: '/eggy' },
             {
               text: '有的人',
               base: '/resources/picture/some-people',
@@ -194,7 +195,8 @@ function sidebarGuide(): DefaultTheme.Sidebar {
       collapsed: false,
       items: [
         { text: '上传资源', link: '/upload' },
-        { text: '架构', link: '/architecture' }
+        { text: '架构', link: '/architecture' },
+        { text: '开发人员工具', link: '/DevTools'}
       ]
     },
     {
@@ -202,7 +204,8 @@ function sidebarGuide(): DefaultTheme.Sidebar {
       base: '/other',
       collapsed: false,
       items: [
-        { text: '关于', link: '/' }
+        { text: '关于', link: '/' },
+        { text: '偏好设置', link: '/settings' }
       ]
     }
   ]

@@ -1,6 +1,6 @@
 <template>
   <ClientOnly>
-    <div class="update-log-popup" v-if="showPopup">
+    <div class="update-log-popup" v-if="showPopup && Visible">
       <!-- 遮罩层 -->
       <div class="popup-overlay" @click="closePopup"></div>
 
@@ -124,6 +124,8 @@
 
 <script>
 import { useRouter } from 'vitepress'
+import { getSettings } from "./settingsControl";
+
 export default {
   name: 'UpdateLogPopup',
   data() {
@@ -138,7 +140,8 @@ export default {
       loading: true,
       error: null,
       tabsNav: null, // 用于获取选项卡DOM元素
-      isScrollBound: false // 标记事件是否已绑定
+      isScrollBound: false, // 标记事件是否已绑定
+      Visible: getSettings("updateInfoPopup")
     };
   },
   computed: {

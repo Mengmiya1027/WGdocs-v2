@@ -8,7 +8,7 @@ wordCount: false
 题目：42779<br>
 
 ::: details
-[42779](/WG-WebGame/42779.html)
+[42779](/html/WG-WebGame/42779.html)
 :::
 
 ### 输入你的答案：

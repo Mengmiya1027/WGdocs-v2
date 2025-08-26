@@ -1,5 +1,9 @@
 <script setup lang="ts">
 import {nextTick, onMounted, onUnmounted, ref} from 'vue';
+import { getSettings } from './settingsControl';
+
+const Visible = getSettings("imageSliderVisible");
+const AutoPlay = getSettings("imageSliderAutoPlay");
 
 const props = defineProps<{
   auto: boolean;
@@ -13,6 +17,7 @@ const props = defineProps<{
   lcolor: string;
   rtext: string;
   rcolor: string;
+  important?: boolean;
 }>();
 
 const currentIndex = ref(0);
@@ -171,7 +176,7 @@ const nextImage = () => {
 };
 
 const startAutoSlide = () => {
-  if (props.auto) {
+  if (props.auto && AutoPlay) {
     intervalId = setInterval(() => {
       nextImage();
     }, props.time);
@@ -220,7 +225,7 @@ const defaultColor = '#3c3c43';
 </script>
 
 <template>
-  <div class="image-slider-container">
+  <div class="image-slider-container" v-if="Visible || important">
     <div class="image-slider-bg" :style="{ 'background-image': `url(${currentImage.link})` }">
       <div class="image-slider-glass">
         <button @click="prevImage" class="arrow-btn arrow-left">

@@ -1,5 +1,10 @@
 [
   {
+    "version": "Release2.0",
+    "date": "2025.08.26",
+    "content": "更新日志：Welcome to WGdocs 2.0！<br>\r\n本次更新添加了<a data-v-01dee525=\"\" class=\"VPNolebaseInlinePreviewLink\" relative=\"\" href=\"/other/settings\">偏好设置功能<!--teleport start--><!--teleport end--></a>，可以自由编辑一些可选项！（虽然不多但是够用了）<br>\r\nWGdocs在开学之前都不会再更新了~主要是实在累了<br>"
+  },
+  {
     "version": "Dev2.0,Preview29",
     "date": "2025.08.23",
     "content": "更新日志：蛋仔不断加加加加到厌倦~<br>\r\n顺便还做了一个“学习资料网站”，请谨慎打开-><a data-v-01dee525=\"\" class=\"VPNolebaseInlinePreviewLink\" relative=\"\" href=\"/resources/website/ChinaFZ110\">链接直达<!--teleport start--><!--teleport end--></a><br>\r\n下期预告：尽量开学前出Release 2.0版本！"

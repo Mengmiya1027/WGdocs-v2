@@ -35,7 +35,11 @@ title: 某些其他的
 
 ---
 
-<img src="/pictures/some-people/others-in-class/7.jpg" alt="7.jpg" style="width: 100%;">
+<!-- 并排显示 -->
+<div style="display: flex; gap: 10px;">
+  <img src="/pictures/some-people/others-in-class/7.jpg" alt="7.jpg" style="width: 55%;">
+  <img src="/pictures/some-people/others-in-class/9.jpg" alt="9.jpg" style="width: 45%;">
+</div>
 
 ---
 

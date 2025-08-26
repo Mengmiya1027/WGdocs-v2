@@ -1,7 +1,7 @@
 ---
 comment: false
 ---
-# WGdocs<Badge type="warning" text="版本Dev2.0, Preview29" />
+# WGdocs<Badge type="tip" text="版本Release2.0" />
 
 ### 快速开始<Badge type="tip" text="经典" /><Badge type="warning" text="最近更新" />
 <br>

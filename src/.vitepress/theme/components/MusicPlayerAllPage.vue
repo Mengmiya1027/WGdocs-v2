@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, watch } from 'vue'
 import BGMusicEd from './BGMusicEd.vue'
+import { getSettings } from './settingsControl';
 
 // 音乐数据类型定义
 interface Music {
@@ -48,32 +49,8 @@ const areControlsVisible = ref(true)
 const interactionTimer = ref<NodeJS.Timeout | null>(null)
 const MOBILE_INACTIVITY_TIMEOUT = 5000 // 5秒无交互隐藏按钮
 
-// 新增设备检测相关状态
-const deviceDetectionResult = ref<{
-  score: number
-  isTargetDevice: boolean
-  details: Array<{ name: string; score: number; passed: boolean; description: string }>
-}>({
-  score: 0,
-  isTargetDevice: false,
-  details: []
-})
-
 // 初始化加载音乐数据
 onMounted(() => {
-  // 新增设备检测逻辑
-  const { score, details } = checkDeviceScore()
-  const isTarget = score >= 100
-  deviceDetectionResult.value = { score, isTargetDevice: isTarget, details }
-
-  // 打印详细检测结果
-  console.log('===== 设备自动播放限制检测报告 =====')
-  console.log(`检测总分: ${score}分 ${isTarget ? '(触发限制)' : '(不触发限制)'}`)
-  details.forEach((item, index) => {
-    console.log(`${index + 1}. ${item.name}: ${item.score}分 (${item.passed ? '通过' : '未通过'}) - ${item.description}`)
-  })
-  console.log('===================================')
-
   // 创建音频元素
   const audio = new Audio()
   audioRef.value = audio
@@ -90,12 +67,11 @@ onMounted(() => {
         isLoading.value = false
         if (musicList.value.length > 0) {
           loadMusic(currentIndex.value)
-          // 只有非目标设备才尝试自动播放
-          if (!isTarget) {
-            console.log('非限制设备，尝试自动播放')
+          // 根据配置尝试自动播放，不再进行设备限制判断
+          console.log("自动播放配置",getSettings('musicAutoPlay'))
+          if (getSettings('musicAutoPlay')) {
+            console.log('尝试自动播放')
             setTimeout(tryAutoPlay, 1000)
-          } else {
-            console.log('限制设备，禁用自动播放')
           }
         }
       })
@@ -105,7 +81,7 @@ onMounted(() => {
         loadError.value = true
       })
 
-  // 监听窗口大小变化（保持原有逻辑）
+  // 监听窗口大小变化
   const handleResize = () => {
     if (window.innerWidth <= 768) {
       isExpanded.value = false
@@ -148,7 +124,7 @@ const startInteractionTimer = () => {
 
 // 尝试自动播放函数
 const tryAutoPlay = async () => {
-  if (deviceDetectionResult.value.isTargetDevice || !audioRef.value || isPlaying.value) return
+  if (!audioRef.value || isPlaying.value) return
 
   try {
     // 尝试自动播放
@@ -191,85 +167,10 @@ const handleUserInteraction = (e: Event) => {
   // 跟踪交互以显示控制按钮
   trackInteraction()
 
-  // 第一关未通过（是目标设备），直接返回
-  if (deviceDetectionResult.value.isTargetDevice) {
-    console.log('限制设备，忽略用户交互触发的播放尝试')
-    return
-  }
-
-  // 第二关判断：第一次交互是触屏且屏幕>=1920x1080，拒绝自动播放
-  if (e.type === 'touchstart' && screen.width >= 1920 && screen.height >= 1080) {
-    console.log('检测到触屏交互且大屏幕，拒绝自动播放')
-    stopListeningUserInteraction()
-    return
-  }
-
   if (!isPlaying.value) {
     console.log(`用户通过${e.type}交互触发播放尝试`)
     tryAutoPlay()
   }
-}
-
-// 设备检测评分细则函数，防止一体机自动播放被和谐
-const checkDeviceScore = () => {
-  const details: Array<{ name: string; score: number; passed: boolean; description: string }> = []
-  const userAgent = navigator.userAgent.toLowerCase()
-  const brandKeywords = ['seewo', 'iclass', 'hite', 'hitevision', 'infocus']
-
-  // 1. UA品牌关键词检测（强信号，一票通过）
-  let isBrandMatch = false
-  for (const keyword of brandKeywords) {
-    if (userAgent.includes(keyword)) {
-      isBrandMatch = true
-      break
-    }
-  }
-
-  details.push({
-    name: 'UA品牌关键词检测',
-    score: isBrandMatch ? 100 : 0,
-    passed: isBrandMatch,
-    description: `检测到${isBrandMatch ? '' : '未'}包含关键词: ${brandKeywords.join(', ')}`
-  })
-
-  // 品牌匹配直接返回100分
-  if (isBrandMatch) {
-    return { score: 100, details }
-  }
-
-  // 2. 触控能力检测
-  const touchSupport = navigator.maxTouchPoints !== undefined && navigator.maxTouchPoints >= 10
-  details.push({
-    name: '触控能力检测',
-    score: touchSupport ? 30 : 0,
-    passed: touchSupport,
-    description: `支持${touchSupport ? '10点及以上' : '少于10点'}触控 (实际: ${navigator.maxTouchPoints || 0}点)`
-  })
-
-  // 3. 屏幕分辨率检测
-  const resolutionMatch = screen.width >= 1920 && screen.height >= 1080
-  details.push({
-    name: '屏幕分辨率检测',
-    score: resolutionMatch ? 30 : 0,
-    passed: resolutionMatch,
-    description: `分辨率${resolutionMatch ? '满足' : '不满足'}1920x1080 (实际: ${screen.width}x${screen.height})`
-  })
-
-  // 4. 操作系统与访问内核检测
-  const isWindows10Or11 = userAgent.includes('windows nt 10.0')
-  const isChrome = userAgent.includes('chrome')
-  const osAndKernelMatch = isWindows10Or11 && isChrome
-  details.push({
-    name: '操作系统与内核检测',
-    score: osAndKernelMatch ? 40 : 0,
-    passed: osAndKernelMatch,
-    description: `Windows 10/11: ${isWindows10Or11 ? '是' : '否'}, Chrome内核: ${isChrome ? '是' : '否'}`
-  })
-
-  // 计算总分
-  const totalScore = (touchSupport ? 30 : 0) + (resolutionMatch ? 30 : 0) + (osAndKernelMatch ? 40 : 0)
-
-  return { score: totalScore, details }
 }
 
 // 组件卸载时清理事件监听

@@ -86,6 +86,10 @@ comment: true
       text: '图片-概览',
     },
     {
+      link: '/resources/picture/eggy',
+      text: '蛋仔~',
+    },
+    {
       link: '/resources/picture/some-people/tzb',
       text: '唐子9',
     },
@@ -146,6 +150,10 @@ comment: true
       text: '架构',
     },
     {
+      link: '/community/DevTools',
+      text: '开发人员工具',
+    },
+    {
       link: '/other',
       text: '关于',
     }
@@ -158,6 +166,10 @@ comment: true
   bcolor="orange"
   :newtab="true"
   :downloads="[
+    {
+      link: '/html/DevTools/LocalStorageEditor.html',
+      text: 'LocalStorage编辑器',
+    },
     {
       link: '/404',
       text: '404找不到页面测试',
@@ -182,7 +194,7 @@ comment: true
     { id: 3, text: '蓝粉-1', link: '/pictures/eggy/eggy-LF-1.jpg' },
     { id: 4, text: '蓝粉-2', link: '/pictures/eggy/eggy-LF-2.jpg' },
   ]"
-  ltext="执法~"
-  rtext="大人~"
+  ltext="蓝~"
+  rtext="粉~"
   rcolor="white"
 />

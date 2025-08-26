@@ -12,10 +12,10 @@ wordCount: false
 5o+Q56S677yaYmFzZTY0ID0gMjExOTU2NA==
 ```
 ```diff
-/WG-WebGame/
+/html/WG-WebGame/
 ```
 ```diff
-WebGame0815P26
+base64.html
 ```
 
 ### 输入你的答案：
