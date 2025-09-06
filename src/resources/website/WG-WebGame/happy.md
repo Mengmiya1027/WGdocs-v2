@@ -1,6 +1,5 @@
 ---
-readingTime: false
-wordCount: false
+pageProperties: false
 title: 答案：surprise
 ---
 # WG-WebGame

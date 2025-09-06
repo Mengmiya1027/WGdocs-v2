@@ -7,15 +7,19 @@ comment: true
 
 ## 更新日志
 
-::: tip 最新更新：2025年8月26日
+::: tip 最新更新：2025年9月6日
+### WGdocs版本Release2.1
+加了我家奶奶的照片😅还有一些小修改
+:::
+
+::: details 往期日志
+#### 2025年8月26日
 ### WGdocs版本Release2.0
 更新日志：Welcome to WGdocs 2.0！<br>
 本次更新添加了<a data-v-01dee525="" class="VPNolebaseInlinePreviewLink" relative="" href="/other/settings">偏好设置功能<!--teleport start--><!--teleport end--></a>，可以自由编辑一些可选项！（虽然不多但是够用了）<br>
 同时对资源中心也进行了一些添加、小修改。这里就不过多叙述<br>
 WGdocs在开学之前都不会再更新了~主要是实在累了<br>
-:::
 
-::: details 往期日志
 #### 2025年8月23日
 ### WGdocs版本Dev2.0,Preview29
 更新日志：蛋仔不断加加加加到厌倦~<br>

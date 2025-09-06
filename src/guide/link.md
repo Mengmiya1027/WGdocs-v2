@@ -58,6 +58,10 @@ comment: true
       text: 'Minecraft',
     },
     {
+      link: '/resources/application/pack/motrix',
+      text: 'Motrix',
+    },
+    {
       link: '/resources/website/',
       text: '网站-介绍',
     },

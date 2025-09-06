@@ -475,9 +475,6 @@ IP地址：从对方电脑获取到的它的局域网IP，如果想同时发多�
 - 下载地址：[Lanzou](https://xydc.lanzouo.com/b018x6qza)，密码:2al0
 :::
 
-官方GitHub下载链接<mark>（不推荐，速度慢）</mark>：https://github.com/LYXOfficial/NoTopDomain/releases/latest<br>
-官方蓝奏云下载链接<mark>（密码：2al0）</mark>：https://xydc.lanzouo.com/b018x6qza<br>
-
 <DownloadLinkCollector
   title="下载链接"
   bg-image="/pictures/application/mythware.png"
@@ -495,6 +492,9 @@ IP地址：从对方电脑获取到的它的局域网IP，如果想同时发多�
     },
   ]"
 />
+
+>[!CAUTION] 严重问题
+> 经过测试，本软件在某高科技教室的Windows10系统上无法运行，启动程序出现无反应的情况（无用户控制窗口、无WDS风险应用提示、WD无报毒），暂时还没排查出原因。
 
 
 ## MythwareToolkit<badge type="tip" text="活跃" /><badge type="tip" text="镜像加速" />

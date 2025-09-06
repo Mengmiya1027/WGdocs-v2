@@ -1,7 +1,6 @@
 ---
 layout: page
-wordCount: false
-readingTime: false
+pageProperties: false
 ---
 
 <SettingsPanel></SettingsPanel>

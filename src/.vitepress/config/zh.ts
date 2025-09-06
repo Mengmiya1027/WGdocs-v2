@@ -75,7 +75,12 @@ function nav(): DefaultTheme.NavItem[] {
     {
       text: '开始探索',
       link: '/guide/start-discover',
-      activeMatch: '/guide/'
+      activeMatch: '/guide/',
+      items: [
+        { text: '开始探索', link: '/guide/start-discover' },
+        { text: '更新日志&新功能介绍', link: '/guide/new' },
+        { text: '站内导览', link: '/guide/link' }
+      ]
     },
     {
       text: '关于',
@@ -127,7 +132,8 @@ function sidebarGuide(): DefaultTheme.Sidebar {
                 { text: '概览', link: '/map' },
                 { text: '雷电模拟器 ⚡', link: '/ldmnq' },
                 { text: '蛋仔派对', link: '/eggy-party' },
-                { text: 'Minecraft（我的世界）', link: '/minecraft' }
+                { text: 'Minecraft（我的世界）', link: '/minecraft' },
+                { text: 'Motrix', link: '/motrix' }
               ]
             }
           ]

@@ -10,8 +10,8 @@ title: 某些其他的
 
 <!-- 并排显示 -->
 <div style="display: flex; gap: 10px;">
-  <img src="/pictures/some-people/others-in-class/1.jpg" alt="1.jpg" style="width: 50%;">
-  <img src="/pictures/some-people/others-in-class/3.jpg" alt="3.jpg" style="width: 50%;">
+  <img src="/pictures/some-people/others-in-class/1.jpg" alt="1.jpg" style="width: 45%;">
+  <img src="/pictures/some-people/others-in-class/3.jpg" alt="3.jpg" style="width: 55%;">
 </div>
 
 ---
@@ -39,6 +39,14 @@ title: 某些其他的
 <div style="display: flex; gap: 10px;">
   <img src="/pictures/some-people/others-in-class/7.jpg" alt="7.jpg" style="width: 55%;">
   <img src="/pictures/some-people/others-in-class/9.jpg" alt="9.jpg" style="width: 45%;">
+</div>
+
+---
+
+<!-- 并排显示 -->
+<div style="display: flex; gap: 10px;">
+  <img src="/pictures/some-people/others-in-class/10.jpg" alt="10.jpg" style="width: 50%;">
+  <img src="/pictures/some-people/others-in-class/11.jpg" alt="11.jpg" style="width: 50%;">
 </div>
 
 ---

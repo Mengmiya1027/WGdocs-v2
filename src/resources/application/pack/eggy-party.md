@@ -27,7 +27,8 @@ comment: false
 ::: details 科技课临时游玩指南
 这得得益于网易有个东西叫“快速游戏”~~~
 ## 1.下载蛋仔派对及雷电模拟器
-蛋仔的下载链接已经挂在上面了⬆️
+蛋仔的下载链接已经挂在上面了⬆️<br>
+但是通常情况下官方的下载速度很慢，你可以前往 [Motrix](/resources/application/pack/motrix) **一定要使用镜像**下载 Motrix 后使用其加速下载游戏文件包
 
 雷电模拟器可以访问[雷电模拟器⚡| WGdocs](/resources/application/pack/ldmnq)或者[雷电模拟器官网](https://www.ldmnq.com)
 ## 2.安装游戏并打开
@@ -40,7 +41,7 @@ comment: false
 
 ## 3.注册与实名认证
 打开蛋仔派对，由于没有手机号，点击下方“快速游戏”，输入一个身份证号
-如果没有就去网上搜点呗~~<br>[某猎奇身份证大全](http://www.uuzzw.com/down/98.html)
+如果没有就去网上搜点呗~~<br>[某猎奇身份证大全1](http://www.uuzzw.com/down/98.html)，[某猎奇身份证大全2](http://www.uuzzw.com/down/526.html)
 
 网管自己做的猎奇小动画：
   <video autoplay muted loop style="width: 100%; max-width: 800px; margin: 20px auto; display: block;">

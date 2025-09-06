@@ -1,6 +1,5 @@
 ---
-readingTime: false
-wordCount: false
+pageProperties: false
 ---
 # WG-WebGame
 ### 第十二关

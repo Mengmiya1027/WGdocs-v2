@@ -50,6 +50,14 @@ bg-image="https://cf-assets.www.cloudflare.com/slt3lc6tev37/1wf4qdGsPqa2UUSEoa4Y
 link="wgdocs-hajimi.pages.dev"
 />
 
+#### 3.CDN加速
+
+<LinkCard
+title="hajimi.wgdocs.ddns-ip.net"
+bg-image="https://cf-assets.www.cloudflare.com/slt3lc6tev37/1wf4qdGsPqa2UUSEoa4Yyg/3250a65f210bbb7062ab4dd9a9bdf213/logo-cloudflare-dark.svg"
+link="hajimi.wgdocs.ddns-ip.net"
+/>
+
 ::: details 本地部署
 如果你想要本地部署项目，最简单的，只需要如下三个步骤：
 1. 完全下载项目仓库到本地，并且安装有 `Node.js` 环境，可以使用 `pnpm` 等包管理工具

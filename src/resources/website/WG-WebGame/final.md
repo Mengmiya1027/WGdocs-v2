@@ -1,6 +1,5 @@
 ---
-comment: false
-title: 你做到了！
+pageProperties: false
 ---
 
 # Congratulations!

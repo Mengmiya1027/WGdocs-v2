@@ -89,6 +89,7 @@ export default {
     app.use(NolebasePagePropertiesPlugin<{
       progress: number
     }>() as Plugin, {
+      dev: true,
       properties: {
         'zh-CN': [
           {
