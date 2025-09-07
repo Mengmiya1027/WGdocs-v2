@@ -18,12 +18,12 @@ title: 关于
 </div>
 
 <div style="display: flex; justify-content: center; margin: 20px 0">
-  <Badge type="tip" text="版本Release2.1"></Badge>
+  <Badge type="tip" text="版本Release2.1, Du01"></Badge>
 </div>
 
 <div style="display: flex; justify-content: center; margin: 20px 0">
   <p>
-    一个由VitePress编写，cloudflare驱动的静态文档展示站
+    一个生存于互联网边缘的文档站~好吧其实是网管写来玩的
   </p>
 </div>
 

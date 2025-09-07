@@ -120,7 +120,8 @@ function sidebarGuide(): DefaultTheme.Sidebar {
               items: [
                 { text: '介绍', link: '/' },
                 { text: '概览', link: '/map' },
-                { text: '❗反极域课堂专栏', link: '/JiYuDiaoDuan' }
+                { text: '❗反极域课堂专栏', link: '/JiYuDiaoDuan' },
+                { text: '希沃白板爆改', link: '/easinotekz' }
               ]
             },
             {

@@ -37,6 +37,10 @@ comment: true
       link: '/resources/application/single/JiYuDiaoDuan',
       text: '❗反极域课堂专栏',
     },
+{
+      link: '/resources/application/single/easinotekz',
+      text: '希沃白板爆改',
+    },
     {
       link: '/resources/application/pack/',
       text: '打包应用程序-介绍',
