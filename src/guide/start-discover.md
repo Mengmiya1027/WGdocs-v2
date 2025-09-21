@@ -1,7 +1,7 @@
 ---
 comment: false
 ---
-# WGdocs<Badge type="tip" text="版本Release2.1, Du01" />
+# WGdocs<Badge type="tip" text="版本Release2.1.2" />
 
 ### 快速开始<Badge type="tip" text="经典" /><Badge type="warning" text="最近更新" />
 <br>
@@ -38,9 +38,9 @@ WGdocs的架构较为复杂，于是网管手搓了一份架构文档~
   :time="1500"
   :images="[
     { id: 1, text: '执法-1', link: '/pictures/eggy/ZhiFa-1.jpg' },
-    { id: 2, text: '执法-2', link: '/pictures/eggy/ZhiFa-2.png' },
-    { id: 3, text: '执法-3', link: '/pictures/eggy/ZhiFa-3.png' },
-    { id: 4, text: '执法-4', link: '/pictures/eggy/ZhiFa-4.png' }
+    { id: 2, text: '执法-2', link: '/pictures/eggy/ZhiFa-2.jpeg' },
+    { id: 3, text: '执法-3', link: '/pictures/eggy/ZhiFa-3.jpg' },
+    { id: 4, text: '执法-4', link: '/pictures/eggy/ZhiFa-4.jpg' }
   ]"
   ltext="执法~"
   rtext="大人~"

@@ -74,7 +74,6 @@ function nav(): DefaultTheme.NavItem[] {
   return [
     {
       text: '开始探索',
-      link: '/guide/start-discover',
       activeMatch: '/guide/',
       items: [
         { text: '开始探索', link: '/guide/start-discover' },
@@ -83,9 +82,33 @@ function nav(): DefaultTheme.NavItem[] {
       ]
     },
     {
+      text: '资源中心',
+      activeMatch: '/resources/',
+      items: [
+        {
+          text: '应用程序',
+          items: [
+            { text: '独立型应用程序', link: '/resources/application/single' },
+            { text: '打包型应用程序', link: '/resources/application/pack' },
+          ]
+        },
+        { text: '网站', link: '/resources/website' },
+        { text: '图片', link: '/resources/picture' },
+        { text: '视频', link: '/resources/video' },
+      ]
+    },
+    {
+        text: 'Pro Servise',
+        activeMatch: '/pro/',
+        items: [
+            { text: '加速服务', link: '/pro/speed' },
+            { text: '文件快递柜', link: '/pro/filehelper' },
+            { text: '哈基米语翻译器', link: '/pro/hajimi' }
+        ]
+    },
+    {
       text: '关于',
       link: '/other/',
-      activeMatch: '/other/'
     }
   ]
 }

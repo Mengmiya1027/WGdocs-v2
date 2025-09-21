@@ -190,15 +190,15 @@ comment: false
 
 ---
 
-![执法-2](/pictures/eggy/ZhiFa-2.png)
+![执法-2](/pictures/eggy/ZhiFa-2.jpeg)
 
 ---
 
-![执法-3](/pictures/eggy/ZhiFa-3.png)
+![执法-3](/pictures/eggy/ZhiFa-3.jpg)
 
 ---
 
-![执法-4](/pictures/eggy/ZhiFa-4.png)
+![执法-4](/pictures/eggy/ZhiFa-4.jpg)
 
 ---
 

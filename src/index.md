@@ -25,9 +25,13 @@ features:
   - icon: 💖
     title: 新增收录
     details: 相比于v1那可怜的4条收录（恶），v2新增（我也不知道）条收录信息
+    link: /resources/
+    linkText: 去资源中心逛逛
   - icon: 🚀
     title: 惊喜功能
     details: v2版本新增 "文件快递柜" 功能，源码由Filecodebox提供
+    link: /pro/filehelper/
+    linkText: 链接直达
 ---
 <Confetti />
 
