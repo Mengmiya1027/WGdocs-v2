@@ -139,7 +139,7 @@ link="0.0.0.0"
 ## 加速终极解决方案
 
 直接下载最新构建版本的WGdocs。需要使用本地服务器工具。<br>
-内含最新版本：<mark>WGdocs版本Dev2.0, Preview22</mark>
+内含最新版本：<mark>WGdocs版本Release2.1.2</mark>
 
 ### 使用方法
 首先先在下方下载WGdocs构建文件。

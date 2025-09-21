@@ -39,19 +39,6 @@ comment: false
 精简介绍由AI生成，请注意辨别。
 :::
 
-<DownloadLinkCollector
-  title="下载链接（可能失效）"
-  bg-image="/pictures/application/ldmnq.jpg"
-  tcolor="#00baff"
-  :downloads="[
-    {
-      link: 'https://lddl01.ldmnq.com/downloader/ldplayerinst9.exe?n=ldplayer9_ld_999_ld.exe',
-      text: '➡️最后一次编辑时下载链接',
-      enable: true
-    }
-  ]"
-/>
-
 ---
 
 <ImageSlider
