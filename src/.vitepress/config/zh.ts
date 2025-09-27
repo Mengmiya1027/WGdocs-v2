@@ -2,7 +2,7 @@ import { defineConfig, type DefaultTheme } from 'vitepress'
 
 export const zh = defineConfig({
   lang: 'zh-CN',
-  description: '使用VitePress进行构建、NapcatQQ Docs模板进行开发的v2新版',
+  description: 'WGdocs v3 不太相同，大有不同',
 
   themeConfig: {
 
@@ -10,7 +10,7 @@ export const zh = defineConfig({
     sidebar: sidebarGuide(),
 
     editLink: {
-      pattern: 'https://github.com/Mengmiya1027/WGdocs-main/edit/main/src/:path',
+      pattern: 'https://github.com/Mengmiya1027/WGdocs-v2/edit/main/src/:path',
       text: '在 GitHub 上编辑此页面'
     },
 

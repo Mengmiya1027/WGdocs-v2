@@ -78,3 +78,50 @@
         filter: drop-shadow(0 0px 10px rgba(0, 0, 0, 0.5)); /* 使用 drop-shadow 替代 box-shadow */
     }
 }
+/* 主题色背景 */
+.fancybox__backdrop {
+    background: rgba(var(--vp-c-brand), 0.8) !important;
+    backdrop-filter: blur(10px);
+}
+
+.fancybox__slide.has-caption.f-zoomable{
+    padding-top: 50px !important;
+}
+
+/* 图片圆角 */
+.f-panzoom__viewport {
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    box-shadow: rgb(0,0,0,0.3) 0 0 20px !important;
+}
+
+.f-carousel__toolbar__column .f-button {
+    border-radius: 8px !important;
+    background: rgba(255, 255, 255, 0) !important;
+    color: var(--vp-c-text-1) !important; /* 使用文本主色 */
+}
+.f-carousel__toolbar__column .f-button:hover {
+    background: rgba(0, 0, 0, 0.2) !important; /* 白色稍微变浅 */
+}
+
+/* 深色模式下的按钮悬停 */
+.dark .f-carousel__toolbar__column .f-button:hover {
+    background: rgba(255, 255, 255, 0.2) !important; /* 白色稍微变浅 */
+}
+
+.f-button.is-arrow {
+    background-color: rgba(255, 255, 255, 0) !important;
+    color: var(--vp-c-text-1) !important; /* 使用文本主色 */
+}
+
+.f-button.is-arrow:hover {
+    background: rgba(0, 0, 0, 0.2) !important;
+}
+
+.dark .f-button.is-arrow:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+}
+
+.f-caption {
+    color: var(--vp-c-text-1) !important; /* 使用文本主色 */
+}

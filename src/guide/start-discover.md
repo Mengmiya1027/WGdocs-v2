@@ -1,7 +1,10 @@
 ---
 comment: false
 ---
-# WGdocs<Badge type="tip" text="版本Release2.1.2" />
+# WGdocs<Badge type="warning" text="版本Dev3.0,Preview1" />
+
+Dev3的资源更新可能会慢于Release v2，缺失的更新会在Release v3发布后同步。<br>
+Dev3的功能更新无疑会快于Release v2。
 
 ### 快速开始<Badge type="tip" text="经典" /><Badge type="warning" text="最近更新" />
 <br>

@@ -1,7 +1,7 @@
 // .vitepress/theme/index.js
 import DefaultTheme from 'vitepress/theme'
-import { h, type Plugin } from 'vue';
-import { useData, useRoute } from 'vitepress';
+import { h, type Plugin, onMounted, onUnmounted } from 'vue';
+import { useData, useRoute, inBrowser } from 'vitepress';
 import type { EnhanceAppContext } from 'vitepress';
 
 import { NolebaseGitChangelogPlugin, Options } from '@nolebase/vitepress-plugin-git-changelog/client';
@@ -28,6 +28,7 @@ import 'vitepress-plugin-codeblocks-fold/style/index.css';
 import '@nolebase/vitepress-plugin-page-properties/client/style.css';
 import '@nolebase/vitepress-plugin-enhanced-mark/client/style.css';
 import Confetti from "./components/Confetti.vue";
+import { bindFancybox, destroyFancybox } from './components/ImgViewer' // 图片查看器
 
 import Hero from '../theme/Layout.vue';
 import APC from '../theme/APC/Bottom.vue';
@@ -56,7 +57,15 @@ export default {
       'layout-top': () => [h(NolebaseHighlightTargetedHeading)],
     })
   },
-  enhanceApp({ app }) {
+  enhanceApp({ app, router }) {
+    if (inBrowser) {
+      router.onBeforeRouteChange = () => {
+      destroyFancybox() // 销毁图片查看器
+      }
+      router.onAfterRouteChange = () => {
+        bindFancybox() // 绑定图片查看器
+      }
+    }
     app.component("Confetti", Confetti); //注册全局组件
     app.use(NolebaseEnhancedReadabilitiesPlugin, {
       spotlight: {
@@ -124,5 +133,11 @@ export default {
     const route = useRoute();
     const { frontmatter } = useData();
     codeblocksFold({ route, frontmatter }, true, 400);
+    onMounted(() => {
+      bindFancybox()
+    })
+    onUnmounted(() => {
+      destroyFancybox()
+    })
   }
 }

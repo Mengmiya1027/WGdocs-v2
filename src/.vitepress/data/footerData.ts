@@ -7,7 +7,7 @@ export const Footer_Data: FooterData = {
             title: '生态',
             icon: 'fa-solid fa-lightbulb',
             links: [
-                { name: 'Github仓库', href: 'https://github.com/Mengmiya1027/WGdocs-main' },
+                { name: 'Github仓库', href: 'https://github.com/Mengmiya1027/WGdocs-v2' },
                 { name: '资源上传指南', href: '/community/upload' },
                 { name: '架构文档', href: '/community/architecture' },
             ]

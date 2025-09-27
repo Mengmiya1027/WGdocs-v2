@@ -7,14 +7,14 @@ comment: true
 :::
 
 ## 准备工作
-#### 1. 在[GitHub仓库](https://github.com/Mengmiya1027/WGdocs-main)点击右上角 fork按钮，将仓库 fork 到你的账号
+#### 1. 在[GitHub仓库](https://github.com/Mengmiya1027/WGdocs-v2)点击右上角 fork按钮，将仓库 fork 到你的账号
 #### 2. 克隆仓库到本地：
 ```bash
-git clone https://github.com/你的用户名/WGdocs-main.git
+git clone https://github.com/你的用户名/WGdocs-v2.git
 ```
 #### 3.安装依赖：
 ```bash
-cd WGdocs-main
+cd WGdocs-v2
 npm install
 ```
 

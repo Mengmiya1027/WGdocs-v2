@@ -307,7 +307,8 @@ const defaultColor = '#3c3c43';
               @click="selectImage(index)"
               :class="{
               'image-preview': true,
-              'preview-active': index === currentIndex
+              'preview-active': index === currentIndex,
+              'no-zoom': true
             }"
           />
         </div>
