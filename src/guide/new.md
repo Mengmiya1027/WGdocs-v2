@@ -370,9 +370,9 @@ textcolor="black"
   :time="1500"
   :images="[
     { id: 1, text: '执法-1', link: '/pictures/eggy/ZhiFa-1.jpg' },
-    { id: 2, text: '执法-2', link: '/pictures/eggy/ZhiFa-2.png' },
-    { id: 3, text: '执法-3', link: '/pictures/eggy/ZhiFa-3.png' },
-    { id: 4, text: '执法-4', link: '/pictures/eggy/ZhiFa-4.png' },
+    { id: 2, text: '执法-2', link: '/pictures/eggy/ZhiFa-2.jpeg' },
+    { id: 3, text: '执法-3', link: '/pictures/eggy/ZhiFa-3.jpg' },
+    { id: 4, text: '执法-4', link: '/pictures/eggy/ZhiFa-4.jpg' },
   ]"
   important="true"
   ltext="执法~"

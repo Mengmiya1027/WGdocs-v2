@@ -915,6 +915,15 @@ watch(isExpanded, (newVal) => {
     justify-content: space-between;
   }
 
+  .music-title {
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;  /* 新增约束 */
+    display: inline-block;  /* 使max-width生效 */
+  }
+
   .audio-control {
     width: 100%;
     display: flex;
