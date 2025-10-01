@@ -29,9 +29,11 @@ import '@nolebase/vitepress-plugin-page-properties/client/style.css';
 import '@nolebase/vitepress-plugin-enhanced-mark/client/style.css';
 import Confetti from "./components/Confetti.vue";
 import { bindFancybox, destroyFancybox } from './components/ImgViewer' // 图片查看器
+import { useSidebarHeight } from './components/useSidebarHeight'
 
 import Hero from '../theme/Layout.vue';
-import APC from '../theme/APC/Bottom.vue';
+import APC_DocAfter from './APC/Doc_after.vue';
+import APC_Bottom from './APC/Bottom.vue';
 import NCard from './components/NCard.vue';
 import MusicPlayer from './components/MusicPlayer.vue'
 import MusicPlayerAllPage from './components/MusicPlayerAllPage.vue'
@@ -51,10 +53,11 @@ export default {
     return h(DefaultTheme.Layout, null, {
       // 'aside-outline-before': () => h(ShareButton),
       'home-hero-before': () => h(Hero),
-      'layout-bottom': () => [h(HomeFooter, { Footer_Data }), h(APC)],
+      'layout-bottom': () => [h(HomeFooter, { Footer_Data }), h(APC_Bottom)],
       'nav-bar-content-after': () => h(NolebaseEnhancedReadabilitiesMenu),
       'nav-screen-content-after': () => h(NolebaseEnhancedReadabilitiesScreenMenu),
       'layout-top': () => [h(NolebaseHighlightTargetedHeading)],
+      'doc-after': () => h(APC_DocAfter)
     })
   },
   enhanceApp({ app, router }) {
@@ -135,6 +138,8 @@ export default {
     codeblocksFold({ route, frontmatter }, true, 400);
     onMounted(() => {
       bindFancybox()
+      const { init } = useSidebarHeight(/* debug: false */)
+      init() // 自动完成「初始化 + 事件绑定 + 路由监听」
     })
     onUnmounted(() => {
       destroyFancybox()

@@ -1,5 +1,5 @@
 ---
-comment: false
+comment: true
 ---
 # 资源中心
 欢迎来到资源中心！本站资源按照以下类别进行分类：

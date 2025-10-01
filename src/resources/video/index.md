@@ -1,6 +1,6 @@
 ---
 layout: page
-comment: true
+comment: false
 title: 正在重定向…
 ---
 
