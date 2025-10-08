@@ -1,5 +1,26 @@
 [
   {
+    "title": "聊聊",
+    "author": "周深",
+    "tlink": "/pictures/songs/聊聊.webp",
+    "flink": "/songs/周深 - 聊聊.ogg",
+    "maincolor": "#FFFCFF"
+  },
+  {
+    "title": "周 Outro",
+    "author": "周深",
+    "tlink": "/pictures/songs/周%20Outro.webp",
+    "flink": "/songs/周深 - 周 Outro.ogg",
+    "maincolor": "#ffffff"
+  },
+  {
+    "title": "无人区玫瑰",
+    "author": "一颗狼星",
+    "tlink": "/pictures/songs/无人区玫瑰.webp",
+    "flink": "/songs/一颗狼星 - 无人区玫瑰.ogg",
+    "maincolor": "#ffffff"
+  },
+  {
     "title": "浮游",
     "author": "周深",
     "tlink": "/pictures/songs/浮游.png",
@@ -19,17 +40,10 @@
     "flink": "/songs/周深 - 空荡荡.ogg"
   },
   {
-    "title": "室内系的TrackMaker",
-    "author": "hanser",
-    "tlink": "/pictures/songs/室内系的TrackMaker.jpg",
-    "flink": "/songs/hanser - 室内系的TrackMaker.mp3",
-    "maincolor": "#fff"
-  },
-  {
     "title": "唯一",
     "author": "G.E.M.邓紫棋",
     "tlink": "/pictures/songs/唯一.webp",
     "flink": "/songs/G.E.M.邓紫棋 - 唯一.ogg",
-    "maincolor": "#ffb085"
+    "maincolor": "#F8C676"
   }
 ]

@@ -9,7 +9,7 @@
         <div class="modal-overlay" @click="closeModal"></div>
 
         <!-- 圆角窗口 -->
-        <div class="modal-container">
+        <div class="modal-container" @click="handleContainerClick">
           <!-- 关闭按钮 -->
           <button class="close-btn" @click="closeModal" aria-label="关闭">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -31,13 +31,39 @@
                 :style="index === playingIndex ? { border: '5px solid #FFCD7BFF' } : {}"
             >
               <!-- 封面图 -->
+              <!-- 新功能：下载 -->
               <div class="audio-cover">
-                <img
-                    :src="audio.tlink"
-                    :alt="audio.title"
-                    :style="index === playingIndex ? { height: '110px' } : {}"
-                    class="cover-img"
+                <div
+                    class="cover-wrapper"
+                    @click.stop="handleCoverClick(index)"
+                    :class="{ 'active': isMobile && activeCoverIndex === index }"
                 >
+                  <img
+                      :src="audio.tlink"
+                      :alt="audio.title"
+                      :style="index === playingIndex ? { height: '110px' } : {}"
+                      class="cover-img"
+                  >
+                  <!-- 下载图标容器 -->
+                  <div class="cover-actions">
+                    <button
+                        class="download-btn"
+                        @click.stop="downloadCover(audio.tlink, audio.title, audio.author)"
+                        aria-label="下载封面图"
+                        :disabled="isMobile && activeCoverIndex !== index"
+                    >
+                      <svg t="1759909127460" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2407" width="200" height="200"><path d="M832 0h-640A192 192 0 0 0 0 192v640A192 192 0 0 0 192 1024h640a192 192 0 0 0 192-192v-640A192 192 0 0 0 832 0zM947.2 832a115.456 115.456 0 0 1-115.2 115.2h-640A115.456 115.456 0 0 1 76.8 832V554.24l126.464-117.248A25.6 25.6 0 0 1 236.8 435.2l296.192 236.8a102.4 102.4 0 0 0 136.192-6.4l70.4-70.4a25.6 25.6 0 0 1 35.072 0l172.544 153.6z m0-186.88L825.856 537.6a102.4 102.4 0 0 0-140.544 3.84L614.4 610.816a25.6 25.6 0 0 1-34.048 1.792l-295.68-237.056a102.4 102.4 0 0 0-133.632 5.12L76.8 449.536V192A115.456 115.456 0 0 1 192 76.8h640A115.456 115.456 0 0 1 947.2 192z" fill="#2c2c2c" p-id="2408"></path><path d="M742.4 158.464A123.136 123.136 0 1 0 865.536 281.6 123.392 123.392 0 0 0 742.4 158.464z m0 179.2A56.064 56.064 0 1 1 798.464 281.6 56.064 56.064 0 0 1 742.4 337.664z" fill="#2c2c2c" p-id="2409"></path></svg>
+                    </button>
+                    <button
+                        class="download-btn"
+                        @click.stop="downloadAudio(audio)"
+                        aria-label="下载歌曲"
+                        :disabled="isMobile && activeCoverIndex !== index"
+                    >
+                      <svg t="1759909281143" class="icon" style="width: 1em; height: 1em; vertical-align: middle; fill: currentcolor; overflow: hidden; font-size: 27px;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2678" width="27" height="27" data-spm-anchor-id="a313x.search_index.0.i6.1f9d3a81mzI6SG"><path d="M875.008 295.424a34.133333 34.133333 0 1 0-58.197333 35.669333c35.328 57.514667 53.930667 123.562667 53.930666 191.488 0 201.898667-164.352 366.250667-366.250666 366.250667S138.24 724.48 138.24 522.581333 302.592 156.330667 504.490667 156.330667c18.773333 0 34.133333-15.36 34.133333-34.133334s-15.36-34.133333-34.133333-34.133333C264.874667 88.064 69.973333 282.965333 69.973333 522.581333s194.901333 434.517333 434.517334 434.517334 434.517333-194.901333 434.517333-434.517334c0.170667-80.384-22.016-159.061333-64-227.157333z" fill="#231815" p-id="2679" data-spm-anchor-id="a313x.search_index.0.i7.1f9d3a81mzI6SG" class="selected"></path><path d="M501.248 389.973333c-77.653333 0-140.8 63.146667-140.8 140.8s63.146667 140.8 140.8 140.8 140.8-63.146667 140.8-140.8V224.256c0-19.456 15.872-35.328 35.328-35.328 19.456 0 35.328 15.872 35.328 35.328 0 18.773333 15.36 34.133333 34.133333 34.133333s34.133333-15.36 34.133334-34.133333c0-57.173333-46.421333-103.594667-103.594667-103.594667s-103.594667 46.421333-103.594667 103.594667v186.026667a140.526933 140.526933 0 0 0-72.533333-20.309334z m0 213.333334a72.704 72.704 0 0 1-72.533333-72.533334 72.704 72.704 0 0 1 72.533333-72.533333 72.704 72.704 0 0 1 72.533333 72.533333 72.704 72.704 0 0 1-72.533333 72.533334z" fill="#231815" p-id="2680" data-spm-anchor-id="a313x.search_index.0.i8.1f9d3a81mzI6SG"></path></svg>
+                    </button>
+                  </div>
+                </div>
               </div>
 
               <!-- 信息区域 -->
@@ -87,7 +113,26 @@
 </template>
 
 <script setup>
-import { ref, onMounted, watch } from 'vue';
+import { ref, onMounted, watch, onBeforeUnmount } from 'vue';
+
+// 新增变量
+const isMobile = ref(false);
+const activeCoverIndex = ref(-1);
+
+const handleCoverClick = (index) => {
+  if (isMobile.value) {
+    // 仅当未激活时才切换为激活，激活状态下点击不改变
+    if (activeCoverIndex.value !== index) {
+      activeCoverIndex.value = index;
+    }
+  }
+};
+
+// 新增窗口大小监听
+const checkIsMobile = () => {
+  isMobile.value = window.innerWidth <= 768; // 以768px为移动设备判断标准
+};
+
 
 // 父组件传递的当前播放索引
 const props = defineProps({
@@ -111,6 +156,7 @@ const emit = defineEmits(['close','switch-index']);
 
 // 关闭模态框
 const closeModal = () => {
+  activeCoverIndex.value = -1; // 新增
   showModal.value = false;
   emit('close');
 };
@@ -120,9 +166,65 @@ const handlePlayClick = (index) => {
   emit('switch-index', index);
 };
 
+// 新增下载封面、歌曲方法
+// 修改封面图下载方法（接收title、author参数，动态处理扩展名）
+const downloadCover = (imageUrl, title, author) => {
+  // 从URL中提取扩展名（处理可能带参数的URL，如xxx.png?size=100）
+  const urlParts = imageUrl.split('?')[0]; // 移除URL参数部分
+  const ext = urlParts.split('.').pop() || 'jpg'; // 提取扩展名，默认用jpg
+
+  fetch(imageUrl)
+      .then(res => res.blob())
+      .then(blob => {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        // 命名格式与歌曲保持一致：标题-歌手-cover.扩展名
+        a.download = `${title}-${author}-cover.${ext}`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      })
+      .catch(err => console.error('下载封面失败:', err));
+};
+
+// 新增下载歌曲方法
+const downloadAudio = (audio) => {
+  // 重点：这里的字段名必须与bg-music.json中实际的音频链接字段一致
+  // 例如如果JSON里是"link": "xxx.mp3"，就用audio.link
+  // 请根据你的JSON结构修改下面的字段名！！！
+  const audioUrl = audio.flink; // 关键修复点：替换为实际字段名（如audio.src/audio.url/audio.downloadUrl等）
+
+  // 调试用：打印获取到的地址，确认是否正确
+  console.log('获取到的音频地址:', audioUrl);
+
+  if (!audioUrl) {
+    console.error('未找到音频下载地址，请检查字段名是否正确');
+    return;
+  }
+
+  const a = document.createElement('a');
+  a.href = audioUrl;
+  const ext = audio.flink.split('.').pop(); // 从url中提取扩展名
+  a.download = `${audio.title}-${audio.author}.${ext}`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+};
+
+// 给模态框容器添加点击事件
+// 在模板的modal-container上添加：@click="handleContainerClick"
+const handleContainerClick = () => {
+  if (isMobile.value) {
+    activeCoverIndex.value = -1;
+  }
+};
 
 // 加载音频数据
 onMounted(async () => {
+  checkIsMobile();
+  window.addEventListener('resize', checkIsMobile);
   playingIndex.value = props.currentIndex;
   try {
     // VitePress 中加载静态资源需使用 import.meta.url
@@ -135,6 +237,10 @@ onMounted(async () => {
   } catch (error) {
     console.error('音频数据加载错误:', error);
   }
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', checkIsMobile);
 });
 
 watch(
@@ -201,16 +307,20 @@ watch(
   align-items: center;
   justify-content: center;
   border-radius: 18px;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
   padding: 0;
   flex-shrink: 0;
-  box-shadow: 0 2px 8px rgba(255, 235, 205, 0.2);
+  box-shadow: 0 0 10px rgba(255, 235, 205, 0.7);
 }
 
 .close-btn:hover {
-  background-color: #fff;
+  background-color: rgba(0, 0, 0, 0.04);
   color: #333;
-  box-shadow: 0 2px 12px rgba(255, 235, 205, 0.3);
+  box-shadow: none;
+}
+
+.close-btn:active {
+  background-color: rgba(0, 0, 0, 0.08);
 }
 
 /* 标题样式 */
@@ -261,6 +371,58 @@ watch(
   height: 100%;
   display: flex;
   align-items: center;
+}
+
+.cover-wrapper {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* 悬停变白效果 */
+.cover-wrapper:hover .cover-img {
+  filter: blur(1px);
+}
+
+.cover-actions {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: 15px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* 悬停显示下载按钮 */
+.cover-wrapper:hover .cover-actions {
+  opacity: 1;
+}
+
+/* 下载按钮样式 */
+.download-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #333;
+  transition: all 0.2s ease;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+}
+
+.download-btn:hover {
+  background-color: white;
+  transform: scale(1.1);
+}
+
+.download-btn svg {
+  width: 20px;
+  height: 20px;
 }
 
 /* 封面图样式 等比拉伸 */
@@ -349,10 +511,18 @@ watch(
   background-color: rgba(255, 205, 123, 0.1);
 }
 
+.play-button:disabled:hover {
+  background-color: rgba(255, 205, 123, 0.3);
+}
+
 /* 未播放状态悬停效果 */
 .play-button:not(:disabled):hover {
   color: #333;
   background-color: rgba(0, 0, 0, 0.05);
+}
+
+.play-button:not(:disabled):active {
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 /* 滚动条样式优化 - 替换紫色为 #FFEBCD 相关色调 */
@@ -437,6 +607,25 @@ watch(
   }
   .cover-img[style*="height: 110px"] {
     height: 85px !important;
+  }
+  .cover-wrapper:hover .cover-img {
+    filter: blur(1px);
+  }
+  .cover-wrapper:hover .cover-actions {
+    opacity: 1;
+  }
+  .download-btn {
+    margin: 0 -4px;
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+  .download-btn:hover {
+    transform: none;
+    background-color: rgba(255, 255, 255, 1);
+  }
+  .download-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    pointer-events: none;  /* 确保无法点击 */
   }
 }
 </style>
