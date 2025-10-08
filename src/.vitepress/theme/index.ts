@@ -33,7 +33,7 @@ import { useSidebarHeight } from './components/useSidebarHeight'
 
 import Hero from '../theme/Layout.vue';
 import APC_DocAfter from './APC/Doc_after.vue';
-import APC_Bottom from './APC/Bottom.vue';
+import APC_Bottom from './APC/bottom.vue';
 import NCard from './components/NCard.vue';
 import MusicPlayer from './components/MusicPlayer.vue'
 import MusicPlayerAllPage from './components/MusicPlayerAllPage.vue'
