@@ -13,3 +13,6 @@ title: 打包型应用程序
 <NCard title="🟫Minecraft" link="/resources/application/pack/minecraft">
   安慕希（我的世界）
 </NCard>
+<NCard title="🚀Motrix" link="/resources/application/pack/motrix">
+  超能文件下载器~
+</NCard>
