@@ -118,6 +118,10 @@ comment: true
       text: '来自泸高服务号',
     },
     {
+      link: '/resources/picture/some-people/basketball',
+      text: '练习时长两年半',
+    },
+    {
       link: '/resources/picture/some-people/others-in-class',
       text: '某些其他的',
     },

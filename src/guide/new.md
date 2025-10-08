@@ -7,14 +7,18 @@ comment: true
 
 ## 更新日志
 
-::: tip 最新更新：2025年9月21日
+::: tip 最新更新：2025年10月8日
+### WGdocs双版本patch2（此处Release2.1.3）
+添加某些练习生的衰照~还有加了点蛋仔泡芙的图~（唯一一个逼得我去抖音上找图的入）
+:::
+
+::: details 往期日志
+#### 2025年9月21日
 ### WGdocs版本Release2.1.2
 •改善一下了顶栏~就是很能装但是没啥用<br>
 •我这个猎奇审美观逼得我把执法的图换了一批<br>
 •首页的卡片增加了链接<br>
-:::
 
-::: details 往期日志
 #### 2025年9月7日
 ### WGdocs版本Release2.1,Du01
 更新日志：新增加了爆改希沃白板启动动画的内容~<br>
@@ -645,96 +649,7 @@ methods: {
 ### 简单细节小说明
 
 - 移动端适配把我整残了！111人机浏览器
-- 为了防止被▮▮和谐，加入了检测是否为一体机设备的检测，禁止自动播放。检测逻辑如下：
-
-<style>
-  .scrollable-table-container {
-    width: 100%;
-    overflow-x: auto; /* 启用水平滚动 */
-    margin: 1rem 0;
-  }
-  .scrollable-table {
-    min-width: 100%; /* 确保表格宽度至少占满容器 */
-    border-collapse: collapse;
-  }
-  .scrollable-table th,
-  .scrollable-table td {
-    white-space: nowrap; /* 强制内容不换行 */
-    padding: 0.8rem 1.2rem;
-    border: 1px solid #e0e0e0;
-  }
-  .scrollable-table th {
-    background-color: #f5f5f5;
-    font-weight: bold;
-  }
-  .scrollable-table tr:nth-child(even) {
-    background-color: #fafafa;
-  }
-  .section-header {
-    background-color: #f0f7ff;
-    font-weight: bold;
-  }
-</style>
-
-<!-- 在Markdown中使用带样式的表格 -->
-<div class="scrollable-table-container">
-  <table class="scrollable-table">
-    <thead>
-      <tr>
-        <th>检测阶段</th>
-        <th>检测项</th>
-        <th>检测内容</th>
-        <th>分值</th>
-        <th>判定逻辑/处理方式</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="section-header">
-        <td>第一阶段：强信号</td>
-        <td>UA品牌关键词</td>
-        <td>解析navigator.userAgent，检测是否包含 seewo、iclass、hite、hitevision、infocus 任一关键词</td>
-        <td>+100</td>
-        <td>强信号，一票通过制。匹配则直接判定为目标设备，禁用自动播放</td>
-      </tr>
-      <tr>
-        <td>弱信号1</td>
-        <td>触控能力</td>
-        <td>检测设备是否支持10点及以上触控（navigator.maxTouchPoints ≥ 10）</td>
-        <td>+30</td>
-        <td>满足条件则加分</td>
-      </tr>
-      <tr>
-        <td>弱信号2</td>
-        <td>屏幕分辨率</td>
-        <td>检测屏幕分辨率是否≥1920x1080</td>
-        <td>+30</td>
-        <td>满足条件则加分，确保为大尺寸显示设备</td>
-      </tr>
-      <tr>
-        <td>弱信号3</td>
-        <td>操作系统与内核</td>
-        <td>检测userAgent是否同时包含 Windows 10/11（Windows NT 10.0）和 Chrome 内核</td>
-        <td>+40</td>
-        <td>需同时满足两个条件才加分</td>
-      </tr>
-      <tr>
-        <td>最终判定</td>
-        <td>总分计算</td>
-        <td>累加上述各项得分</td>
-        <td>-</td>
-        <td>总分≥100分则判定为目标设备，禁用自动播放；否则进入第二阶段</td>
-      </tr>
-      <tr class="section-header">
-        <td>第二阶段：交互环境</td>
-        <td>触屏交互与屏幕检测</td>
-        <td>监听用户首次交互类型，若为触屏事件（touchstart）且屏幕分辨率≥1920x1080</td>
-        <td>-</td>
-        <td>满足条件则拒绝自动播放，停止监听用户交互</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
+- 为了防止被▮▮和谐，勉强做了个[设置功能](/other/settings)，可以在LocalStorage中保存是否自动播放~
 - 在移动端音频列表和播放按钮会自动隐藏
 - 这™似仁鸡配色我真的配不来😅
 

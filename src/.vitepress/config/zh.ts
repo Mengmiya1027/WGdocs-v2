@@ -191,6 +191,7 @@ function sidebarGuide(): DefaultTheme.Sidebar {
                 { text: '虚哥', link: '/xuge' },
                 { text: '来自某校园摄影师', link: '/from-xysys' },
                 { text: '来自泸高服务号', link: '/from-LGFWH' },
+                { text: '练习时长两年半', link: '/basketball'},
                 { text: '某些其他的', link: '/others-in-class' },
               ]
             },

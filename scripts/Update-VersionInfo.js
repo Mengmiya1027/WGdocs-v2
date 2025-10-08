@@ -100,23 +100,30 @@ async function parseChangelogFromMarkdown() {
         const changelogLines = lines.slice(startIndex + 1, endIndex);
         log.info(`提取到更新日志内容，共 ${changelogLines.length} 行`);
 
-        // 提取版本号（从以 "### WGdocs版本" 开头的行中提取）
+        // 提取版本号（支持"### WGdocs版本"和"### WGdocs双版本"两种格式）
         let version = null;
         let versionLineIndex = -1;
+        const versionPatterns = [
+            { prefix: '### WGdocs版本', type: '单版本' },
+            { prefix: '### WGdocs双版本', type: '双版本' }
+        ];
 
         for (let i = 0; i < changelogLines.length; i++) {
             const trimmedLine = changelogLines[i].trim();
-            if (trimmedLine.startsWith('### WGdocs版本')) {
-                version = trimmedLine.replace('### WGdocs版本', '').trim();
-                versionLineIndex = i;
-                break;
+            for (const pattern of versionPatterns) {
+                if (trimmedLine.startsWith(pattern.prefix)) {
+                    version = trimmedLine.replace(pattern.prefix, '').trim();
+                    versionLineIndex = i;
+                    log.info(`成功提取${pattern.type}版本号: ${version}`);
+                    break;
+                }
             }
+            if (version) break;
         }
 
         if (!version) {
-            throw new Error('未找到以 "### WGdocs版本" 开头的版本号信息');
+            throw new Error('未找到以 "### WGdocs版本" 或 "### WGdocs双版本" 开头的版本号信息');
         }
-        log.info(`成功提取版本号: ${version}`);
 
         // 过滤掉版本号所在行，确保content不包含版本号信息
         const contentWithoutVersion = changelogLines

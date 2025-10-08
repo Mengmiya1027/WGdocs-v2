@@ -1,5 +1,5 @@
 ---
-comment: true
+sidebarDepth: 1
 ---
 # 上传资源
 ::: warning 防脑残提示
@@ -91,17 +91,17 @@ git push origin add-你的用户名-资源类型
 - 基本说明
 
 :::details 示例
-## 变更类型
-- [ ] 音频资源
-- [ ] 图片资源
-- [ ] 文档更新
-- [ ] 其他
-
-## 描述
-<-- 请详细说明你添加的资源内容 -->
-
-## 关联issue
-<-- 如果有相关issue请注明编号 -->
+  ### 变更类型
+  - [ ] 音频资源
+  - [ ] 图片资源
+  - [ ] 文档更新
+  - [ ] 其他
+  
+  ### 描述
+  <-- 请详细说明你添加的资源内容 -->
+  
+  ### 关联issue
+  <-- 如果有相关issue请注明编号 -->
 :::
 
 🎉 等待维护者审核合并后，你的贡献就会出现在文档站啦！
@@ -109,3 +109,19 @@ git push origin add-你的用户名-资源类型
 ::: warning 后期提示
 本文大部分由AI编写，请注意辨别。
 :::
+
+---
+##### 放点某泡芙的图~
+
+也是服了  小红书上居然都没有多少关于泡芙的图  这是唯一一个逼得我去抖音上找的
+
+<ImageSlider
+  :auto="true"
+  :time="1500"
+  :images="[
+    { id: 1, text: '泡芙-1', link: '/pictures/eggy/eggy-paofu-1.jpg' },
+    { id: 2, text: '泡芙-2', link: '/pictures/eggy/eggy-paofu-2.png' },
+    { id: 3, text: '泡芙-3', link: '/pictures/eggy/eggy-paofu-3.png' },
+    { id: 4, text: '泡芙-4', link: '/pictures/eggy/eggy-paofu-4.jpeg' }
+  ]"
+/>

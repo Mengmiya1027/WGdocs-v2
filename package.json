@@ -1,6 +1,6 @@
 {
   "name": "wgdocs",
-  "version": "Release2.1.2",
+  "version": "Release2.1.3",
   "type": "module",
   "scripts": {
     "docs:dev": "node scripts/Update-VersionInfo.js && vitepress dev src",
