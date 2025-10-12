@@ -1,5 +1,12 @@
 [
   {
+    "title": "我的对",
+    "author": "周深",
+    "tlink": "/pictures/songs/我的对.webp",
+    "flink": "/songs/周深 - 我的对.ogg",
+    "maincolor": "#FFFCFF"
+  },
+  {
     "title": "聊聊",
     "author": "周深",
     "tlink": "/pictures/songs/聊聊.webp",

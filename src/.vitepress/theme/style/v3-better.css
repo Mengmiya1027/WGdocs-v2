@@ -1,0 +1,126 @@
+
+/* 取消首页图片大小限制 */
+.VPHomeHero .image img {
+    max-width: none; /* 移除最大宽度限制 */
+    width: 100%; /* 让图片宽度根据容器自适应 */
+    height: auto; /* 保持图片的原始宽高比 */
+    filter: drop-shadow(0 0px 10px rgba(0, 0, 0, 0.5)); /* 使用 drop-shadow 替代 box-shadow */
+}
+
+/* 主题色背景 */
+.fancybox__backdrop {
+    background: rgba(var(--vp-c-brand), 0.8) !important;
+    backdrop-filter: blur(10px);
+}
+
+.fancybox__slide.has-caption.f-zoomable{
+    padding-top: 50px !important;
+}
+
+/* 图片圆角 */
+.f-panzoom__viewport {
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    box-shadow: rgb(0,0,0,0.3) 0 0 20px !important;
+}
+
+.f-carousel__toolbar__column .f-button {
+    border-radius: 8px !important;
+    background: rgba(255, 255, 255, 0) !important;
+    color: var(--vp-c-text-1) !important; /* 使用文本主色 */
+}
+.f-carousel__toolbar__column .f-button:hover {
+    background: rgba(0, 0, 0, 0.2) !important; /* 白色稍微变浅 */
+}
+
+/* 深色模式下的按钮悬停 */
+.dark .f-carousel__toolbar__column .f-button:hover {
+    background: rgba(255, 255, 255, 0.2) !important; /* 白色稍微变浅 */
+}
+
+.f-button.is-arrow {
+    background-color: rgba(255, 255, 255, 0) !important;
+    color: var(--vp-c-text-1) !important; /* 使用文本主色 */
+}
+
+.f-button.is-arrow:hover {
+    background: rgba(0, 0, 0, 0.2) !important;
+}
+
+.dark .f-button.is-arrow:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+}
+
+.f-caption {
+    color: var(--vp-c-text-1) !important; /* 使用文本主色 */
+}
+
+[class="VPLink link link"],
+:not([class="items"]) > [class*="VPSidebarItem"] > [class="item"],
+[class*="VPSidebarItem"] > [class="item"][role="button"],
+[class="title"][href="/"],
+.VPNolebaseInlinePreviewLink,
+.VPLink.link.vp-external-link-icon.no-icon.edit-link-button{
+    border-radius: 8px !important;
+    transition: all 0.25s ease !important;
+}
+
+[class="VPLink link link"]:hover,
+:not([class="items"]) > [class*="VPSidebarItem"] > [class="item"]:hover,
+[class*="VPSidebarItem"] > [class="item"][role="button"]:hover,
+[class="title"][href="/"]:hover,
+.VPLink.link.vp-external-link-icon.no-icon.edit-link-button:hover {
+    background-color: var(--sidebar-text-color) !important;
+    padding: 0 7px !important;
+}
+
+[class="VPLink link link"]:active,
+:not([class="items"]) > [class*="VPSidebarItem"] > [class="item"]:active,
+[class*="VPSidebarItem"] > [class="item"][role="button"]:active,
+[class="title"][href="/"]:active,
+.VPLink.link.vp-external-link-icon.no-icon.edit-link-button:active {
+    padding: 0 12px !important;
+}
+
+.VPNolebaseInlinePreviewLink:hover {
+    background-color: var(--sidebar-text-color) !important;
+}
+
+.VPNolebaseInlinePreviewLink:active {
+    background-color: rgba(0, 0, 0, 0) !important;
+}
+
+/* 父元素只保留这一句 */
+.VPSidebarItem {
+    overflow: hidden;
+    transition: height 0.3s ease !important;
+}
+
+/* 展开状态 */
+.VPSidebarItem .items {
+    display: block !important; /* 覆盖 display:none */
+    opacity: 1;
+    transition: opacity 0.3s ease, max-height 0.3s ease !important;
+}
+
+/* 收起状态 */
+.VPSidebarItem.collapsed .items {
+    display: block !important;
+    opacity: 0;
+    max-height: 0; /* 高度同时变 0 */
+    transition: opacity 0.3s ease, max-height 0.3s ease !important;
+}
+
+.VPButton.medium.brand:hover {
+    background-color: #7a59f2 !important;
+}
+
+[class="vp-nolebase-git-changelog-commit-avatar inline-block h-6 w-6 rounded-full v-middle"]{
+    class: no-zoom;
+}
+
+[data-fancybox="gallery"]{
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    box-shadow: rgb(0,0,0,0.1) 0 0 20px !important;
+}

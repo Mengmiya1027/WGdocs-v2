@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import {nextTick, onMounted, onUnmounted, ref} from 'vue';
 import { getSettings } from './settingsControl';
+import {Fancybox} from "@fancyapps/ui";
+
+// 生成唯一ID
+const uniqueOwnerId = Symbol('imageslider');
 
 const Visible = getSettings("imageSliderVisible");
 const AutoPlay = getSettings("imageSliderAutoPlay");
@@ -208,6 +212,37 @@ const selectImage = (index: number) => {
   });
 };
 
+const openGlobalGallery = (index: number) => {
+  // 1. 收集全局所有符合条件的灯箱元素
+  const galleryItems = Array.from(
+      document.querySelectorAll<HTMLElement>('[data-fancybox="gallery"]:not(.no-zoom)')
+  );
+
+  // 2. 整理元素信息：包含src、caption、dom元素（用于取data-owner）
+  const items = galleryItems.map(item => ({
+    src: item.dataset.src || item.getAttribute('href') || item.getAttribute('src'),
+    caption: item.dataset.caption || item.getAttribute('alt') || '',
+    dom: item  // 保留dom元素，用于后续判断data-owner
+  })).filter(item => item.src);  // 过滤掉无src的无效项
+
+  // 3. 精准匹配：当前图片src + 当前组件的唯一ownerId（关键！）
+  let startIndex = items.findIndex(item =>
+      item.src === props.images[index].link &&  // 图片路径匹配
+      item.dom.dataset.owner === String(uniqueOwnerId)  // 组件实例唯一标识匹配
+  );
+
+  // 4. 兜底：如果意外没找到（理论上不会发生），回退到普通匹配
+  if (startIndex === -1) {
+    startIndex = items.findIndex(item => item.src === props.images[index].link);
+  }
+
+  // 5. 打开灯箱：传入全局所有图片，从匹配到的索引开始
+  Fancybox.show(
+      items.map(i => ({ src: i.src, caption: i.caption })),
+      { startIndex: startIndex >= 0 ? startIndex : 0 }
+  );
+};
+
 onMounted(() => {
   startAutoSlide();
   nextTick(() => {
@@ -234,7 +269,7 @@ const defaultColor = '#3c3c43';
             <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </button>
-        <img :src="currentImage.link" :alt="currentImage.text" :class="{ 'slider-image': true, 'active': true }" />
+        <img :src="currentImage.link" @click="openGlobalGallery(currentIndex)" :alt="currentImage.text" :class="{ 'slider-image': true, 'active': true, 'no-zoom': true }"   />
         <button @click="nextImage" class="arrow-btn arrow-right">
           <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -309,7 +344,7 @@ const defaultColor = '#3c3c43';
               'image-preview': true,
               'preview-active': index === currentIndex,
               'no-zoom': true
-            }"
+              }"
           />
         </div>
         <div
@@ -322,6 +357,16 @@ const defaultColor = '#3c3c43';
       </div>
       <span class="side-text left desktop-only" :style="{ color: lcolor || defaultColor }">{{ ltext }}</span>
       <span class="side-text right desktop-only" :style="{ color: rcolor || defaultColor }">{{ rtext }}</span>
+    </div>
+    <div style="display:none;">
+      <a
+          v-for="image in props.images"
+          :key="'fancybox-hidden-' + image.id"
+          :href="image.link"
+          data-fancybox="gallery"
+          :data-caption="image.text"
+          :data-owner="String(uniqueOwnerId)"
+      />
     </div>
   </div>
 </template>

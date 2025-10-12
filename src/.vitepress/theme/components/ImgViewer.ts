@@ -21,7 +21,9 @@ const findNearestHeading = (imgElement: HTMLImageElement) => {
 
 // 关键：给 bindFancybox 加 async（因为内部有 await）
 export const bindFancybox = async () => {
-    // 关键：nextTick 的回调函数加 async（因为内部有 await import）
+    document.querySelectorAll('.vp-nolebase-git-changelog-commit-avatar.inline-block.h-6.w-6.rounded-full.v-middle').forEach(img => {
+        img.classList.add('no-zoom');
+    });
     await nextTick(async () => {
         // 动态导入 Fancybox（await 需在 async 函数内）
         const { Fancybox } = await import('@fancyapps/ui')
