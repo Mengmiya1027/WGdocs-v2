@@ -2,6 +2,7 @@
 import DefaultTheme from 'vitepress/theme'
 import { h, type Plugin, onMounted, onUnmounted } from 'vue';
 import { useData, useRoute, inBrowser } from 'vitepress';
+import type { EnhanceAppContext } from 'vitepress';
 
 import { NolebaseGitChangelogPlugin, Options } from '@nolebase/vitepress-plugin-git-changelog/client';
 import { NolebasePagePropertiesPlugin } from '@nolebase/vitepress-plugin-page-properties';
@@ -14,7 +15,9 @@ import { InjectionKey } from '@nolebase/vitepress-plugin-git-changelog/client';
 import { ShareButton } from '@theojs/lumen';//不好看
 import { HomeFooter } from '@theojs/lumen'
 import { Footer_Data } from '../data/footerData.ts';
-import { NolebaseInlineLinkPreviewPlugin } from '@nolebase/vitepress-plugin-inline-link-preview/client'
+import {
+    NolebaseInlineLinkPreviewPlugin,
+} from '@nolebase/vitepress-plugin-inline-link-preview/client'
 
 import '@shikijs/vitepress-twoslash/style.css';
 import '@nolebase/vitepress-plugin-inline-link-preview/client/style.css'
@@ -60,8 +63,10 @@ export default {
   },
   enhanceApp({ app, router }) {
     if (inBrowser) {
+      app.use(TwoslashFloatingVue);
+      app.use(TwoslashFloatingVue as unknown as Plugin);
       router.onBeforeRouteChange = () => {
-      destroyFancybox() // 销毁图片查看器
+        destroyFancybox() // 销毁图片查看器
       }
       router.onAfterRouteChange = () => {
         bindFancybox() // 绑定图片查看器
@@ -74,7 +79,6 @@ export default {
         defaultToggle: true,
       }
     } as Options);
-    app.use(TwoslashFloatingVue);
     console.log(getSettings());
     app.component('NCard', NCard);
     app.component('MusicPlayer', MusicPlayer)
@@ -86,7 +90,6 @@ export default {
     app.component('WGwgc', WGWebGameChecker)
     app.component('BGMusicEd', BGMusicEd)
     app.component('SettingsPanel', SettingsPanel)
-    app.use(TwoslashFloatingVue as unknown as Plugin);
     app.use(NolebaseGitChangelogPlugin);
     app.provide(InjectionKey, {
       hideChangelogNoChangesText: true,
