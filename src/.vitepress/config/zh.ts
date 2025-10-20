@@ -189,9 +189,7 @@ function sidebarGuide(): DefaultTheme.Sidebar {
           base: '/resources/video',
           collapsed: true,
           items: [
-            { text: '概览', link: '/map' },
-            { text: '嚣张牌小品的珍贵实录', link: '/penguin' },
-            { text: '几个子儿', link: '/im-wzxq' }
+            { text: '概览', link: '/map' }
           ]
         },
       ]
